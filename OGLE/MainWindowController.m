@@ -7,48 +7,48 @@
     self = [super init];
     if (self)
 		{
-		_earthModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
-		[_earthModelArray addObject:@"Spherical"];
-		[_earthModelArray addObject:@"Flat"];
+		_projectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
+		[_projectionArray addObject:@"Spherical"];
+		[_projectionArray addObject:@"Flat"];
 		}
 	return self;
     }
         
 - (void) dealloc
     {
-    [_earthModelArray release];
+    [_projectionArray release];
     [super dealloc];
     }
 
-- (void) earthModelChanged: (id) sender
+- (void) projectionChanged: (id) sender
 {
-	NSLog(@"Earth Model: %@", [[earthModelArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Projection: %@", [[projectionArrayController selectedObjects] objectAtIndex:0]);
 }
 
-- (unsigned int)countOfEarthModels
+- (unsigned int)countOfProjections
 {
-return [_earthModelArray count];
+return [_projectionArray count];
 }
 
-- (id)objectInEarthModelsAtIndex:(unsigned int)index
+- (id)objectInProjectionsAtIndex:(unsigned int)index
 {
-return [_earthModelArray objectAtIndex:index];
+return [_projectionArray objectAtIndex:index];
 }
 
-- (void)insertObject:(id)anObject inEarthModelsAtIndex:(unsigned int)index
+- (void)insertObject:(id)anObject inProjectionsAtIndex:(unsigned int)index
 {
-[_earthModelArray insertObject:anObject atIndex:index];
+[_projectionArray insertObject:anObject atIndex:index];
 }
 
-- (void)removeObjectFromEarthModelsAtIndex:(unsigned int)index
+- (void)removeObjectFromProjectionsAtIndex:(unsigned int)index
 {
-[_earthModelArray removeObjectAtIndex:index];
+[_projectionArray removeObjectAtIndex:index];
 }
 
-- (void)replaceObjectInEarthModelsAtIndex:(unsigned int)index
+- (void)replaceObjectInProjectionsAtIndex:(unsigned int)index
 withObject:(id)anObject
 {
-[_earthModelArray replaceObjectAtIndex:index withObject:anObject];
+[_projectionArray replaceObjectAtIndex:index withObject:anObject];
 }
 
 @end

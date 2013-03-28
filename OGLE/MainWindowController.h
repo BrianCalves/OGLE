@@ -2,10 +2,10 @@
 
 @interface MainWindowController : NSObject {
 
-    IBOutlet id earthModelArrayController;
+    IBOutlet id projectionArrayController;
     IBOutlet id graphicView;
 
-	NSMutableArray* _earthModelArray;
+	NSMutableArray* _projectionArray;
 
 }
 
@@ -13,12 +13,12 @@
 - (id) init;
 - (void) dealloc;
 
-- (void) earthModelChanged: (id) sender;
+- (void) projectionChanged: (id) sender;
 
-- (unsigned int)countOfEarthModels;
-- (id)objectInEarthModelsAtIndex:(unsigned int)index;
-- (void)insertObject:(id)anObject inEarthModelsAtIndex:(unsigned int)index;
-- (void)removeObjectFromEarthModelsAtIndex:(unsigned int)index;
-- (void)replaceObjectInEarthModelsAtIndex:(unsigned int)index withObject:(id)anObject;
+- (unsigned int)countOfProjections;
+- (id)objectInProjectionsAtIndex:(unsigned int)index;
+- (void)insertObject:(id)anObject inProjectionsAtIndex:(unsigned int)index;
+- (void)removeObjectFromProjectionsAtIndex:(unsigned int)index;
+- (void)replaceObjectInProjectionsAtIndex:(unsigned int)index withObject:(id)anObject;
 
 @end
