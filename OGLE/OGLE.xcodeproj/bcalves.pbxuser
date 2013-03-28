@@ -1,0 +1,68 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {809, 665}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 95}";
+			sepNavWindowFrame = "{{51, 80}, {868, 793}}";
+		};
+	};
+	19B94CD81703DAC300BE68EA /* OGLE */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = OGLE;
+		sourceDirectories = (
+		);
+	};
+	19B94CE61703DAE100BE68EA /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	19B94CE71703DAE100BE68EA /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeArchitecture = i386;
+		activeBuildConfigurationName = Release;
+		activeExecutable = 19B94CD81703DAC300BE68EA /* OGLE */;
+		activeTarget = 8D1107260486CEB800E47090 /* OGLE */;
+		codeSenseManager = 19B94CE71703DAE100BE68EA /* Code sense */;
+		executables = (
+			19B94CD81703DAC300BE68EA /* OGLE */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 386128579;
+			PBXWorkspaceStateSaveDate = 386128579;
+		};
+		sourceControlManager = 19B94CE61703DAE100BE68EA /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D1107260486CEB800E47090 /* OGLE */ = {
+		activeExec = 0;
+		executables = (
+			19B94CD81703DAC300BE68EA /* OGLE */,
+		);
+	};
+}
