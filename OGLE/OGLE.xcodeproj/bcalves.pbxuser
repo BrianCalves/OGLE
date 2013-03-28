@@ -36,6 +36,7 @@
 		fallbackIsa = XCSourceControlManager;
 		isSCMEnabled = 0;
 		scmConfiguration = {
+			repositoryName = OGLE;
 		};
 	};
 	19B94CE71703DAE100BE68EA /* Code sense */ = {
@@ -52,8 +53,8 @@
 			19B94CD81703DAC300BE68EA /* OGLE */,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 386128579;
-			PBXWorkspaceStateSaveDate = 386128579;
+			PBXPerProjectTemplateStateSaveDate = 386131620;
+			PBXWorkspaceStateSaveDate = 386131620;
 		};
 		sourceControlManager = 19B94CE61703DAE100BE68EA /* Source Control */;
 		userBuildSettings = {
