@@ -8,8 +8,13 @@
     if (self)
 		{
 		_projectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
-		[_projectionArray addObject:@"Spherical"];
-		[_projectionArray addObject:@"Flat"];
+		[_projectionArray addObject:@"Equidistant Cylindrical"];
+		[_projectionArray addObject:@"Cylindrical Satellite-Tracking"];
+		[_projectionArray addObject:@"Perspective Spherical"];
+		[_projectionArray addObject:@"Perspective Ellipsoidal"];
+		[_projectionArray addObject:@"Perspective Cylindrical"];
+		[_projectionArray addObject:@"Perspective Conic"];
+		[_projectionArray addObject:@"Perspective Planar"];
 		}
 	return self;
     }

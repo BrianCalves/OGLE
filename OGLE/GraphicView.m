@@ -108,7 +108,11 @@ static void drawAnObject()
 {
 	[self activateContext];
 	
-    glClearColor(0, 0, 0, 0);
+	// glClearColor(0, 0, 0, 0);
+    // glClearColor(0.8, 0.8, 0.8, 0);
+    // glClearColor(0.98, 0.98, 0.98, 0);
+    glClearColor(1, 1, 1, 0);
+
     glClear(GL_COLOR_BUFFER_BIT);
     drawAnObject();
 
