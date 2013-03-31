@@ -10,6 +10,11 @@
 
 #include <OpenGL/gl.h>
 
+@interface NSEvent(GestureEvents)
+- (CGFloat)magnification;       // change in magnification on 10.5.2 or later.
+@end 
+
+
 @implementation GraphicView
 
 - (void) resetModelView
@@ -377,12 +382,12 @@ static void drawEarth()
 
 - (void) rotateDeltaTheta: (GLdouble) angleDegrees
 {
+    NSLog(@"[GraphicView rotateDeltaTheta:] angle=%lf degrees", angleDegrees);
+    
     if (angleDegrees == 0)
         return;
     
     GLdouble angle = angleDegrees;
-    
-    NSLog(@"[GraphicView rotateDeltaTheta:] angle=%lf", angle);
     
     GLdouble m[] = 
     {
@@ -411,6 +416,21 @@ static void drawEarth()
     [self setNeedsDisplay:YES];
 }
 
+- (void) zoomFactor: (GLdouble) factor
+{
+    NSLog(@"[GraphicView zoomFactor:] factor=%lf", factor);
+    
+    if (factor == 1)
+        return;
+    
+    [self activateContext];
+    
+    glMatrixMode(GL_MODELVIEW);
+    glScaled(factor, factor, factor);
+    
+    [self setNeedsDisplay:YES];
+}
+
 - (void) keyDown: (NSEvent*) event
 {
     if ([[event characters] compare:@"r"] == NSOrderedSame)
@@ -419,12 +439,12 @@ static void drawEarth()
 
 - (void) mouseDown: (NSEvent*) event 
 {    
-    NSLog(@"[GraphicView mouseDown:%@]", event);
+    // NSLog(@"[GraphicView mouseDown:%@]", event);
 }
 
 - (void) mouseUp: (NSEvent*) event
 {    
-    NSLog(@"[GraphicView mouseUp:%@]", event);
+    // NSLog(@"[GraphicView mouseUp:%@]", event);
 }
 
 - (void) mouseDragged: (NSEvent*) event 
@@ -440,13 +460,17 @@ static void drawEarth()
 
 - (void) magnifyWithEvent: (NSEvent*) event 
 {
-    NSLog(@"[GraphicView magnifyWithEvent:%@", event);
+    CGFloat magnification = [event magnification];
+    GLdouble factor = exp(magnification);
+    
+    // NSLog(@"[GraphicView magnifyWithEvent:%@] magnification=%lf, factor=%lf", event, magnification, factor);
+    
+    [self zoomFactor:factor];
 }
 
 - (void) rotateWithEvent: (NSEvent*) event 
-{
-    
- // NSLog(@"[GraphicView rotateWithEvent:%@", event);
+{    
+    // NSLog(@"[GraphicView rotateWithEvent:%@", event);
 
     GLdouble angleDegrees = [event rotation];
     
@@ -456,7 +480,7 @@ static void drawEarth()
 
 - (void) swipeWithEvent: (NSEvent*)event 
 {
-    NSLog(@"[GraphicView swipeWithEvent:%@", event);
+    // NSLog(@"[GraphicView swipeWithEvent:%@", event);
   
     // Unfortunately, swiping events report a delta X of +/- 1.0.
     // This is not suitable for interactive panning, for example.
