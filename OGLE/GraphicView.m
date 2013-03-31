@@ -420,109 +420,48 @@ static void drawEarth()
 - (void) mouseDown: (NSEvent*) event 
 {    
     NSLog(@"[GraphicView mouseDown:%@]", event);
-    
-//    m_PreviousMouseLoc = [self convertPoint:[theEvent locationInWindow] fromView:nil];
-//    ptov(m_PreviousMouseLoc.x,m_PreviousMouseLoc.y,m_width,m_height,lastPos);
 }
 
 - (void) mouseUp: (NSEvent*) event
 {    
     NSLog(@"[GraphicView mouseUp:%@]", event);
-    
-//    [self setNeedsDisplay:YES];
 }
 
 - (void) mouseDragged: (NSEvent*) event 
 {
+ // NSLog(@"[GraphicView mouseDragged:%@]", event);
+    
     GLdouble dx = [event deltaX];
     GLdouble dy = [event deltaY];
     
     [self rotateDeltaX:dx deltaY:dy];
-    
-//    NSLog(@"[GraphicView mouseDragged:%@]", event);
 
-    /*
-    //[[self openGLContext] makeCurrentContext];
-    
-    
-    float curPos[3], dx, dy, dz;
-    
-    dx = curPos[0] - lastPos[0];
-    dy = curPos[1] - lastPos[1];
-    dz = curPos[2] - lastPos[2];
-    
-    angle = 90.0 * sqrt(dx*dx + dy*dy + dz*dz);
-    axis[0] = lastPos[1]*curPos[2] - lastPos[2]*curPos[1];
-    axis[1] = lastPos[2]*curPos[0] - lastPos[0]*curPos[2];
-    axis[2] = lastPos[0]*curPos[1] - lastPos[1]*curPos[0];
-    
-    //glutPostRedisplay();
-    
-    //[self drawRect:self.bounds]; // different attempts
-    [self setNeedsDisplay:YES];	//
-    //[self display]; 
-    */
 }
 
 - (void) magnifyWithEvent: (NSEvent*) event 
 {
     NSLog(@"[GraphicView magnifyWithEvent:%@", event);
-    /*
-    [resultsField setStringValue:
-     [NSString stringWithFormat:@"Magnification value is %f", [event magnification]]];
-    NSSize newSize;
-    newSize.height = self.frame.size.height * ([event magnification] + 1.0);
-    newSize.width = self.frame.size.width * ([event magnification] + 1.0);
-    [self setFrameSize:newSize];
-     */
 }
 
 - (void) rotateWithEvent: (NSEvent*) event 
 {
+    
+ // NSLog(@"[GraphicView rotateWithEvent:%@", event);
+
     GLdouble angleDegrees = [event rotation];
     
     [self rotateDeltaTheta:angleDegrees];
     
-    NSLog(@"[GraphicView rotateWithEvent:%@", event);
-    /*
-    [resultsField setStringValue:
-     [NSString stringWithFormat:@"Rotation in degree is %f", [event rotation]]];
-    [self setFrameCenterRotation:([self frameCenterRotation] + [event rotation])];
-     */
 }
 
 - (void) swipeWithEvent: (NSEvent*)event 
 {
     NSLog(@"[GraphicView swipeWithEvent:%@", event);
+  
+    // Unfortunately, swiping events report a delta X of +/- 1.0.
+    // This is not suitable for interactive panning, for example.
+    // Mac OS X 10.5 and prior do not support the NSTouch API for gestures.
     
-    /*
-    CGFloat x = [event deltaX];
-    CGFloat y = [event deltaY];
-    if (x != 0) {
-        swipeColorValue = (x > 0)  ? SwipeLeftGreen : SwipeRightBlue;
-    }
-    if (y != 0) {
-        swipeColorValue = (y > 0)  ? SwipeUpRed : SwipeDownYellow;
-    }
-    NSString *direction;
-    switch (swipeColorValue) {
-        case SwipeLeftGreen:
-            direction = @"left";
-            break;
-        case SwipeRightBlue:
-            direction = @"right";
-            break;
-        case SwipeUpRed:
-            direction = @"up";
-            break;
-        case SwipeDownYellow:
-        default:
-            direction = @"down";
-            break;
-    }
-    [resultsField setStringValue:[NSString stringWithFormat:@"Swipe %@", direction]];
-    [self setNeedsDisplay:YES];
-     */
 }
 
 - (void) scrollWheel: (NSEvent*) event
