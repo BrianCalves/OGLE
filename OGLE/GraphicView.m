@@ -12,19 +12,22 @@
 
 @implementation GraphicView
 
-static void drawAnObject()
+- (void) resetModelView
 {
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glTranslated(0.0, 0.0, -2.0);
-    glColor3f(1.0f, 0.85f, 0.35f);
-    glBegin(GL_TRIANGLES);
-    {
-        glVertex3f(  0.0,  0.3, 0.0);
-        glVertex3f( -0.3, -0.3, 0.0);
-        glVertex3f(  0.3, -0.3 ,0.0);
-    }
-    glEnd();
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glTranslated(0.0, 0.0, -2.5);
+    glRotated(-90.0, 1.0, 0.0, 0.0);
+    glRotated(-90.0, 0.0, 0.0, 1.0);
+    glRotated(  5.0, 0.0, 1.0, 0.0);
+    glRotated( -5.0, 0.0, 0.0, 1.0);        
+    
+    [self setNeedsDisplay:YES];
+}
+
+- (void) prepareOpenGL
+{
+    [self resetModelView];
 }
 
 static void drawAxes(bool flags)
@@ -200,7 +203,7 @@ static void degreesLLA(double lat, double lon, double alt)
     // lat e [0, pi]
     // lon e [0, 2pi]
     
-    double r = .4;
+    double r = .5;
 
     //    double x = (r + alt) * sin(lat) * cos(lon);
     //    double y = (r + alt) * sin(lat) * sin(lon);
@@ -224,12 +227,14 @@ static void degreesLLA(double lat, double lon, double alt)
 static void drawEarth()
 {
 	glMatrixMode(GL_MODELVIEW);
+    /*
 	glLoadIdentity();
 	glTranslated(0.0, 0.0, -2.0);
     glRotated(-90.0, 1.0, 0.0, 0.0);
     glRotated(-90.0, 0.0, 0.0, 1.0);
     glRotated(  5.0, 0.0, 1.0, 0.0);
     glRotated( -5.0, 0.0, 0.0, 1.0);
+     */
     
     drawAxes(false);
 
@@ -259,7 +264,7 @@ static void drawEarth()
         
     }    
     glEnd();
-//    glDisable(GL_CULL_FACE);
+    glDisable(GL_CULL_FACE);
 
     GLfloat equatorialPlaneAmbientReflection[] = { 0.8, 0.8, 0.8, 0.5 };
     
@@ -267,6 +272,7 @@ static void drawEarth()
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glColor4f(0.9f, 0.9f, 0.9f, 0.5f);
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, equatorialPlaneAmbientReflection);
+    glMaterialfv(GL_BACK, GL_AMBIENT_AND_DIFFUSE, equatorialPlaneAmbientReflection);
     glBegin(GL_QUADS);
     {
         glVertex3f(-1.0,  1.0,  0.0);
@@ -317,6 +323,214 @@ static void drawEarth()
 
 	[self flushContext];
 	
+}
+
+- (BOOL) acceptsFirstResponder
+{
+    return YES;
+}
+
+- (void) rotateDeltaX: (GLdouble) dx
+               deltaY: (GLdouble) dy
+{
+    GLdouble length = sqrt(dx*dx + dy*dy);
+    GLdouble angle = length;
+    
+    GLdouble vx = dx/length;
+    GLdouble vy = dy/length;    
+    
+    NSLog(@"[GraphicView rotateDeltaX:deltaY:] dx=%lf, dy=%lf, vx=%lf, vy=%lf, angle=%lf", dx, dy, vx, vy, angle);
+    
+    if (isnan(vx) ||
+        isnan(vy))
+        return;
+    
+    GLdouble modelViewMatrix[] = 
+    {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,        
+    };
+    
+    [self activateContext];
+    
+    glGetDoublev(GL_MODELVIEW_MATRIX, modelViewMatrix);
+    
+    //
+    // OpenGL uses the column vector convention with column-major memory layout:
+    //    
+    //    [ 1 0 0 x ]    [  0  4  8  12 ]
+    //    [ 0 1 0 y ]    [  1  5  9  13 ]
+    //    [ 0 0 1 z ]    [  2  6  10 14 ]
+    //    [ 0 0 0 1 ]    [  3  7  11 15 ]
+    //
+    
+    glMatrixMode(GL_MODELVIEW);
+    glRotated(angle,
+              vx * modelViewMatrix[1] + vy * modelViewMatrix[0],
+              vx * modelViewMatrix[5] + vy * modelViewMatrix[4],
+              vx * modelViewMatrix[9] + vy * modelViewMatrix[8]);
+    
+    [self setNeedsDisplay:YES];
+}
+
+- (void) rotateDeltaTheta: (GLdouble) angleDegrees
+{
+    if (angleDegrees == 0)
+        return;
+    
+    GLdouble angle = angleDegrees;
+    
+    NSLog(@"[GraphicView rotateDeltaTheta:] angle=%lf", angle);
+    
+    GLdouble m[] = 
+    {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,        
+    };
+    
+    [self activateContext];
+    
+    glGetDoublev(GL_MODELVIEW_MATRIX, m);
+    
+    //
+    // OpenGL uses the column vector convention with column-major memory layout:
+    //    
+    //    [ 1 0 0 x ]    [  0  4  8  12 ]
+    //    [ 0 1 0 y ]    [  1  5  9  13 ]
+    //    [ 0 0 1 z ]    [  2  6  10 14 ]
+    //    [ 0 0 0 1 ]    [  3  7  11 15 ]
+    //
+    
+    glMatrixMode(GL_MODELVIEW);
+    glRotated(angle, m[2], m[6], m[10]);
+    
+    [self setNeedsDisplay:YES];
+}
+
+- (void) keyDown: (NSEvent*) event
+{
+    if ([[event characters] compare:@"r"] == NSOrderedSame)
+        [self resetModelView];
+}
+
+- (void) mouseDown: (NSEvent*) event 
+{    
+    NSLog(@"[GraphicView mouseDown:%@]", event);
+    
+//    m_PreviousMouseLoc = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+//    ptov(m_PreviousMouseLoc.x,m_PreviousMouseLoc.y,m_width,m_height,lastPos);
+}
+
+- (void) mouseUp: (NSEvent*) event
+{    
+    NSLog(@"[GraphicView mouseUp:%@]", event);
+    
+//    [self setNeedsDisplay:YES];
+}
+
+- (void) mouseDragged: (NSEvent*) event 
+{
+    GLdouble dx = [event deltaX];
+    GLdouble dy = [event deltaY];
+    
+    [self rotateDeltaX:dx deltaY:dy];
+    
+//    NSLog(@"[GraphicView mouseDragged:%@]", event);
+
+    /*
+    //[[self openGLContext] makeCurrentContext];
+    
+    
+    float curPos[3], dx, dy, dz;
+    
+    dx = curPos[0] - lastPos[0];
+    dy = curPos[1] - lastPos[1];
+    dz = curPos[2] - lastPos[2];
+    
+    angle = 90.0 * sqrt(dx*dx + dy*dy + dz*dz);
+    axis[0] = lastPos[1]*curPos[2] - lastPos[2]*curPos[1];
+    axis[1] = lastPos[2]*curPos[0] - lastPos[0]*curPos[2];
+    axis[2] = lastPos[0]*curPos[1] - lastPos[1]*curPos[0];
+    
+    //glutPostRedisplay();
+    
+    //[self drawRect:self.bounds]; // different attempts
+    [self setNeedsDisplay:YES];	//
+    //[self display]; 
+    */
+}
+
+- (void) magnifyWithEvent: (NSEvent*) event 
+{
+    NSLog(@"[GraphicView magnifyWithEvent:%@", event);
+    /*
+    [resultsField setStringValue:
+     [NSString stringWithFormat:@"Magnification value is %f", [event magnification]]];
+    NSSize newSize;
+    newSize.height = self.frame.size.height * ([event magnification] + 1.0);
+    newSize.width = self.frame.size.width * ([event magnification] + 1.0);
+    [self setFrameSize:newSize];
+     */
+}
+
+- (void) rotateWithEvent: (NSEvent*) event 
+{
+    GLdouble angleDegrees = [event rotation];
+    
+    [self rotateDeltaTheta:angleDegrees];
+    
+    NSLog(@"[GraphicView rotateWithEvent:%@", event);
+    /*
+    [resultsField setStringValue:
+     [NSString stringWithFormat:@"Rotation in degree is %f", [event rotation]]];
+    [self setFrameCenterRotation:([self frameCenterRotation] + [event rotation])];
+     */
+}
+
+- (void) swipeWithEvent: (NSEvent*)event 
+{
+    NSLog(@"[GraphicView swipeWithEvent:%@", event);
+    
+    /*
+    CGFloat x = [event deltaX];
+    CGFloat y = [event deltaY];
+    if (x != 0) {
+        swipeColorValue = (x > 0)  ? SwipeLeftGreen : SwipeRightBlue;
+    }
+    if (y != 0) {
+        swipeColorValue = (y > 0)  ? SwipeUpRed : SwipeDownYellow;
+    }
+    NSString *direction;
+    switch (swipeColorValue) {
+        case SwipeLeftGreen:
+            direction = @"left";
+            break;
+        case SwipeRightBlue:
+            direction = @"right";
+            break;
+        case SwipeUpRed:
+            direction = @"up";
+            break;
+        case SwipeDownYellow:
+        default:
+            direction = @"down";
+            break;
+    }
+    [resultsField setStringValue:[NSString stringWithFormat:@"Swipe %@", direction]];
+    [self setNeedsDisplay:YES];
+     */
+}
+
+- (void) scrollWheel: (NSEvent*) event
+{
+    GLdouble dx = -[event deltaX];
+    GLdouble dy = -[event deltaY];
+
+    [self rotateDeltaX:dx deltaY:dy];
 }
 
 @end
