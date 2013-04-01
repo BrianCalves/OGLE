@@ -13,6 +13,8 @@
 
 }
 
+- (GLdouble) modelViewMatrix: (int)index;
+- (GLdouble) projectionMatrix: (int)index;
 
 - (void) drawRect: (NSRect) bounds;
 

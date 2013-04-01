@@ -10,8 +10,12 @@
 
 #include <OpenGL/gl.h>
 
+//
+// The following allows pinch-to-zoom on 10.5.x even though the magnification
+// message of NSEvent wasn't officially supported until 10.6.
+//
 @interface NSEvent(GestureEvents)
-- (CGFloat)magnification;       // change in magnification on 10.5.2 or later.
+- (CGFloat)magnification; // Extant since 10.5.2, official support since 10.6
 @end 
 
 
@@ -154,7 +158,7 @@ static void drawAxes(bool flags)
     GLdouble aspectRatio = NSWidth(bounds) / NSHeight(bounds);
 
 	GLdouble zMin = 1;      // Near clipping plane; 0 < zMin < zMax
-	GLdouble zMax = 10;     // Far clipping plane;  0 < zMin < zMax
+	GLdouble zMax = 500;    // Far clipping plane;  0 < zMin < zMax
 	
 	GLdouble yMax = zMin * tan(fieldOfViewRadians/2.0);
 	GLdouble yMin = -yMax;
@@ -335,6 +339,40 @@ static void drawEarth()
     return YES;
 }
 
+- (GLdouble) modelViewMatrix: (int)index
+{
+    GLdouble matrix[] = 
+    {
+        2, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,        
+    };
+    
+    [self activateContext];
+    
+    glGetDoublev(GL_MODELVIEW_MATRIX, matrix);
+    
+    return matrix[index];
+}
+
+- (GLdouble) projectionMatrix: (int)index
+{
+    GLdouble matrix[] = 
+    {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,        
+    };
+    
+    [self activateContext];
+    
+    glGetDoublev(GL_PROJECTION_MATRIX, matrix);
+    
+    return matrix[index];
+}
+
 - (void) rotateDeltaX: (GLdouble) dx
                deltaY: (GLdouble) dy
 {
@@ -419,9 +457,11 @@ static void drawEarth()
 - (void) zoomFactor: (GLdouble) factor
 {
     NSLog(@"[GraphicView zoomFactor:] factor=%lf", factor);
-    
+
     if (factor == 1)
         return;
+    
+    /*
     
     [self activateContext];
     
@@ -429,6 +469,47 @@ static void drawEarth()
     glScaled(factor, factor, factor);
     
     [self setNeedsDisplay:YES];
+    */
+    
+    
+    //
+    // OpenGL uses the column vector convention with column-major memory layout:
+    //    
+    //    [ 1 0 0 x ]    [  0  4  8  12 ]
+    //    [ 0 1 0 y ]    [  1  5  9  13 ]
+    //    [ 0 0 1 z ]    [  2  6  10 14 ]
+    //    [ 0 0 0 1 ]    [  3  7  11 15 ]
+    //
+    
+    GLdouble matrix[] = 
+    {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,        
+    };
+    
+    [self activateContext];
+    
+    glGetDoublev(GL_MODELVIEW_MATRIX, matrix);
+
+    // Invert the scale factor before applying it to the z-axis displacement
+    // component of the matrix, so that a 'smaller scale' creates a larger
+    // displacement from the camera.
+    
+    matrix[14] *= (1.0 / factor);
+
+    // Use a hard-coded value, inappropriately, to prevent zooming in
+    // 'too far'.
+    
+    if (matrix[14] > -1.5)
+        matrix[14] = -1.5;
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixd(matrix);
+    
+    [self setNeedsDisplay:YES];
+    
 }
 
 - (void) keyDown: (NSEvent*) event

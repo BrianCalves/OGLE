@@ -1,8 +1,10 @@
 #import <Cocoa/Cocoa.h>
+#import "GraphicView.h"
 
 @interface MainWindowController : NSObject {
 
-    IBOutlet id graphicView;
+    IBOutlet GraphicView* graphicView;
+    IBOutlet NSPanel* statisticsView;
 
     IBOutlet id projectionArrayController;
     IBOutlet id earthModelArrayController;
@@ -10,6 +12,9 @@
 	NSMutableArray* _projectionArray;
 	NSMutableArray* _earthModelArray;
 
+    NSTimer* _statisticsTimer;
+    
+    BOOL _statisticsVisible;
 }
 
 
@@ -30,5 +35,28 @@
 - (void)insertObject:(id)anObject inEarthModelsAtIndex:(unsigned int)index;
 - (void)removeObjectFromEarthModelsAtIndex:(unsigned int)index;
 - (void)replaceObjectInEarthModelsAtIndex:(unsigned int)index withObject:(id)anObject;
+
+- (BOOL) isStatisticsVisible;
+- (void) setStatisticsVisible: (BOOL) visible;
+
+- (NSString*) modelViewMatrix: (int)index;
+
+- (NSString*) modelViewMatrix0;
+- (NSString*) modelViewMatrix1;
+- (NSString*) modelViewMatrix2;
+- (NSString*) modelViewMatrix3;
+- (NSString*) modelViewMatrix4;
+- (NSString*) modelViewMatrix5;
+- (NSString*) modelViewMatrix6;
+- (NSString*) modelViewMatrix7;
+- (NSString*) modelViewMatrix8;
+- (NSString*) modelViewMatrix9;
+- (NSString*) modelViewMatrix10;
+- (NSString*) modelViewMatrix11;
+- (NSString*) modelViewMatrix12;
+- (NSString*) modelViewMatrix13;
+- (NSString*) modelViewMatrix14;
+- (NSString*) modelViewMatrix15;
+- (NSString*) modelViewMatrix16;
 
 @end
