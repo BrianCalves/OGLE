@@ -10,6 +10,7 @@
 		196EDC49170400BD00C834B5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196EDC48170400BD00C834B5 /* OpenGL.framework */; };
 		196EDC4E17040E9F00C834B5 /* GraphicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */; };
 		196EDC6F1704104000C834B5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */; };
+		19C3E46A170AA2E900340D0D /* ShadeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */; };
 		19E5FA0D1706766B00EEB92F /* LLA.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5FA0C1706766B00EEB92F /* LLA.m */; };
 		19E5FA1517067B5300EEB92F /* XYZ.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5FA1417067B5300EEB92F /* XYZ.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
@@ -27,6 +28,8 @@
 		196EDC4D17040E9F00C834B5 /* GraphicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicView.m; sourceTree = "<group>"; };
 		196EDC6D1704104000C834B5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		196EDC6E1704104000C834B5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		19C3E468170AA2E900340D0D /* ShadeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeModel.h; sourceTree = "<group>"; };
+		19C3E469170AA2E900340D0D /* ShadeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeModel.m; sourceTree = "<group>"; };
 		19E5FA0B1706766B00EEB92F /* LLA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLA.h; sourceTree = "<group>"; };
 		19E5FA0C1706766B00EEB92F /* LLA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLA.m; sourceTree = "<group>"; };
 		19E5FA1317067B5300EEB92F /* XYZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZ.h; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 				19E5FA0C1706766B00EEB92F /* LLA.m */,
 				19E5FA1317067B5300EEB92F /* XYZ.h */,
 				19E5FA1417067B5300EEB92F /* XYZ.m */,
+				19C3E468170AA2E900340D0D /* ShadeModel.h */,
+				19C3E469170AA2E900340D0D /* ShadeModel.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				196EDC6F1704104000C834B5 /* MainWindowController.m in Sources */,
 				19E5FA0D1706766B00EEB92F /* LLA.m in Sources */,
 				19E5FA1517067B5300EEB92F /* XYZ.m in Sources */,
+				19C3E46A170AA2E900340D0D /* ShadeModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

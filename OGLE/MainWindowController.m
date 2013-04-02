@@ -1,4 +1,5 @@
 #import "MainWindowController.h"
+#import "ShadeModel.h"
 
 @implementation MainWindowController
 
@@ -12,18 +13,14 @@
          // [_cameraProjectionArray addObject:@"Orthographic"];
          // [_cameraProjectionArray addObject:@"Flat"];
 
-            _modelProjectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
-            [_modelProjectionArray addObject:@"None"];
-         // [_modelProjectionArray addObject:@"Cylindrical Equidistant"];
-            [_modelProjectionArray addObject:@"Cylindrical Satellite-Tracking"];
-         // [_modelProjectionArray addObject:@"Planar Equidistant"];
-         // [_modelProjectionArray addObject:@"Planar Satellite-Tracking"];
-         // [_modelProjectionArray addObject:@"Conic ..."];
-
-            _earthModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
-            [_earthModelArray addObject:@"Sphere"];
+            _geometricModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
+            [_geometricModelArray addObject:@"Sphere"];
             // [_earthModelArray addObject:@"Ellipsoid"];
 
+            _shadeModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
+            [_shadeModelArray addObject:[ShadeModel createFlat]];
+            [_shadeModelArray addObject:[ShadeModel createSmooth]];
+            
             _statisticsTimer = [[NSTimer 
                 scheduledTimerWithTimeInterval:0.1 
                                         target:self 
@@ -40,10 +37,15 @@
 - (void) dealloc
 {
     [_statisticsTimer release];
-    [_earthModelArray release];
-    [_modelProjectionArray release];
+    [_shadeModelArray release];
+    [_geometricModelArray release];
     [_cameraProjectionArray release];
     [super dealloc];
+}
+
+- (void) awakeFromNib
+{
+    [self shadeModelChanged: self];
 }
 
 - (void) cameraProjectionChanged: (id) sender
@@ -51,14 +53,17 @@
 	NSLog(@"Camera Projection: %@", [[_cameraProjectionArrayController selectedObjects] objectAtIndex:0]);
 }
 
-- (void) modelProjectionChanged: (id) sender
+- (void) geometricModelChanged: (id) sender
 {
-	NSLog(@"Model Projection: %@", [[_modelProjectionArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Geometric Model: %@", [[_geometricModelArrayController selectedObjects] objectAtIndex:0]);
 }
 
-- (void) earthModelChanged: (id) sender
+- (void) shadeModelChanged: (id) sender
 {
-	NSLog(@"Earth Model: %@", [[_earthModelArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Shade Model: %@", [[_shadeModelArrayController selectedObjects] objectAtIndex:0]);
+    
+    ShadeModel* shadeModel = [[_shadeModelArrayController selectedObjects] objectAtIndex:0];
+    [_graphicView setShadeModel:[shadeModel value]];
 }
 
 - (unsigned int) countOfCameraProjections
@@ -87,57 +92,58 @@
     [_cameraProjectionArray replaceObjectAtIndex:index withObject:anObject];
 }
 
-- (unsigned int)countOfModelProjections
+- (unsigned int) countOfGeometricModels
 {
-    return [_modelProjectionArray count];
+    return [_geometricModelArray count];
 }
 
-- (id)objectInModelProjectionsAtIndex:(unsigned int)index
+- (id)objectInGeometricModelsAtIndex:(unsigned int)index
 {
-    return [_modelProjectionArray objectAtIndex:index];
+    return [_geometricModelArray objectAtIndex:index];
 }
 
-- (void)insertObject:(id)anObject inModelProjectionsAtIndex:(unsigned int)index
+- (void)insertObject:(id)anObject inGeometricModelsAtIndex:(unsigned int)index
 {
-    [_modelProjectionArray insertObject:anObject atIndex:index];
+    [_geometricModelArray insertObject:anObject atIndex:index];
 }
 
-- (void)removeObjectFromModelProjectionsAtIndex:(unsigned int)index
+- (void)removeObjectFromGeometricModelsAtIndex:(unsigned int)index
 {
-    [_modelProjectionArray removeObjectAtIndex:index];
+    [_geometricModelArray removeObjectAtIndex:index];
 }
 
-- (void)replaceObjectInModelProjectionsAtIndex:(unsigned int)index
-                               withObject:(id)anObject
+- (void)replaceObjectInGeometricModelsAtIndex:(unsigned int)index
+                                   withObject:(id)anObject
 {
-    [_modelProjectionArray replaceObjectAtIndex:index withObject:anObject];
+    [_geometricModelArray replaceObjectAtIndex:index withObject:anObject];
 }
 
-- (unsigned int)countOfEarthModels
+- (unsigned int) countOfShadeModels
 {
-    return [_earthModelArray count];
+    return [_shadeModelArray count];
 }
 
-- (id)objectInEarthModelsAtIndex:(unsigned int)index
+- (id) objectInShadeModelsAtIndex: (unsigned int)index
 {
-    return [_earthModelArray objectAtIndex:index];
+    return [_shadeModelArray objectAtIndex:index];
 }
 
-- (void)insertObject:(id)anObject inEarthModelsAtIndex:(unsigned int)index
+- (void) insertObject: (id)anObject inShadeModelsAtIndex: (unsigned int)index
 {
-    [_earthModelArray insertObject:anObject atIndex:index];
+    [_shadeModelArray insertObject:anObject atIndex:index];
 }
 
-- (void)removeObjectFromEarthModelsAtIndex:(unsigned int)index
+- (void) removeObjectFromShadeModelsAtIndex: (unsigned int)index
 {
-    [_earthModelArray removeObjectAtIndex:index];
+    [_shadeModelArray removeObjectAtIndex:index];
 }
 
-- (void)replaceObjectInEarthModelsAtIndex:(unsigned int)index
-                               withObject:(id)anObject
+- (void) replaceObjectInShadeModelsAtIndex: (unsigned int)index
+                                      withObject: (id)anObject
 {
-    [_earthModelArray replaceObjectAtIndex:index withObject:anObject];
+    [_shadeModelArray replaceObjectAtIndex:index withObject:anObject];
 }
+
 
 - (void) toggleStatisticsVisibility: (id) sender
 {
@@ -153,22 +159,11 @@
 
 - (BOOL) isStatisticsVisible
 {
-//    return [statisticsView isVisible];
     return _statisticsVisible;
 }
 
 - (void) setStatisticsVisible: (BOOL) visible
 {
-//    if (visible != [statisticsView isVisible])
-//    {
-//        [self willChangeValueForKey:@"statisticsVisible"];
-//        if (visible)
-//            [statisticsView makeKeyAndOrderFront:self];
-//        else
-//            [statisticsView close];
-//        [self didChangeValueForKey:@"statisticsVisible"];    
-//    }
-        
     [self willChangeValueForKey:@"statisticsVisible"];
     _statisticsVisible = visible;
     [self didChangeValueForKey:@"statisticsVisible"];
@@ -177,7 +172,6 @@
 - (NSString*) modelViewMatrix: (int)index
 {
     return [NSString stringWithFormat:@"%lf", [_graphicView modelViewMatrix:index]];
-//    return [NSString stringWithFormat:@"%lf", 1.0];
 }
 
 - (NSString*) modelViewMatrix0

@@ -7,12 +7,12 @@
     IBOutlet NSPanel* _statisticsView;
 
     IBOutlet id _cameraProjectionArrayController;
-    IBOutlet id _modelProjectionArrayController;
-    IBOutlet id _earthModelArrayController;
+    IBOutlet id _geometricModelArrayController;
+    IBOutlet id _shadeModelArrayController;
     
     NSMutableArray* _cameraProjectionArray;
-	NSMutableArray* _modelProjectionArray;
-	NSMutableArray* _earthModelArray;
+	NSMutableArray* _geometricModelArray;
+    NSMutableArray* _shadeModelArray;
 
     NSTimer* _statisticsTimer;
     
@@ -23,9 +23,11 @@
 - (id) init;
 - (void) dealloc;
 
+- (void) awakeFromNib;
+
 - (void) cameraProjectionChanged: (id) sender;
-- (void) modelProjectionChanged: (id) sender;
-- (void) earthModelChanged: (id) sender;
+- (void) geometricModelChanged: (id) sender;
+- (void) shadeModelChanged: (id) sender;
 
 - (unsigned int) countOfCameraProjections;
 - (id) objectInCameraProjectionsAtIndex: (unsigned int)index;
@@ -33,17 +35,17 @@
 - (void) removeObjectFromCameraProjectionsAtIndex: (unsigned int)index;
 - (void) replaceObjectInCameraProjectionsAtIndex: (unsigned int)index withObject: (id)anObject;
 
-- (unsigned int)countOfModelProjections;
-- (id)objectInModelProjectionsAtIndex:(unsigned int)index;
-- (void)insertObject:(id)anObject inModelProjectionsAtIndex:(unsigned int)index;
-- (void)removeObjectFromModelProjectionsAtIndex:(unsigned int)index;
-- (void)replaceObjectInModelProjectionsAtIndex:(unsigned int)index withObject:(id)anObject;
+- (unsigned int)countOfGeometricModels;
+- (id)objectInGeometricModelsAtIndex:(unsigned int)index;
+- (void)insertObject:(id)anObject inGeometricModelsAtIndex:(unsigned int)index;
+- (void)removeObjectFromGeometricModelsAtIndex:(unsigned int)index;
+- (void)replaceObjectInGeometricModelsAtIndex:(unsigned int)index withObject:(id)anObject;
 
-- (unsigned int)countOfEarthModels;
-- (id)objectInEarthModelsAtIndex:(unsigned int)index;
-- (void)insertObject:(id)anObject inEarthModelsAtIndex:(unsigned int)index;
-- (void)removeObjectFromEarthModelsAtIndex:(unsigned int)index;
-- (void)replaceObjectInEarthModelsAtIndex:(unsigned int)index withObject:(id)anObject;
+- (unsigned int) countOfShadeModels;
+- (id) objectInShadeModelsAtIndex: (unsigned int)index;
+- (void) insertObject: (id)anObject inShadeModelsAtIndex: (unsigned int)index;
+- (void) removeObjectFromShadeModelsAtIndex: (unsigned int)index;
+- (void) replaceObjectInShadeModelsAtIndex: (unsigned int)index withObject: (id)anObject;
 
 - (BOOL) isStatisticsVisible;
 - (void) setStatisticsVisible: (BOOL) visible;

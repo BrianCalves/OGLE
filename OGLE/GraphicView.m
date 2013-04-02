@@ -37,6 +37,7 @@
 - (void) prepareOpenGL
 {
     [self resetModelView];
+    [self setShadeModel:GL_FLAT];
 }
 
 static void drawAxes(bool flags)
@@ -314,7 +315,7 @@ static void drawEarth()
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse0);
     glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular0);
     
-    glShadeModel(GL_FLAT);
+    glShadeModel([self shadeModel]);
     
     glEnable(GL_BLEND);
     glEnable(GL_CULL_FACE);
@@ -575,6 +576,18 @@ static void drawEarth()
     GLdouble dy = -[event deltaY];
 
     [self rotateDeltaX:dx deltaY:dy];
+}
+
+
+- (GLenum) shadeModel 
+{
+    return _shadeModel;
+}
+
+- (void) setShadeModel: (GLenum) newValue 
+{
+    _shadeModel = newValue;
+    [self setNeedsDisplay:YES];
 }
 
 @end

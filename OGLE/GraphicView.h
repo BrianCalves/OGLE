@@ -11,6 +11,8 @@
 
 @interface GraphicView : NSOpenGLView {
 
+    GLenum _shadeModel;
+    
 }
 
 - (GLdouble) modelViewMatrix: (int)index;
@@ -18,7 +20,7 @@
 
 - (void) drawRect: (NSRect) bounds;
 
-
-
+- (GLenum) shadeModel;
+- (void) setShadeModel: (GLenum) newValue;
 
 @end
