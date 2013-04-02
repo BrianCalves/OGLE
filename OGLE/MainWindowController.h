@@ -3,13 +3,15 @@
 
 @interface MainWindowController : NSObject {
 
-    IBOutlet GraphicView* graphicView;
-    IBOutlet NSPanel* statisticsView;
+    IBOutlet GraphicView* _graphicView;
+    IBOutlet NSPanel* _statisticsView;
 
-    IBOutlet id projectionArrayController;
-    IBOutlet id earthModelArrayController;
-
-	NSMutableArray* _projectionArray;
+    IBOutlet id _cameraProjectionArrayController;
+    IBOutlet id _modelProjectionArrayController;
+    IBOutlet id _earthModelArrayController;
+    
+    NSMutableArray* _cameraProjectionArray;
+	NSMutableArray* _modelProjectionArray;
 	NSMutableArray* _earthModelArray;
 
     NSTimer* _statisticsTimer;
@@ -21,14 +23,21 @@
 - (id) init;
 - (void) dealloc;
 
-- (void) projectionChanged: (id) sender;
+- (void) cameraProjectionChanged: (id) sender;
+- (void) modelProjectionChanged: (id) sender;
 - (void) earthModelChanged: (id) sender;
 
-- (unsigned int)countOfProjections;
-- (id)objectInProjectionsAtIndex:(unsigned int)index;
-- (void)insertObject:(id)anObject inProjectionsAtIndex:(unsigned int)index;
-- (void)removeObjectFromProjectionsAtIndex:(unsigned int)index;
-- (void)replaceObjectInProjectionsAtIndex:(unsigned int)index withObject:(id)anObject;
+- (unsigned int) countOfCameraProjections;
+- (id) objectInCameraProjectionsAtIndex: (unsigned int)index;
+- (void) insertObject: (id)anObject inCameraProjectionsAtIndex: (unsigned int)index;
+- (void) removeObjectFromCameraProjectionsAtIndex: (unsigned int)index;
+- (void) replaceObjectInCameraProjectionsAtIndex: (unsigned int)index withObject: (id)anObject;
+
+- (unsigned int)countOfModelProjections;
+- (id)objectInModelProjectionsAtIndex:(unsigned int)index;
+- (void)insertObject:(id)anObject inModelProjectionsAtIndex:(unsigned int)index;
+- (void)removeObjectFromModelProjectionsAtIndex:(unsigned int)index;
+- (void)replaceObjectInModelProjectionsAtIndex:(unsigned int)index withObject:(id)anObject;
 
 - (unsigned int)countOfEarthModels;
 - (id)objectInEarthModelsAtIndex:(unsigned int)index;

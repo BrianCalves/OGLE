@@ -7,20 +7,19 @@
     self = [super init];
     if (self)
 		{
-            _projectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
-            // [_projectionArray addObject:@"Flat Equidistant Cylindrical"];
-            // [_projectionArray addObject:@"Flat Cylindrical Satellite-Tracking"];
-            [_projectionArray addObject:@"Perspective Spherical"];
-            // [_projectionArray addObject:@"Perspective Ellipsoidal"];
-            // [_projectionArray addObject:@"Perspective Cylindrical"];
-            // [_projectionArray addObject:@"Perspective Conic"];
-            // [_projectionArray addObject:@"Perspective Planar"];
-            // [_projectionArray addObject:@"Orthographic Spherical"];
-            // [_projectionArray addObject:@"Orthographic Ellipsoidal"];
-            // [_projectionArray addObject:@"Orthographic Cylindrical"];
-            // [_projectionArray addObject:@"Orthographic Conic"];
-            // [_projectionArray addObject:@"Orthographic Planar"];
-            
+            _cameraProjectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
+            [_cameraProjectionArray addObject:@"Perspective"];
+         // [_cameraProjectionArray addObject:@"Orthographic"];
+         // [_cameraProjectionArray addObject:@"Flat"];
+
+            _modelProjectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
+            [_modelProjectionArray addObject:@"None"];
+         // [_modelProjectionArray addObject:@"Cylindrical Equidistant"];
+            [_modelProjectionArray addObject:@"Cylindrical Satellite-Tracking"];
+         // [_modelProjectionArray addObject:@"Planar Equidistant"];
+         // [_modelProjectionArray addObject:@"Planar Satellite-Tracking"];
+         // [_modelProjectionArray addObject:@"Conic ..."];
+
             _earthModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_earthModelArray addObject:@"Sphere"];
             // [_earthModelArray addObject:@"Ellipsoid"];
@@ -41,45 +40,77 @@
 - (void) dealloc
 {
     [_statisticsTimer release];
-    [_projectionArray release];
-    [_projectionArray release];
+    [_earthModelArray release];
+    [_modelProjectionArray release];
+    [_cameraProjectionArray release];
     [super dealloc];
 }
 
-- (void) projectionChanged: (id) sender
+- (void) cameraProjectionChanged: (id) sender
 {
-	NSLog(@"Projection: %@", [[projectionArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Camera Projection: %@", [[_cameraProjectionArrayController selectedObjects] objectAtIndex:0]);
+}
+
+- (void) modelProjectionChanged: (id) sender
+{
+	NSLog(@"Model Projection: %@", [[_modelProjectionArrayController selectedObjects] objectAtIndex:0]);
 }
 
 - (void) earthModelChanged: (id) sender
 {
-	NSLog(@"Earth Model: %@", [[earthModelArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Earth Model: %@", [[_earthModelArrayController selectedObjects] objectAtIndex:0]);
 }
 
-- (unsigned int)countOfProjections
+- (unsigned int) countOfCameraProjections
 {
-    return [_projectionArray count];
+    return [_cameraProjectionArray count];
 }
 
-- (id)objectInProjectionsAtIndex:(unsigned int)index
+- (id) objectInCameraProjectionsAtIndex: (unsigned int)index
 {
-    return [_projectionArray objectAtIndex:index];
+    return [_cameraProjectionArray objectAtIndex:index];
 }
 
-- (void)insertObject:(id)anObject inProjectionsAtIndex:(unsigned int)index
+- (void) insertObject: (id)anObject inCameraProjectionsAtIndex: (unsigned int)index
 {
-    [_projectionArray insertObject:anObject atIndex:index];
+    [_cameraProjectionArray insertObject:anObject atIndex:index];
 }
 
-- (void)removeObjectFromProjectionsAtIndex:(unsigned int)index
+- (void) removeObjectFromCameraProjectionsAtIndex: (unsigned int)index
 {
-    [_projectionArray removeObjectAtIndex:index];
+    [_cameraProjectionArray removeObjectAtIndex:index];
 }
 
-- (void)replaceObjectInProjectionsAtIndex:(unsigned int)index
+- (void) replaceObjectInCameraProjectionsAtIndex: (unsigned int)index
+                                      withObject: (id)anObject
+{
+    [_cameraProjectionArray replaceObjectAtIndex:index withObject:anObject];
+}
+
+- (unsigned int)countOfModelProjections
+{
+    return [_modelProjectionArray count];
+}
+
+- (id)objectInModelProjectionsAtIndex:(unsigned int)index
+{
+    return [_modelProjectionArray objectAtIndex:index];
+}
+
+- (void)insertObject:(id)anObject inModelProjectionsAtIndex:(unsigned int)index
+{
+    [_modelProjectionArray insertObject:anObject atIndex:index];
+}
+
+- (void)removeObjectFromModelProjectionsAtIndex:(unsigned int)index
+{
+    [_modelProjectionArray removeObjectAtIndex:index];
+}
+
+- (void)replaceObjectInModelProjectionsAtIndex:(unsigned int)index
                                withObject:(id)anObject
 {
-    [_projectionArray replaceObjectAtIndex:index withObject:anObject];
+    [_modelProjectionArray replaceObjectAtIndex:index withObject:anObject];
 }
 
 - (unsigned int)countOfEarthModels
@@ -110,12 +141,12 @@
 
 - (void) toggleStatisticsVisibility: (id) sender
 {
-    if ([statisticsView isVisible])
-        [statisticsView close];
+    if ([_statisticsView isVisible])
+        [_statisticsView close];
     else
     {
         [self willChangeValueForKey:@"statisticsVisible"];
-        [statisticsView makeKeyAndOrderFront:self];        
+        [_statisticsView makeKeyAndOrderFront:self];        
         [self didChangeValueForKey:@"statisticsVisible"];
     }
 }
@@ -145,7 +176,7 @@
 
 - (NSString*) modelViewMatrix: (int)index
 {
-    return [NSString stringWithFormat:@"%lf", [graphicView modelViewMatrix:index]];
+    return [NSString stringWithFormat:@"%lf", [_graphicView modelViewMatrix:index]];
 //    return [NSString stringWithFormat:@"%lf", 1.0];
 }
 
