@@ -1,4 +1,5 @@
 #import "MainWindowController.h"
+#import "GeometricModelCone.h"
 #import "GeometricModelSphere.h"
 #import "ShadeModel.h"
 
@@ -16,6 +17,7 @@
 
             _geometricModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_geometricModelArray addObject:[GeometricModelSphere create]];
+            [_geometricModelArray addObject:[GeometricModelCone create]];
             // [_earthModelArray addObject:@"Ellipsoid"];
 
             _shadeModelArray = [[NSMutableArray arrayWithCapacity:0] retain];

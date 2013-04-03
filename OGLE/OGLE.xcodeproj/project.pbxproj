@@ -13,6 +13,7 @@
 		19C3E46A170AA2E900340D0D /* ShadeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */; };
 		19C3E4C6170BD76600340D0D /* GeometricModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E4C5170BD76600340D0D /* GeometricModel.m */; };
 		19C3E4C9170BD7DF00340D0D /* GeometricModelSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */; };
+		19C3E536170BE27000340D0D /* GeometricModelCone.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -34,6 +35,8 @@
 		19C3E4C5170BD76600340D0D /* GeometricModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModel.m; sourceTree = "<group>"; };
 		19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModelSphere.h; sourceTree = "<group>"; };
 		19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModelSphere.m; sourceTree = "<group>"; };
+		19C3E534170BE27000340D0D /* GeometricModelCone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModelCone.h; sourceTree = "<group>"; };
+		19C3E535170BE27000340D0D /* GeometricModelCone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModelCone.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -61,6 +64,8 @@
 			children = (
 				19C3E4C4170BD76600340D0D /* GeometricModel.h */,
 				19C3E4C5170BD76600340D0D /* GeometricModel.m */,
+				19C3E534170BE27000340D0D /* GeometricModelCone.h */,
+				19C3E535170BE27000340D0D /* GeometricModelCone.m */,
 				19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */,
 				19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */,
 				196EDC4C17040E9F00C834B5 /* GraphicView.h */,
@@ -201,6 +206,7 @@
 				19C3E46A170AA2E900340D0D /* ShadeModel.m in Sources */,
 				19C3E4C6170BD76600340D0D /* GeometricModel.m in Sources */,
 				19C3E4C9170BD7DF00340D0D /* GeometricModelSphere.m in Sources */,
+				19C3E536170BE27000340D0D /* GeometricModelCone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
