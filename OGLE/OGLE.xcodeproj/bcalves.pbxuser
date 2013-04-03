@@ -23,7 +23,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 17";
 		rLen = 0;
-		rLoc = 361;
+		rLoc = 227;
 		rType = 0;
 		vrLen = 335;
 		vrLoc = 0;
@@ -31,15 +31,15 @@
 	196EDC4C17040E9F00C834B5 /* GraphicView.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{132, 0}";
-			sepNavVisRange = "{0, 590}";
+			sepNavSelRange = "{130, 0}";
+			sepNavVisRange = "{0, 456}";
 		};
 	};
 	196EDC4D17040E9F00C834B5 /* GraphicView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 8694}}";
-			sepNavSelRange = "{8374, 33}";
-			sepNavVisRange = "{8245, 1245}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 6678}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{10910, 983}";
 			sepNavWindowFrame = "{{228, 0}, {883, 878}}";
 		};
 	};
@@ -64,7 +64,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 304";
 		rLen = 0;
-		rLoc = 9131;
+		rLoc = 6161;
 		rType = 0;
 		vrLen = 1131;
 		vrLoc = 7885;
@@ -240,15 +240,15 @@
 	19C3E468170AA2E900340D0D /* ShadeModel.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{473, 27}";
-			sepNavVisRange = "{0, 506}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 373}";
 		};
 	};
 	19C3E469170AA2E900340D0D /* ShadeModel.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 798}}";
-			sepNavSelRange = "{914, 0}";
-			sepNavVisRange = "{186, 908}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 658}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 779}";
 		};
 	};
 	19C3E473170AA96F00340D0D /* PBXTextBookmark */ = {
@@ -266,7 +266,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 26";
 		rLen = 0;
-		rLoc = 500;
+		rLoc = 367;
 		rType = 0;
 		vrLen = 468;
 		vrLoc = 0;
@@ -276,7 +276,7 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 14";
 		rLen = 0;
-		rLoc = 1088;
+		rLoc = 955;
 		rType = 0;
 		vrLen = 195;
 		vrLoc = 0;
@@ -286,7 +286,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 19";
 		rLen = 0;
-		rLoc = 298;
+		rLoc = 165;
 		rType = 0;
 		vrLen = 473;
 		vrLoc = 0;
@@ -296,7 +296,7 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 21";
 		rLen = 0;
-		rLoc = 770;
+		rLoc = 637;
 		rType = 0;
 		vrLen = 436;
 		vrLoc = 0;
@@ -316,7 +316,7 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 45";
 		rLen = 0;
-		rLoc = 1088;
+		rLoc = 955;
 		rType = 0;
 		vrLen = 633;
 		vrLoc = 132;
@@ -326,7 +326,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 19";
 		rLen = 0;
-		rLoc = 309;
+		rLoc = 176;
 		rType = 0;
 		vrLen = 465;
 		vrLoc = 0;
@@ -356,7 +356,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 21";
 		rLen = 0;
-		rLoc = 290;
+		rLoc = 157;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -366,7 +366,7 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 23";
 		rLen = 0;
-		rLoc = 367;
+		rLoc = 234;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 29;
@@ -396,7 +396,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 25";
 		rLen = 0;
-		rLoc = 584;
+		rLoc = 450;
 		rType = 0;
 		vrLen = 428;
 		vrLoc = 0;
@@ -406,7 +406,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 317";
 		rLen = 0;
-		rLoc = 9123;
+		rLoc = 6153;
 		rType = 0;
 		vrLen = 1169;
 		vrLoc = 8302;
@@ -446,7 +446,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 40";
 		rLen = 0;
-		rLoc = 840;
+		rLoc = 1062;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 186;
@@ -476,7 +476,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 21";
 		rLen = 0;
-		rLoc = 290;
+		rLoc = 157;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -506,7 +506,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 27";
 		rLen = 98;
-		rLoc = 486;
+		rLoc = 352;
 		rType = 0;
 		vrLen = 558;
 		vrLoc = 0;
@@ -516,7 +516,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 595";
 		rLen = 0;
-		rLoc = 15260;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 14354;
@@ -526,7 +526,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 14";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 128;
 		rType = 0;
 		vrLen = 564;
 		vrLoc = 0;
@@ -536,7 +536,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 600";
 		rLen = 0;
-		rLoc = 15347;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 796;
 		vrLoc = 14448;
@@ -546,7 +546,7 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 53";
 		rLen = 0;
-		rLoc = 914;
+		rLoc = 781;
 		rType = 0;
 		vrLen = 826;
 		vrLoc = 204;
@@ -556,7 +556,7 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 53";
 		rLen = 0;
-		rLoc = 914;
+		rLoc = 781;
 		rType = 0;
 		vrLen = 908;
 		vrLoc = 186;
@@ -566,7 +566,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 600";
 		rLen = 0;
-		rLoc = 15347;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 794;
 		vrLoc = 14456;
@@ -576,16 +576,16 @@
 		fRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */;
 		name = "ShadeModel.m: 53";
 		rLen = 0;
-		rLoc = 914;
+		rLoc = 781;
 		rType = 0;
 		vrLen = 908;
 		vrLoc = 186;
 	};
 	19C3E4C4170BD76600340D0D /* GeometricModel.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 119}";
+			sepNavIntBoundsRect = "{{0, 0}, {1154, 595}}";
+			sepNavSelRange = "{217, 0}";
+			sepNavVisRange = "{0, 311}";
 		};
 	};
 	19C3E4C5170BD76600340D0D /* GeometricModel.m */ = {
@@ -604,9 +604,9 @@
 	};
 	19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 1610}}";
-			sepNavSelRange = "{2071, 0}";
-			sepNavVisRange = "{0, 717}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 1652}}";
+			sepNavSelRange = "{212, 0}";
+			sepNavVisRange = "{267, 923}";
 		};
 	};
 	19C3E4CB170BDAE800340D0D /* PBXTextBookmark */ = {
@@ -624,7 +624,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 14";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 128;
 		rType = 0;
 		vrLen = 564;
 		vrLoc = 0;
@@ -634,7 +634,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 603";
 		rLen = 0;
-		rLoc = 15441;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 845;
 		vrLoc = 14498;
@@ -654,7 +654,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 28";
 		rLen = 27;
-		rLoc = 473;
+		rLoc = 340;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -674,7 +674,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 16";
 		rLen = 0;
-		rLoc = 103;
+		rLoc = 295;
 		rType = 0;
 		vrLen = 239;
 		vrLoc = 0;
@@ -718,7 +718,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 600";
 		rLen = 0;
-		rLoc = 15327;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 1168;
 		vrLoc = 8303;
@@ -748,7 +748,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 14";
 		rLen = 0;
-		rLoc = 262;
+		rLoc = 128;
 		rType = 0;
 		vrLen = 564;
 		vrLoc = 0;
@@ -758,7 +758,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 600";
 		rLen = 0;
-		rLoc = 15327;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 955;
 		vrLoc = 8743;
@@ -768,7 +768,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 21";
 		rLen = 0;
-		rLoc = 290;
+		rLoc = 157;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -778,7 +778,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 603";
 		rLen = 0;
-		rLoc = 15441;
+		rLoc = 11887;
 		rType = 0;
 		vrLen = 845;
 		vrLoc = 14498;
@@ -788,7 +788,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 21";
 		rLen = 0;
-		rLoc = 290;
+		rLoc = 157;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -798,7 +798,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 13";
 		rLen = 0;
-		rLoc = 64;
+		rLoc = 256;
 		rType = 0;
 		vrLen = 212;
 		vrLoc = 0;
@@ -818,7 +818,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 13";
 		rLen = 0;
-		rLoc = 64;
+		rLoc = 256;
 		rType = 0;
 		vrLen = 212;
 		vrLoc = 0;
@@ -828,7 +828,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 15";
 		rLen = 28;
-		rLoc = 214;
+		rLoc = 81;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -838,7 +838,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 17";
 		rLen = 0;
-		rLoc = 113;
+		rLoc = 305;
 		rType = 0;
 		vrLen = 239;
 		vrLoc = 0;
@@ -848,7 +848,7 @@
 		fRef = 19C3E468170AA2E900340D0D /* ShadeModel.h */;
 		name = "ShadeModel.h: 28";
 		rLen = 27;
-		rLoc = 473;
+		rLoc = 340;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -858,7 +858,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 16";
 		rLen = 27;
-		rLoc = 86;
+		rLoc = 278;
 		rType = 0;
 		vrLen = 239;
 		vrLoc = 0;
@@ -878,7 +878,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 16";
 		rLen = 0;
-		rLoc = 103;
+		rLoc = 295;
 		rType = 0;
 		vrLen = 239;
 		vrLoc = 0;
@@ -979,8 +979,8 @@
 		isa = PBXTextBookmark;
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 237";
-		rLen = 11;
-		rLoc = 6650;
+		rLen = 0;
+		rLoc = 5404;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 7160;
@@ -990,7 +990,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 16";
 		rLen = 17;
-		rLoc = 69;
+		rLoc = 261;
 		rType = 0;
 		vrLen = 256;
 		vrLoc = 0;
@@ -1059,8 +1059,8 @@
 		isa = PBXTextBookmark;
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 237";
-		rLen = 11;
-		rLoc = 6650;
+		rLen = 0;
+		rLoc = 5404;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 7160;
@@ -1070,7 +1070,7 @@
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 16";
 		rLen = 17;
-		rLoc = 69;
+		rLoc = 261;
 		rType = 0;
 		vrLen = 256;
 		vrLoc = 0;
@@ -1110,7 +1110,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 10";
 		rLen = 0;
-		rLoc = 184;
+		rLoc = 50;
 		rType = 0;
 		vrLen = 590;
 		vrLoc = 0;
@@ -1150,7 +1150,7 @@
 		comments = "warning: implicit declaration of function 'glMatrixModel'";
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		rLen = 1;
-		rLoc = 44;
+		rLoc = 59;
 		rType = 1;
 	};
 	19C3E51C170BDE2200340D0D /* PBXTextBookmark */ = {
@@ -1177,8 +1177,8 @@
 		isa = PBXTextBookmark;
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 239";
-		rLen = 1702;
-		rLoc = 6664;
+		rLen = 0;
+		rLoc = 5404;
 		rType = 0;
 		vrLen = 1301;
 		vrLoc = 7387;
@@ -1198,7 +1198,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 10";
 		rLen = 0;
-		rLoc = 184;
+		rLoc = 50;
 		rType = 0;
 		vrLen = 590;
 		vrLoc = 0;
@@ -1227,8 +1227,8 @@
 		isa = PBXTextBookmark;
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 190";
-		rLen = 1143;
-		rLoc = 5493;
+		rLen = 0;
+		rLoc = 5404;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 4688;
@@ -1248,7 +1248,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 338";
 		rLen = 0;
-		rLoc = 9520;
+		rLoc = 6530;
 		rType = 0;
 		vrLen = 985;
 		vrLoc = 8781;
@@ -1268,7 +1268,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 300";
 		rLen = 33;
-		rLoc = 8374;
+		rLoc = 5404;
 		rType = 0;
 		vrLen = 804;
 		vrLoc = 9029;

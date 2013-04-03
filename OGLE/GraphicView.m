@@ -1,11 +1,3 @@
-//
-//  GraphicView.m
-//  OGLE
-//
-//  Created by Brian Cálves on 2013-03-28.
-//  Copyright 2013 Brian Cálves. All rights reserved.
-//
-
 #import "GraphicView.h"
 
 #include <OpenGL/gl.h>
@@ -20,6 +12,29 @@
 
 
 @implementation GraphicView
+
+- (GLenum) shadeModel 
+{
+    return _shadeModel;
+}
+
+- (void) setShadeModel: (GLenum) newValue 
+{
+    _shadeModel = newValue;
+    [self setNeedsDisplay:YES];
+}
+
+- (GeometricModel*) geometricModel
+{
+    return _geometricModel;
+}
+
+- (void) setGeometricModel: (GeometricModel*) geometricModel
+{
+    [_geometricModel autorelease];
+    _geometricModel = [geometricModel retain];
+    [self setNeedsDisplay:YES];
+}
 
 - (void) resetModelView
 {
@@ -183,120 +198,6 @@ static void drawAxes(bool flags)
 
 }
 
-//#define assertLessEqual(a, b) ((void) ((a <= b) ? 0 : __assert (#e, __FILE__, __LINE__)))
-#define assertLessEqual(a, b) ((void) ((a <= b) ? 0 : ((void)printf ("%s:%u: function %s expected %s <= %s (%lf <= %lf)\n", __FILE__, __LINE__, __PRETTY_FUNCTION__, #a, #b, a, b), abort()) ))
-
-//((void)printf ("%s:%u: failed assertion `%s'\n", file, line, e), abort())
-
-
-static void degreesLLA(double lat, double lon, double alt)
-{
-    // pre:  -90 <= latitudeDegrees  <=  90
-    // pre: -180 <= longitudeDegrees <= 180
-
-    assert(lat >= -90.0);
-    assert(lat <=  90.0);    
-    assert(lon >= -180.0);
-    assert(lon <=  180.0);
-    
-//    lat = (lat +  90.0) * (M_PI / 180.0);
-//    lon = (lon + 180.0) * (M_PI / 180.0);
-    
-    lat = (lat +  0.0) * (M_PI / 180.0);
-    lon = (lon +  0.0) * (M_PI / 180.0);
-    
-//    assert(lat >= 0.0);
-//    assertLessEqual(lat, M_PI);
-//    assert(lat <= M_PI);
-//    assert(lon >= 0.0);
-//    assert(lon <= (2.0 * M_PI));
-    
-    // r > 0
-    // lat e [0, pi]
-    // lon e [0, 2pi]
-    
-    double r = .5;
-
-    //    double x = (r + alt) * sin(lat) * cos(lon);
-    //    double y = (r + alt) * sin(lat) * sin(lon);
-    //    double z = (r + alt) * cos(lat);
-    
-    double x = (r + alt) * cos(lat) * cos(lon);
-    double y = (r + alt) * cos(lat) * sin(lon);
-    double z = (r + alt) * sin(lat);
-
-    double len = sqrt(x*x + y*y + z*z);
-    
-    double t = x / len;
-    double u = y / len;
-    double v = z / len;
-    
-    glNormal3d(t, u, v);
-    glVertex3d(x, y, z);
-}
-
-
-static void drawEarth()
-{
-	glMatrixMode(GL_MODELVIEW);
-    /*
-	glLoadIdentity();
-	glTranslated(0.0, 0.0, -2.0);
-    glRotated(-90.0, 1.0, 0.0, 0.0);
-    glRotated(-90.0, 0.0, 0.0, 1.0);
-    glRotated(  5.0, 0.0, 1.0, 0.0);
-    glRotated( -5.0, 0.0, 0.0, 1.0);
-     */
-    
-    drawAxes(false);
-
-//    glEnable(GL_CULL_FACE);
-//    glCullFace(GL_BACK);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-    GLfloat ambientReflection[] = { 0.5, 0.5, 0.5, 1.0 };
-    GLfloat specularReflection[] = { 0.5, 0.5, 0.5, 1.0 };
-        
-    glColor4f(0.5, 0.5, 0.5, 1);
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambientReflection);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, specularReflection);
-    glBegin(GL_QUADS);
-    {    
-        int n = 10;
-        for (int lat=-90; lat<90; lat+=n)
-        {
-            for (int lon=-180; lon<180; lon+=n)
-            {
-                degreesLLA( n+lat,   lon, 0);
-                degreesLLA(   lat,   lon, 0);
-                degreesLLA(   lat, n+lon, 0);
-                degreesLLA( n+lat, n+lon, 0);
-            }            
-        }
-        
-    }    
-    glEnd();
-    glDisable(GL_CULL_FACE);
-
-    GLfloat equatorialPlaneAmbientReflection[] = { 0.8, 0.8, 0.8, 0.5 };
-    
-    glDepthMask(GL_FALSE);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    glColor4f(0.9f, 0.9f, 0.9f, 0.5f);
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, equatorialPlaneAmbientReflection);
-    glMaterialfv(GL_BACK, GL_AMBIENT_AND_DIFFUSE, equatorialPlaneAmbientReflection);
-    glBegin(GL_QUADS);
-    {
-        glVertex3f(-1.0,  1.0,  0.0);
-        glVertex3f(-1.0, -1.0,  0.0);
-        glVertex3f( 1.0, -1.0,  0.0);
-        glVertex3f( 1.0,  1.0,  0.0);
-    }
-    glEnd();
-    glDepthMask(GL_TRUE);
-    
-}
-
 -(void) drawRect: (NSRect) bounds
 {
 	[self activateContext];
@@ -333,7 +234,6 @@ static void drawEarth()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     drawAxes(false);
-    // drawEarth();
     
     [[self geometricModel] render];
 
@@ -350,7 +250,7 @@ static void drawEarth()
 {
     GLdouble matrix[] = 
     {
-        2, 0, 0, 0,
+        1, 0, 0, 0,
         0, 1, 0, 0,
         0, 0, 1, 0,
         0, 0, 0, 1,        
@@ -468,17 +368,6 @@ static void drawEarth()
     if (factor == 1)
         return;
     
-    /*
-    
-    [self activateContext];
-    
-    glMatrixMode(GL_MODELVIEW);
-    glScaled(factor, factor, factor);
-    
-    [self setNeedsDisplay:YES];
-    */
-    
-    
     //
     // OpenGL uses the column vector convention with column-major memory layout:
     //    
@@ -506,8 +395,8 @@ static void drawEarth()
     
     matrix[14] *= (1.0 / factor);
 
-    // Use a hard-coded value, inappropriately, to prevent zooming in
-    // 'too far'.
+    // FIXME - Inappropriate hard-coded value used to prevent zooming in
+    //         'too far'.
     
     if (matrix[14] > -1.5)
         matrix[14] = -1.5;
@@ -537,7 +426,7 @@ static void drawEarth()
 
 - (void) mouseDragged: (NSEvent*) event 
 {
- // NSLog(@"[GraphicView mouseDragged:%@]", event);
+    // NSLog(@"[GraphicView mouseDragged:%@]", event);
     
     GLdouble dx = [event deltaX];
     GLdouble dy = [event deltaY];
@@ -570,10 +459,9 @@ static void drawEarth()
 {
     // NSLog(@"[GraphicView swipeWithEvent:%@", event);
   
-    // Unfortunately, swiping events report a delta X of +/- 1.0.
+    // Unfortunately, Swipe Events report a delta X of +/- 1.0.
     // This is not suitable for interactive panning, for example.
-    // Mac OS X 10.5 and prior do not support the NSTouch API for gestures.
-    
+    // Mac OS X 10.5 and prior do not support the NSTouch API for gestures.    
 }
 
 - (void) scrollWheel: (NSEvent*) event
@@ -582,30 +470,6 @@ static void drawEarth()
     GLdouble dy = -[event deltaY];
 
     [self rotateDeltaX:dx deltaY:dy];
-}
-
-
-- (GLenum) shadeModel 
-{
-    return _shadeModel;
-}
-
-- (void) setShadeModel: (GLenum) newValue 
-{
-    _shadeModel = newValue;
-    [self setNeedsDisplay:YES];
-}
-
-- (GeometricModel*) geometricModel
-{
-    return _geometricModel;
-}
-
-- (void) setGeometricModel: (GeometricModel*) geometricModel
-{
-    [_geometricModel autorelease];
-    _geometricModel = [geometricModel retain];
-    [self setNeedsDisplay:YES];
 }
 
 
