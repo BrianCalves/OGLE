@@ -1,8 +1,10 @@
 #import <Cocoa/Cocoa.h>
+#import "CameraModel.h"
 #import "GeometricModel.h"
 
 @interface GraphicView : NSOpenGLView {
 
+    CameraModel* _cameraModel;    
     GeometricModel* _geometricModel;
     GLenum _shadeModel;
     
@@ -18,5 +20,8 @@
 
 - (GeometricModel*) geometricModel;
 - (void) setGeometricModel: (GeometricModel*) geometricModel;
+
+- (CameraModel*) cameraModel;
+- (void) setCameraModel: (CameraModel*) cameraModel;
 
 @end

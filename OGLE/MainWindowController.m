@@ -1,4 +1,6 @@
 #import "MainWindowController.h"
+#import "CameraModelPerspective.h"
+#import "CameraModelOrthographic.h"
 #import "GeometricModelCone.h"
 #import "GeometricModelSphere.h"
 #import "ShadeModel.h"
@@ -10,15 +12,13 @@
     self = [super init];
     if (self)
 		{
-            _cameraProjectionArray = [[NSMutableArray arrayWithCapacity:0] retain];
-            [_cameraProjectionArray addObject:@"Perspective"];
-         // [_cameraProjectionArray addObject:@"Orthographic"];
-         // [_cameraProjectionArray addObject:@"Flat"];
+            _cameraModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
+            [_cameraModelArray addObject:[CameraModelPerspective create]];
+            [_cameraModelArray addObject:[CameraModelOrthographic create]];
 
             _geometricModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_geometricModelArray addObject:[GeometricModelSphere create]];
             [_geometricModelArray addObject:[GeometricModelCone create]];
-            // [_earthModelArray addObject:@"Ellipsoid"];
 
             _shadeModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_shadeModelArray addObject:[ShadeModel createFlat]];
@@ -42,19 +42,22 @@
     [_statisticsTimer release];
     [_shadeModelArray release];
     [_geometricModelArray release];
-    [_cameraProjectionArray release];
+    [_cameraModelArray release];
     [super dealloc];
 }
 
 - (void) awakeFromNib
 {
-    [self shadeModelChanged: self];
+    [self cameraModelChanged:self];
     [self geometricModelChanged: self];
+    [self shadeModelChanged: self];
 }
 
-- (void) cameraProjectionChanged: (id) sender
+- (void) cameraModelChanged: (id) sender
 {
-	NSLog(@"Camera Projection: %@", [[_cameraProjectionArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Camera Model: %@", [[_cameraModelArrayController selectedObjects] objectAtIndex:0]);
+    CameraModel* cameraModel = [[_cameraModelArrayController selectedObjects] objectAtIndex:0];
+    [_graphicView setCameraModel:cameraModel];
 }
 
 - (void) geometricModelChanged: (id) sender
@@ -73,28 +76,28 @@
 
 - (unsigned int) countOfCameraProjections
 {
-    return [_cameraProjectionArray count];
+    return [_cameraModelArray count];
 }
 
 - (id) objectInCameraProjectionsAtIndex: (unsigned int)index
 {
-    return [_cameraProjectionArray objectAtIndex:index];
+    return [_cameraModelArray objectAtIndex:index];
 }
 
 - (void) insertObject: (id)anObject inCameraProjectionsAtIndex: (unsigned int)index
 {
-    [_cameraProjectionArray insertObject:anObject atIndex:index];
+    [_cameraModelArray insertObject:anObject atIndex:index];
 }
 
 - (void) removeObjectFromCameraProjectionsAtIndex: (unsigned int)index
 {
-    [_cameraProjectionArray removeObjectAtIndex:index];
+    [_cameraModelArray removeObjectAtIndex:index];
 }
 
 - (void) replaceObjectInCameraProjectionsAtIndex: (unsigned int)index
                                       withObject: (id)anObject
 {
-    [_cameraProjectionArray replaceObjectAtIndex:index withObject:anObject];
+    [_cameraModelArray replaceObjectAtIndex:index withObject:anObject];
 }
 
 - (unsigned int) countOfGeometricModels

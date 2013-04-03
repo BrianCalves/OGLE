@@ -6,11 +6,11 @@
     IBOutlet GraphicView* _graphicView;
     IBOutlet NSPanel* _statisticsView;
 
-    IBOutlet id _cameraProjectionArrayController;
+    IBOutlet id _cameraModelArrayController;
     IBOutlet id _geometricModelArrayController;
     IBOutlet id _shadeModelArrayController;
     
-    NSMutableArray* _cameraProjectionArray;
+    NSMutableArray* _cameraModelArray;
 	NSMutableArray* _geometricModelArray;
     NSMutableArray* _shadeModelArray;
 
@@ -25,7 +25,7 @@
 
 - (void) awakeFromNib;
 
-- (void) cameraProjectionChanged: (id) sender;
+- (void) cameraModelChanged: (id) sender;
 - (void) geometricModelChanged: (id) sender;
 - (void) shadeModelChanged: (id) sender;
 

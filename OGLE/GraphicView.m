@@ -36,6 +36,19 @@
     [self setNeedsDisplay:YES];
 }
 
+- (CameraModel*) cameraModel
+{
+    return _cameraModel;
+}
+
+- (void) setCameraModel: (CameraModel*) cameraModel
+{
+    [_cameraModel autorelease];
+    _cameraModel = [cameraModel retain];
+    [self reshape];
+    [self setNeedsDisplay:YES];
+}
+
 - (void) resetModelView
 {
     glMatrixMode(GL_MODELVIEW);
@@ -163,13 +176,16 @@ static void drawAxes(bool flags)
 
 	NSRect bounds = [self bounds];
 	
-	GLint x = 0;
-	GLint y = 0;
+	GLint x = NSMinX(bounds);
+	GLint y = NSMinY(bounds);
 	GLsizei w = NSWidth(bounds);
 	GLsizei h = NSHeight(bounds);
 	
 	glViewport(x, y, w, h); // Map OpenGL projection plane to NSWindow
 
+    [[self cameraModel] applyProjection:bounds];
+    
+    /*
 	GLdouble fieldOfViewDegrees = 40; // Measured vertically (y-axis)
 	GLdouble fieldOfViewRadians = fieldOfViewDegrees * (M_PI / 180.0);
 
@@ -195,6 +211,7 @@ static void drawAxes(bool flags)
 		yMax,  // top, near clipping plane
 		zMin,  // distance to near clipping plane
 		zMax); // distance to far clipping plane
+     */
 
 }
 
