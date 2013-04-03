@@ -50,7 +50,7 @@
 
 - (NSString*) description
 {
-    return _description;
+    return [[_description retain] autorelease]; // Retain/autorelease because [description] is nominally not an accessor, so the result of [description] must outlive self.
 }
 
 @end

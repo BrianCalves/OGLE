@@ -1,4 +1,5 @@
 #import "MainWindowController.h"
+#import "GeometricModelSphere.h"
 #import "ShadeModel.h"
 
 @implementation MainWindowController
@@ -14,7 +15,7 @@
          // [_cameraProjectionArray addObject:@"Flat"];
 
             _geometricModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
-            [_geometricModelArray addObject:@"Sphere"];
+            [_geometricModelArray addObject:[GeometricModelSphere create]];
             // [_earthModelArray addObject:@"Ellipsoid"];
 
             _shadeModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
@@ -46,6 +47,7 @@
 - (void) awakeFromNib
 {
     [self shadeModelChanged: self];
+    [self geometricModelChanged: self];
 }
 
 - (void) cameraProjectionChanged: (id) sender
@@ -55,13 +57,14 @@
 
 - (void) geometricModelChanged: (id) sender
 {
-	NSLog(@"Geometric Model: %@", [[_geometricModelArrayController selectedObjects] objectAtIndex:0]);
+	NSLog(@"Geometric Model: %@", [[_geometricModelArrayController selectedObjects] objectAtIndex:0]);    
+    GeometricModel* geometricModel = [[_geometricModelArrayController selectedObjects] objectAtIndex:0];
+    [_graphicView setGeometricModel:geometricModel];
 }
 
 - (void) shadeModelChanged: (id) sender
 {
-	NSLog(@"Shade Model: %@", [[_shadeModelArrayController selectedObjects] objectAtIndex:0]);
-    
+	NSLog(@"Shade Model: %@", [[_shadeModelArrayController selectedObjects] objectAtIndex:0]);    
     ShadeModel* shadeModel = [[_shadeModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setShadeModel:[shadeModel value]];
 }

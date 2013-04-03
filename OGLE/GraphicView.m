@@ -42,6 +42,8 @@
 
 static void drawAxes(bool flags)
 {
+    glMatrixMode(GL_MODELVIEW);
+    
     glBegin(GL_LINES);
     {
         GLfloat xAmbientReflection[] = { 1, 0, 0, 1.0 };
@@ -329,7 +331,11 @@ static void drawEarth()
     glClearColor(1, 1, 1, 0);
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    drawEarth();
+    
+    drawAxes(false);
+    // drawEarth();
+    
+    [[self geometricModel] render];
 
 	[self flushContext];
 	
@@ -589,5 +595,18 @@ static void drawEarth()
     _shadeModel = newValue;
     [self setNeedsDisplay:YES];
 }
+
+- (GeometricModel*) geometricModel
+{
+    return _geometricModel;
+}
+
+- (void) setGeometricModel: (GeometricModel*) geometricModel
+{
+    [_geometricModel autorelease];
+    _geometricModel = [geometricModel retain];
+    [self setNeedsDisplay:YES];
+}
+
 
 @end
