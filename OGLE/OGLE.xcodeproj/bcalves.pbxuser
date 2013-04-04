@@ -13,7 +13,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 34";
 		rLen = 606;
-		rLoc = 2409;
+		rLoc = 2584;
 		rType = 0;
 		vrLen = 1356;
 		vrLoc = 259;
@@ -23,7 +23,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 17";
 		rLen = 0;
-		rLoc = 312;
+		rLoc = 348;
 		rType = 0;
 		vrLen = 335;
 		vrLoc = 0;
@@ -31,31 +31,31 @@
 	196EDC4C17040E9F00C834B5 /* GraphicView.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{215, 0}";
-			sepNavVisRange = "{0, 757}";
+			sepNavSelRange = "{727, 88}";
+			sepNavVisRange = "{0, 881}";
 		};
 	};
 	196EDC4D17040E9F00C834B5 /* GraphicView.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 8330}}";
-			sepNavSelRange = "{342, 0}";
-			sepNavVisRange = "{0, 739}";
+			sepNavSelRange = "{8064, 0}";
+			sepNavVisRange = "{7494, 871}";
 			sepNavWindowFrame = "{{228, 0}, {883, 878}}";
 		};
 	};
 	196EDC6D1704104000C834B5 /* MainWindowController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 6804}}";
-			sepNavSelRange = "{2071, 0}";
-			sepNavVisRange = "{1381, 1461}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 7182}}";
+			sepNavSelRange = "{3264, 0}";
+			sepNavVisRange = "{2134, 1808}";
 			sepNavWindowFrame = "{{236, -45}, {883, 878}}";
 		};
 	};
 	196EDC6E1704104000C834B5 /* MainWindowController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 1470}}";
-			sepNavSelRange = "{1940, 0}";
-			sepNavVisRange = "{669, 1892}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 1498}}";
+			sepNavSelRange = "{1088, 0}";
+			sepNavVisRange = "{568, 1608}";
 			sepNavWindowFrame = "{{236, -45}, {883, 878}}";
 		};
 	};
@@ -146,29 +146,29 @@
 	19C3E4C4170BD76600340D0D /* GeometricModel.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1154, 595}}";
-			sepNavSelRange = "{261, 39}";
-			sepNavVisRange = "{0, 333}";
+			sepNavSelRange = "{261, 73}";
+			sepNavVisRange = "{0, 368}";
 		};
 	};
 	19C3E4C5170BD76600340D0D /* GeometricModel.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{61, 38}";
-			sepNavVisRange = "{0, 161}";
+			sepNavSelRange = "{132, 0}";
+			sepNavVisRange = "{0, 195}";
 		};
 	};
 	19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{223, 0}";
-			sepNavVisRange = "{0, 229}";
+			sepNavSelRange = "{257, 0}";
+			sepNavVisRange = "{0, 263}";
 		};
 	};
 	19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 1582}}";
-			sepNavSelRange = "{1467, 0}";
-			sepNavVisRange = "{1022, 1312}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 1736}}";
+			sepNavSelRange = "{1931, 0}";
+			sepNavVisRange = "{1177, 1571}";
 		};
 	};
 	19C3E4DE170BDAE800340D0D /* PBXTextBookmark */ = {
@@ -186,7 +186,7 @@
 		fRef = 19C3E4C5170BD76600340D0D /* GeometricModel.m */;
 		name = "GeometricModel.m: 16";
 		rLen = 0;
-		rLoc = 152;
+		rLoc = 186;
 		rType = 0;
 		vrLen = 139;
 		vrLoc = 0;
@@ -196,7 +196,7 @@
 		fRef = 19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */;
 		name = "GeometricModelSphere.h: 16";
 		rLen = 0;
-		rLoc = 223;
+		rLoc = 257;
 		rType = 0;
 		vrLen = 207;
 		vrLoc = 0;
@@ -214,15 +214,15 @@
 	19C3E534170BE27000340D0D /* GeometricModelCone.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{221, 0}";
-			sepNavVisRange = "{0, 227}";
+			sepNavSelRange = "{255, 0}";
+			sepNavVisRange = "{0, 261}";
 		};
 	};
 	19C3E535170BE27000340D0D /* GeometricModelCone.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 1988}}";
-			sepNavSelRange = "{919, 0}";
-			sepNavVisRange = "{2150, 1145}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 2198}}";
+			sepNavSelRange = "{1063, 610}";
+			sepNavVisRange = "{795, 1295}";
 		};
 	};
 	19C3E581170BEF0C00340D0D /* PBXTextBookmark */ = {
@@ -240,7 +240,7 @@
 		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
 		name = "GeometricModelCone.m: 102";
 		rLen = 0;
-		rLoc = 1477;
+		rLoc = 2000;
 		rType = 0;
 		vrLen = 1294;
 		vrLoc = 1379;
@@ -309,7 +309,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 169";
 		rLen = 0;
-		rLoc = 5498;
+		rLoc = 5884;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 4149;
@@ -420,7 +420,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 61";
 		rLen = 0;
-		rLoc = 2071;
+		rLoc = 2211;
 		rType = 0;
 		vrLen = 1461;
 		vrLoc = 1381;
@@ -430,7 +430,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 61";
 		rLen = 0;
-		rLoc = 2071;
+		rLoc = 2211;
 		rType = 0;
 		vrLen = 1461;
 		vrLoc = 1381;
@@ -440,7 +440,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 61";
 		rLen = 0;
-		rLoc = 2071;
+		rLoc = 2211;
 		rType = 0;
 		vrLen = 1461;
 		vrLoc = 1381;
@@ -465,12 +465,612 @@
 		vrLen = 739;
 		vrLoc = 0;
 	};
+	19CB5FD6170DCC8E00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 14";
+		rLen = 0;
+		rLoc = 342;
+		rType = 0;
+		vrLen = 801;
+		vrLoc = 0;
+	};
+	19CB5FD7170DCC8E00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 14";
+		rLen = 0;
+		rLoc = 342;
+		rType = 0;
+		vrLen = 801;
+		vrLoc = 0;
+	};
+	19CB5FD8170DCC8E00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00B1D170DC39300E7E7F8 /* PolygonModel.h */;
+		name = "PolygonModel.h: 11";
+		rLen = 0;
+		rLoc = 150;
+		rType = 0;
+		vrLen = 369;
+		vrLoc = 0;
+	};
+	19CB5FDA170DCCB800F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00B1D170DC39300E7E7F8 /* PolygonModel.h */;
+		name = "PolygonModel.h: 11";
+		rLen = 0;
+		rLoc = 150;
+		rType = 0;
+		vrLen = 369;
+		vrLoc = 0;
+	};
+	19CB5FE2170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00B1D170DC39300E7E7F8 /* PolygonModel.h */;
+		name = "PolygonModel.h: 11";
+		rLen = 0;
+		rLoc = 150;
+		rType = 0;
+		vrLen = 369;
+		vrLoc = 0;
+	};
+	19CB5FE3170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 57";
+		rLen = 0;
+		rLoc = 954;
+		rType = 0;
+		vrLen = 1274;
+		vrLoc = 770;
+	};
+	19CB5FE4170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
+		name = "MainWindowController.h: 44";
+		rLen = 0;
+		rLoc = 1088;
+		rType = 0;
+		vrLen = 1608;
+		vrLoc = 568;
+	};
+	19CB5FE5170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
+		name = "MainWindowController.m: 117";
+		rLen = 0;
+		rLoc = 4610;
+		rType = 0;
+		vrLen = 1181;
+		vrLoc = 3573;
+	};
+	19CB5FE6170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
+		name = "GraphicView.h: 32";
+		rLen = 88;
+		rLoc = 727;
+		rType = 0;
+		vrLen = 881;
+		vrLoc = 0;
+	};
+	19CB5FE7170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 9";
+		rLen = 0;
+		rLoc = 209;
+		rType = 0;
+		vrLen = 801;
+		vrLoc = 0;
+	};
+	19CB5FE8170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00B1D170DC39300E7E7F8 /* PolygonModel.h */;
+		name = "PolygonModel.h: 11";
+		rLen = 0;
+		rLoc = 150;
+		rType = 0;
+		vrLen = 369;
+		vrLoc = 0;
+	};
+	19CB5FE9170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 9";
+		rLen = 0;
+		rLoc = 209;
+		rType = 0;
+		vrLen = 801;
+		vrLoc = 0;
+	};
+	19CB5FEA170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 57";
+		rLen = 0;
+		rLoc = 954;
+		rType = 0;
+		vrLen = 1274;
+		vrLoc = 770;
+	};
+	19CB5FEB170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
+		name = "MainWindowController.h: 44";
+		rLen = 0;
+		rLoc = 1088;
+		rType = 0;
+		vrLen = 1608;
+		vrLoc = 568;
+	};
+	19CB5FEC170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
+		name = "MainWindowController.m: 117";
+		rLen = 0;
+		rLoc = 4610;
+		rType = 0;
+		vrLen = 1181;
+		vrLoc = 3573;
+	};
+	19CB5FED170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
+		name = "GraphicView.h: 32";
+		rLen = 88;
+		rLoc = 727;
+		rType = 0;
+		vrLen = 881;
+		vrLoc = 0;
+	};
+	19CB5FEE170E289000F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 110";
+		rLen = 0;
+		rLoc = 2487;
+		rType = 0;
+		vrLen = 1376;
+		vrLoc = 1718;
+	};
+	19CB5FEF170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 110";
+		rLen = 0;
+		rLoc = 2487;
+		rType = 0;
+		vrLen = 1433;
+		vrLoc = 1718;
+	};
+	19CB5FF0170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
+		name = "GeometricModel.h: 9";
+		rLen = 73;
+		rLoc = 261;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	19CB5FF1170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E534170BE27000340D0D /* GeometricModelCone.h */;
+		name = "GeometricModelCone.h: 18";
+		rLen = 0;
+		rLoc = 255;
+		rType = 0;
+		vrLen = 261;
+		vrLoc = 0;
+	};
+	19CB5FF2170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */;
+		name = "GeometricModelCube.h: 18";
+		rLen = 0;
+		rLoc = 254;
+		rType = 0;
+		vrLen = 260;
+		vrLoc = 0;
+	};
+	19CB5FF3170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */;
+		name = "GeometricModelSphere.h: 18";
+		rLen = 0;
+		rLoc = 257;
+		rType = 0;
+		vrLen = 263;
+		vrLoc = 0;
+	};
+	19CB5FF4170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C5170BD76600340D0D /* GeometricModel.m */;
+		name = "GeometricModel.m: 7";
+		rLen = 0;
+		rLoc = 132;
+		rType = 0;
+		vrLen = 195;
+		vrLoc = 0;
+	};
+	19CB5FF5170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 57";
+		rLen = 0;
+		rLoc = 954;
+		rType = 0;
+		vrLen = 1264;
+		vrLoc = 770;
+	};
+	19CB5FF6170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 110";
+		rLen = 0;
+		rLoc = 2487;
+		rType = 0;
+		vrLen = 1433;
+		vrLoc = 1718;
+	};
+	19CB5FF7170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
+		name = "GeometricModel.h: 9";
+		rLen = 73;
+		rLoc = 261;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	19CB5FF8170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E534170BE27000340D0D /* GeometricModelCone.h */;
+		name = "GeometricModelCone.h: 18";
+		rLen = 0;
+		rLoc = 255;
+		rType = 0;
+		vrLen = 261;
+		vrLoc = 0;
+	};
+	19CB5FF9170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */;
+		name = "GeometricModelCube.h: 18";
+		rLen = 0;
+		rLoc = 254;
+		rType = 0;
+		vrLen = 260;
+		vrLoc = 0;
+	};
+	19CB5FFA170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */;
+		name = "GeometricModelSphere.h: 18";
+		rLen = 0;
+		rLoc = 257;
+		rType = 0;
+		vrLen = 263;
+		vrLoc = 0;
+	};
+	19CB5FFB170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C5170BD76600340D0D /* GeometricModel.m */;
+		name = "GeometricModel.m: 7";
+		rLen = 0;
+		rLoc = 132;
+		rType = 0;
+		vrLen = 195;
+		vrLoc = 0;
+	};
+	19CB5FFC170E28DC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 56";
+		rLen = 0;
+		rLoc = 871;
+		rType = 0;
+		vrLen = 1274;
+		vrLoc = 770;
+	};
+	19CB6004170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 298";
+		rLen = 0;
+		rLoc = 8064;
+		rType = 0;
+		vrLen = 871;
+		vrLoc = 7494;
+	};
+	19CB6005170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 54";
+		rLen = 73;
+		rLoc = 798;
+		rType = 0;
+		vrLen = 1242;
+		vrLoc = 663;
+	};
+	19CB6006170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
+		name = "GeometricModelCube.m: 56";
+		rLen = 0;
+		rLoc = 871;
+		rType = 0;
+		vrLen = 1141;
+		vrLoc = 668;
+	};
+	19CB6007170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 74";
+		rLen = 0;
+		rLoc = 1994;
+		rType = 0;
+		vrLen = 1312;
+		vrLoc = 1022;
+	};
+	19CB6008170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 74";
+		rLen = 0;
+		rLoc = 1638;
+		rType = 0;
+		vrLen = 1477;
+		vrLoc = 1063;
+	};
+	19CB6009170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
+		name = "GraphicView.m: 298";
+		rLen = 0;
+		rLoc = 8064;
+		rType = 0;
+		vrLen = 871;
+		vrLoc = 7494;
+	};
+	19CB600A170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
+		name = "GeometricModelCube.m: 57";
+		rLen = 0;
+		rLoc = 954;
+		rType = 0;
+		vrLen = 1170;
+		vrLoc = 668;
+	};
+	19CB600B170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 54";
+		rLen = 73;
+		rLoc = 798;
+		rType = 0;
+		vrLen = 1242;
+		vrLoc = 663;
+	};
+	19CB600C170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
+		name = "GeometricModelCube.m: 56";
+		rLen = 0;
+		rLoc = 871;
+		rType = 0;
+		vrLen = 1141;
+		vrLoc = 668;
+	};
+	19CB600D170E29B400F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 64";
+		rLen = 0;
+		rLoc = 1177;
+		rType = 0;
+		vrLen = 1234;
+		vrLoc = 1022;
+	};
+	19CB6010170E29DF00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 64";
+		rLen = 0;
+		rLoc = 1177;
+		rType = 0;
+		vrLen = 1234;
+		vrLoc = 1022;
+	};
+	19CB6013170E2AB500F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 64";
+		rLen = 0;
+		rLoc = 1177;
+		rType = 0;
+		vrLen = 1308;
+		vrLoc = 1022;
+	};
+	19CB6014170E2AB500F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 54";
+		rLen = 73;
+		rLoc = 798;
+		rType = 0;
+		vrLen = 1219;
+		vrLoc = 663;
+	};
+	19CB6015170E2AB500F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 64";
+		rLen = 0;
+		rLoc = 1177;
+		rType = 0;
+		vrLen = 1308;
+		vrLoc = 1022;
+	};
+	19CB6016170E2AB500F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 64";
+		rLen = 0;
+		rLoc = 1134;
+		rType = 0;
+		vrLen = 1250;
+		vrLoc = 795;
+	};
+	19CB6018170E2B1D00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 64";
+		rLen = 0;
+		rLoc = 1132;
+		rType = 0;
+		vrLen = 1241;
+		vrLoc = 795;
+	};
+	19CB601A170E2B4700F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 64";
+		rLen = 0;
+		rLoc = 1106;
+		rType = 0;
+		vrLen = 1197;
+		vrLoc = 795;
+	};
+	19CB601D170E2C1300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 64";
+		rLen = 610;
+		rLoc = 1063;
+		rType = 0;
+		vrLen = 1295;
+		vrLoc = 795;
+	};
+	19CB601E170E2C1300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
+		name = "GeometricModelCube.m: 61";
+		rLen = 610;
+		rLoc = 1015;
+		rType = 0;
+		vrLen = 1450;
+		vrLoc = 906;
+	};
+	19CB601F170E2C1300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 64";
+		rLen = 0;
+		rLoc = 1177;
+		rType = 0;
+		vrLen = 1308;
+		vrLoc = 1022;
+	};
+	19CB6020170E2C1300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
+		name = "GeometricModelCone.m: 64";
+		rLen = 610;
+		rLoc = 1063;
+		rType = 0;
+		vrLen = 1295;
+		vrLoc = 795;
+	};
+	19CB6021170E2C1300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
+		name = "GeometricModelCube.m: 61";
+		rLen = 610;
+		rLoc = 1015;
+		rType = 0;
+		vrLen = 1450;
+		vrLoc = 906;
+	};
+	19CB6022170E2C1300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 84";
+		rLen = 0;
+		rLoc = 1931;
+		rType = 0;
+		vrLen = 1493;
+		vrLoc = 1177;
+	};
+	19CB6025170E2CEC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 84";
+		rLen = 0;
+		rLoc = 1931;
+		rType = 0;
+		vrLen = 1571;
+		vrLoc = 1177;
+	};
+	19CB6026170E2CEC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
+		name = "MainWindowController.m: 117";
+		rLen = 0;
+		rLoc = 4610;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 3467;
+	};
+	19CB6027170E2CEC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
+		name = "GeometricModelSphere.m: 84";
+		rLen = 0;
+		rLoc = 1931;
+		rType = 0;
+		vrLen = 1571;
+		vrLoc = 1177;
+	};
+	19CB6028170E2CEC00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
+		name = "MainWindowController.m: 34";
+		rLen = 0;
+		rLoc = 1419;
+		rType = 0;
+		vrLen = 1668;
+		vrLoc = 285;
+	};
+	19CB602B170E2EEA00F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
+		name = "MainWindowController.m: 84";
+		rLen = 0;
+		rLoc = 3269;
+		rType = 0;
+		vrLen = 1678;
+		vrLoc = 2134;
+	};
+	19CB602C170E2F3300F572A5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
+		name = "MainWindowController.m: 86";
+		rLen = 0;
+		rLoc = 3264;
+		rType = 0;
+		vrLen = 1808;
+		vrLoc = 2134;
+	};
 	19E00A0E170D633F00E7E7F8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 31";
 		rLen = 0;
-		rLoc = 1594;
+		rLoc = 1698;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 0;
@@ -484,7 +1084,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 32";
 		rLen = 38;
-		rLoc = 866;
+		rLoc = 953;
 		rType = 0;
 		vrLen = 1598;
 		vrLoc = 501;
@@ -494,7 +1094,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 79";
 		rLen = 0;
-		rLoc = 4214;
+		rLoc = 4758;
 		rType = 0;
 		vrLen = 1181;
 		vrLoc = 6372;
@@ -504,7 +1104,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 428";
 		rLen = 34;
-		rLoc = 11540;
+		rLoc = 11988;
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 10216;
@@ -514,7 +1114,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 79";
 		rLen = 0;
-		rLoc = 4214;
+		rLoc = 4758;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 1713;
@@ -524,7 +1124,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 22";
 		rLen = 0;
-		rLoc = 574;
+		rLoc = 610;
 		rType = 0;
 		vrLen = 599;
 		vrLoc = 0;
@@ -534,7 +1134,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 52";
 		rLen = 24;
-		rLoc = 1161;
+		rLoc = 1408;
 		rType = 0;
 		vrLen = 888;
 		vrLoc = 571;
@@ -544,7 +1144,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 27";
 		rLen = 0;
-		rLoc = 750;
+		rLoc = 874;
 		rType = 0;
 		vrLen = 625;
 		vrLoc = 0;
@@ -554,7 +1154,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 55";
 		rLen = 0;
-		rLoc = 2953;
+		rLoc = 3302;
 		rType = 0;
 		vrLen = 1359;
 		vrLoc = 1417;
@@ -564,7 +1164,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 32";
 		rLen = 38;
-		rLoc = 866;
+		rLoc = 953;
 		rType = 0;
 		vrLen = 1332;
 		vrLoc = 0;
@@ -574,7 +1174,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 55";
 		rLen = 0;
-		rLoc = 2953;
+		rLoc = 3302;
 		rType = 0;
 		vrLen = 1313;
 		vrLoc = 1417;
@@ -594,7 +1194,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 55";
 		rLen = 0;
-		rLoc = 2953;
+		rLoc = 3302;
 		rType = 0;
 		vrLen = 1327;
 		vrLoc = 1415;
@@ -614,7 +1214,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 55";
 		rLen = 0;
-		rLoc = 2842;
+		rLoc = 3025;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 1398;
@@ -634,7 +1234,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 66";
 		rLen = 0;
-		rLoc = 2807;
+		rLoc = 2990;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 1398;
@@ -652,7 +1252,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 48";
 		rLen = 0;
-		rLoc = 1970;
+		rLoc = 2111;
 		rType = 0;
 		vrLen = 1557;
 		vrLoc = 1398;
@@ -662,7 +1262,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 57";
 		rLen = 0;
-		rLoc = 2408;
+		rLoc = 2583;
 		rType = 0;
 		vrLen = 1693;
 		vrLoc = 607;
@@ -672,7 +1272,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 205";
 		rLen = 0;
-		rLoc = 7615;
+		rLoc = 8418;
 		rType = 0;
 		vrLen = 921;
 		vrLoc = 5638;
@@ -682,7 +1282,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 56";
 		rLen = 0;
-		rLoc = 2408;
+		rLoc = 2583;
 		rType = 0;
 		vrLen = 1736;
 		vrLoc = 607;
@@ -692,7 +1292,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 202";
 		rLen = 0;
-		rLoc = 7615;
+		rLoc = 8418;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 5638;
@@ -700,15 +1300,15 @@
 	19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1057, 595}}";
-			sepNavSelRange = "{220, 0}";
-			sepNavVisRange = "{0, 226}";
+			sepNavSelRange = "{254, 0}";
+			sepNavVisRange = "{0, 260}";
 		};
 	};
 	19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1057, 1890}}";
-			sepNavSelRange = "{919, 0}";
-			sepNavVisRange = "{1876, 1179}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 2170}}";
+			sepNavSelRange = "{1015, 610}";
+			sepNavVisRange = "{906, 1450}";
 		};
 	};
 	19E00AC9170DB35500E7E7F8 /* PBXTextBookmark */ = {
@@ -716,7 +1316,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 525";
 		rLen = 0;
-		rLoc = 14249;
+		rLoc = 14697;
 		rType = 0;
 		vrLen = 1135;
 		vrLoc = 12504;
@@ -785,7 +1385,7 @@
 		isa = PBXTextBookmark;
 		fRef = 19C3E534170BE27000340D0D /* GeometricModelCone.h */;
 		name = "GeometricModelCone.h: 9";
-		rLen = 115;
+		rLen = 149;
 		rLoc = 106;
 		rType = 0;
 		vrLen = 205;
@@ -796,7 +1396,7 @@
 		fRef = 19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */;
 		name = "GeometricModelCube.h: 17";
 		rLen = 0;
-		rLoc = 220;
+		rLoc = 254;
 		rType = 0;
 		vrLen = 178;
 		vrLoc = 0;
@@ -816,7 +1416,7 @@
 		fRef = 19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */;
 		name = "GeometricModelCube.h: 17";
 		rLen = 0;
-		rLoc = 220;
+		rLoc = 254;
 		rType = 0;
 		vrLen = 178;
 		vrLoc = 0;
@@ -835,7 +1435,7 @@
 		isa = PBXTextBookmark;
 		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
 		name = "GeometricModelCone.m: 6";
-		rLen = 3219;
+		rLen = 3742;
 		rLoc = 69;
 		rType = 0;
 		vrLen = 1145;
@@ -846,7 +1446,7 @@
 		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
 		name = "GeometricModelCube.m: 103";
 		rLen = 0;
-		rLoc = 2960;
+		rLoc = 3478;
 		rType = 0;
 		vrLen = 1120;
 		vrLoc = 1251;
@@ -856,7 +1456,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 202";
 		rLen = 0;
-		rLoc = 7615;
+		rLoc = 8418;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 5638;
@@ -866,7 +1466,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 56";
 		rLen = 0;
-		rLoc = 2408;
+		rLoc = 2583;
 		rType = 0;
 		vrLen = 1736;
 		vrLoc = 607;
@@ -896,7 +1496,7 @@
 		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
 		name = "GeometricModelCube.m: 68";
 		rLen = 0;
-		rLoc = 1297;
+		rLoc = 1815;
 		rType = 0;
 		vrLen = 1144;
 		vrLoc = 668;
@@ -916,7 +1516,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 58";
 		rLen = 0;
-		rLoc = 2495;
+		rLoc = 2670;
 		rType = 0;
 		vrLen = 1749;
 		vrLoc = 776;
@@ -926,7 +1526,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 211";
 		rLen = 0;
-		rLoc = 7868;
+		rLoc = 8671;
 		rType = 0;
 		vrLen = 856;
 		vrLoc = 5967;
@@ -936,7 +1536,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 14";
 		rLen = 0;
-		rLoc = 305;
+		rLoc = 341;
 		rType = 0;
 		vrLen = 625;
 		vrLoc = 0;
@@ -946,7 +1546,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 294";
 		rLen = 0;
-		rLoc = 8205;
+		rLoc = 8653;
 		rType = 0;
 		vrLen = 871;
 		vrLoc = 7045;
@@ -956,7 +1556,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 214";
 		rLen = 0;
-		rLoc = 7911;
+		rLoc = 8714;
 		rType = 0;
 		vrLen = 856;
 		vrLoc = 5967;
@@ -966,7 +1566,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 94";
 		rLen = 0;
-		rLoc = 3550;
+		rLoc = 3725;
 		rType = 0;
 		vrLen = 1262;
 		vrLoc = 1832;
@@ -976,7 +1576,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 379";
 		rLen = 0;
-		rLoc = 10273;
+		rLoc = 11076;
 		rType = 0;
 		vrLen = 892;
 		vrLoc = 8465;
@@ -986,7 +1586,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 76";
 		rLen = 0;
-		rLoc = 3015;
+		rLoc = 3190;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 1801;
@@ -996,7 +1596,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 430";
 		rLen = 0;
-		rLoc = 12376;
+		rLoc = 13179;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 8391;
@@ -1006,7 +1606,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 428";
 		rLen = 0;
-		rLoc = 11574;
+		rLoc = 12022;
 		rType = 0;
 		vrLen = 1096;
 		vrLoc = 10216;
@@ -1016,7 +1616,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 29";
 		rLen = 0;
-		rLoc = 750;
+		rLoc = 874;
 		rType = 0;
 		vrLen = 660;
 		vrLoc = 0;
@@ -1026,7 +1626,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 445";
 		rLen = 0;
-		rLoc = 11834;
+		rLoc = 12282;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 10444;
@@ -1036,7 +1636,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 35";
 		rLen = 0;
-		rLoc = 904;
+		rLoc = 991;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 519;
@@ -1046,7 +1646,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 108";
 		rLen = 0;
-		rLoc = 4336;
+		rLoc = 4880;
 		rType = 0;
 		vrLen = 1177;
 		vrLoc = 2956;
@@ -1056,7 +1656,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 35";
 		rLen = 0;
-		rLoc = 904;
+		rLoc = 991;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 519;
@@ -1066,7 +1666,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 108";
 		rLen = 0;
-		rLoc = 4336;
+		rLoc = 4880;
 		rType = 0;
 		vrLen = 1177;
 		vrLoc = 2956;
@@ -1076,7 +1676,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 29";
 		rLen = 0;
-		rLoc = 750;
+		rLoc = 874;
 		rType = 0;
 		vrLen = 660;
 		vrLoc = 0;
@@ -1086,7 +1686,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 445";
 		rLen = 0;
-		rLoc = 11834;
+		rLoc = 12282;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 10444;
@@ -1096,7 +1696,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 20";
 		rLen = 0;
-		rLoc = 414;
+		rLoc = 450;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 0;
@@ -1129,7 +1729,7 @@
 		isa = PBXTextBookmark;
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 9";
-		rLen = 39;
+		rLen = 74;
 		rLoc = 261;
 		rType = 0;
 		vrLen = 333;
@@ -1140,7 +1740,7 @@
 		fRef = 19C3E534170BE27000340D0D /* GeometricModelCone.h */;
 		name = "GeometricModelCone.h: 17";
 		rLen = 0;
-		rLoc = 221;
+		rLoc = 255;
 		rType = 0;
 		vrLen = 227;
 		vrLoc = 0;
@@ -1150,7 +1750,7 @@
 		fRef = 19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */;
 		name = "GeometricModelCube.h: 17";
 		rLen = 0;
-		rLoc = 220;
+		rLoc = 254;
 		rType = 0;
 		vrLen = 226;
 		vrLoc = 0;
@@ -1160,7 +1760,7 @@
 		fRef = 19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */;
 		name = "GeometricModelSphere.h: 17";
 		rLen = 0;
-		rLoc = 223;
+		rLoc = 257;
 		rType = 0;
 		vrLen = 229;
 		vrLoc = 0;
@@ -1180,7 +1780,7 @@
 		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
 		name = "GeometricModelCone.m: 57";
 		rLen = 0;
-		rLoc = 919;
+		rLoc = 954;
 		rType = 0;
 		vrLen = 1145;
 		vrLoc = 2150;
@@ -1190,7 +1790,7 @@
 		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
 		name = "GeometricModelCube.m: 57";
 		rLen = 0;
-		rLoc = 919;
+		rLoc = 954;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 1876;
@@ -1200,7 +1800,7 @@
 		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
 		name = "GeometricModelSphere.m: 74";
 		rLen = 0;
-		rLoc = 1467;
+		rLoc = 1994;
 		rType = 0;
 		vrLen = 1312;
 		vrLoc = 1022;
@@ -1240,7 +1840,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 57";
 		rLen = 0;
-		rLoc = 1940;
+		rLoc = 2115;
 		rType = 0;
 		vrLen = 1892;
 		vrLoc = 669;
@@ -1269,7 +1869,7 @@
 		isa = PBXTextBookmark;
 		fRef = 19C3E4C4170BD76600340D0D /* GeometricModel.h */;
 		name = "GeometricModel.h: 9";
-		rLen = 39;
+		rLen = 74;
 		rLoc = 261;
 		rType = 0;
 		vrLen = 333;
@@ -1280,7 +1880,7 @@
 		fRef = 19C3E534170BE27000340D0D /* GeometricModelCone.h */;
 		name = "GeometricModelCone.h: 17";
 		rLen = 0;
-		rLoc = 221;
+		rLoc = 255;
 		rType = 0;
 		vrLen = 227;
 		vrLoc = 0;
@@ -1290,7 +1890,7 @@
 		fRef = 19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */;
 		name = "GeometricModelCube.h: 17";
 		rLen = 0;
-		rLoc = 220;
+		rLoc = 254;
 		rType = 0;
 		vrLen = 226;
 		vrLoc = 0;
@@ -1300,7 +1900,7 @@
 		fRef = 19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */;
 		name = "GeometricModelSphere.h: 17";
 		rLen = 0;
-		rLoc = 223;
+		rLoc = 257;
 		rType = 0;
 		vrLen = 229;
 		vrLoc = 0;
@@ -1320,7 +1920,7 @@
 		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
 		name = "GeometricModelCone.m: 55";
 		rLen = 0;
-		rLoc = 836;
+		rLoc = 871;
 		rType = 0;
 		vrLen = 1017;
 		vrLoc = 401;
@@ -1330,7 +1930,7 @@
 		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
 		name = "GeometricModelCube.m: 55";
 		rLen = 0;
-		rLoc = 836;
+		rLoc = 871;
 		rType = 0;
 		vrLen = 1019;
 		vrLoc = 401;
@@ -1340,7 +1940,7 @@
 		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
 		name = "GeometricModelSphere.m: 63";
 		rLen = 0;
-		rLoc = 1142;
+		rLoc = 1177;
 		rType = 0;
 		vrLen = 1165;
 		vrLoc = 570;
@@ -1350,7 +1950,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 267";
 		rLen = 0;
-		rLoc = 7608;
+		rLoc = 7994;
 		rType = 0;
 		vrLen = 862;
 		vrLoc = 6546;
@@ -1360,7 +1960,7 @@
 		fRef = 19C3E535170BE27000340D0D /* GeometricModelCone.m */;
 		name = "GeometricModelCone.m: 57";
 		rLen = 0;
-		rLoc = 919;
+		rLoc = 954;
 		rType = 0;
 		vrLen = 1145;
 		vrLoc = 2150;
@@ -1370,7 +1970,7 @@
 		fRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */;
 		name = "GeometricModelCube.m: 57";
 		rLen = 0;
-		rLoc = 919;
+		rLoc = 954;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 1876;
@@ -1380,7 +1980,7 @@
 		fRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */;
 		name = "GeometricModelSphere.m: 74";
 		rLen = 0;
-		rLoc = 1467;
+		rLoc = 1994;
 		rType = 0;
 		vrLen = 1312;
 		vrLoc = 1022;
@@ -1470,7 +2070,7 @@
 		fRef = 196EDC6E1704104000C834B5 /* MainWindowController.h */;
 		name = "MainWindowController.h: 57";
 		rLen = 0;
-		rLoc = 1940;
+		rLoc = 2115;
 		rType = 0;
 		vrLen = 1892;
 		vrLoc = 669;
@@ -1480,7 +2080,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 93";
 		rLen = 0;
-		rLoc = 3822;
+		rLoc = 4171;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 2956;
@@ -1490,7 +2090,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 20";
 		rLen = 0;
-		rLoc = 414;
+		rLoc = 450;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 0;
@@ -1570,7 +2170,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 10";
 		rLen = 0;
-		rLoc = 215;
+		rLoc = 251;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 0;
@@ -1580,7 +2180,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 105";
 		rLen = 9;
-		rLoc = 3927;
+		rLoc = 4276;
 		rType = 0;
 		vrLen = 1386;
 		vrLoc = 3000;
@@ -1600,7 +2200,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 100";
 		rLen = 0;
-		rLoc = 3810;
+		rLoc = 4159;
 		rType = 0;
 		vrLen = 1469;
 		vrLoc = 2807;
@@ -1610,7 +2210,7 @@
 		fRef = 196EDC4C17040E9F00C834B5 /* GraphicView.h */;
 		name = "GraphicView.h: 10";
 		rLen = 0;
-		rLoc = 215;
+		rLoc = 251;
 		rType = 0;
 		vrLen = 757;
 		vrLoc = 0;
@@ -1650,7 +2250,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 100";
 		rLen = 0;
-		rLoc = 3810;
+		rLoc = 4159;
 		rType = 0;
 		vrLen = 1539;
 		vrLoc = 1381;
@@ -1660,7 +2260,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 93";
 		rLen = 0;
-		rLoc = 2064;
+		rLoc = 2311;
 		rType = 0;
 		vrLen = 1094;
 		vrLoc = 1106;
@@ -1669,7 +2269,7 @@
 		isa = PBXTextBookmark;
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		rLen = 0;
-		rLoc = 60;
+		rLoc = 63;
 		rType = 1;
 	};
 	19E00B83170DCAA000E7E7F8 /* PBXTextBookmark */ = {
@@ -1677,7 +2277,7 @@
 		fRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */;
 		name = "GraphicView.m: 93";
 		rLen = 0;
-		rLoc = 2064;
+		rLoc = 2311;
 		rType = 0;
 		vrLen = 1094;
 		vrLoc = 1106;
@@ -1687,7 +2287,7 @@
 		fRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */;
 		name = "MainWindowController.m: 61";
 		rLen = 0;
-		rLoc = 2071;
+		rLoc = 2211;
 		rType = 0;
 		vrLen = 1434;
 		vrLoc = 1486;
@@ -1851,6 +2451,66 @@
 			19CB5FC4170DCAE300F572A5 /* PBXTextBookmark */ = 19CB5FC4170DCAE300F572A5 /* PBXTextBookmark */;
 			19CB5FC5170DCAE300F572A5 /* PBXTextBookmark */ = 19CB5FC5170DCAE300F572A5 /* PBXTextBookmark */;
 			19CB5FCB170DCB2300F572A5 /* PBXTextBookmark */ = 19CB5FCB170DCB2300F572A5 /* PBXTextBookmark */;
+			19CB5FD6170DCC8E00F572A5 /* PBXTextBookmark */ = 19CB5FD6170DCC8E00F572A5 /* PBXTextBookmark */;
+			19CB5FD7170DCC8E00F572A5 /* PBXTextBookmark */ = 19CB5FD7170DCC8E00F572A5 /* PBXTextBookmark */;
+			19CB5FD8170DCC8E00F572A5 /* PBXTextBookmark */ = 19CB5FD8170DCC8E00F572A5 /* PBXTextBookmark */;
+			19CB5FDA170DCCB800F572A5 /* PBXTextBookmark */ = 19CB5FDA170DCCB800F572A5 /* PBXTextBookmark */;
+			19CB5FE2170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE2170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE3170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE3170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE4170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE4170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE5170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE5170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE6170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE6170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE7170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE7170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE8170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE8170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FE9170E289000F572A5 /* PBXTextBookmark */ = 19CB5FE9170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FEA170E289000F572A5 /* PBXTextBookmark */ = 19CB5FEA170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FEB170E289000F572A5 /* PBXTextBookmark */ = 19CB5FEB170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FEC170E289000F572A5 /* PBXTextBookmark */ = 19CB5FEC170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FED170E289000F572A5 /* PBXTextBookmark */ = 19CB5FED170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FEE170E289000F572A5 /* PBXTextBookmark */ = 19CB5FEE170E289000F572A5 /* PBXTextBookmark */;
+			19CB5FEF170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FEF170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF0170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF0170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF1170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF1170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF2170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF2170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF3170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF3170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF4170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF4170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF5170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF5170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF6170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF6170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF7170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF7170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF8170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF8170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FF9170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FF9170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FFA170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FFA170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FFB170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FFB170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB5FFC170E28DC00F572A5 /* PBXTextBookmark */ = 19CB5FFC170E28DC00F572A5 /* PBXTextBookmark */;
+			19CB6004170E29B400F572A5 /* PBXTextBookmark */ = 19CB6004170E29B400F572A5 /* PBXTextBookmark */;
+			19CB6005170E29B400F572A5 /* PBXTextBookmark */ = 19CB6005170E29B400F572A5 /* PBXTextBookmark */;
+			19CB6006170E29B400F572A5 /* PBXTextBookmark */ = 19CB6006170E29B400F572A5 /* PBXTextBookmark */;
+			19CB6007170E29B400F572A5 /* PBXTextBookmark */ = 19CB6007170E29B400F572A5 /* PBXTextBookmark */;
+			19CB6008170E29B400F572A5 /* PBXTextBookmark */ = 19CB6008170E29B400F572A5 /* PBXTextBookmark */;
+			19CB6009170E29B400F572A5 /* PBXTextBookmark */ = 19CB6009170E29B400F572A5 /* PBXTextBookmark */;
+			19CB600A170E29B400F572A5 /* PBXTextBookmark */ = 19CB600A170E29B400F572A5 /* PBXTextBookmark */;
+			19CB600B170E29B400F572A5 /* PBXTextBookmark */ = 19CB600B170E29B400F572A5 /* PBXTextBookmark */;
+			19CB600C170E29B400F572A5 /* PBXTextBookmark */ = 19CB600C170E29B400F572A5 /* PBXTextBookmark */;
+			19CB600D170E29B400F572A5 /* PBXTextBookmark */ = 19CB600D170E29B400F572A5 /* PBXTextBookmark */;
+			19CB6010170E29DF00F572A5 /* PBXTextBookmark */ = 19CB6010170E29DF00F572A5 /* PBXTextBookmark */;
+			19CB6013170E2AB500F572A5 /* PBXTextBookmark */ = 19CB6013170E2AB500F572A5 /* PBXTextBookmark */;
+			19CB6014170E2AB500F572A5 /* PBXTextBookmark */ = 19CB6014170E2AB500F572A5 /* PBXTextBookmark */;
+			19CB6015170E2AB500F572A5 /* PBXTextBookmark */ = 19CB6015170E2AB500F572A5 /* PBXTextBookmark */;
+			19CB6016170E2AB500F572A5 /* PBXTextBookmark */ = 19CB6016170E2AB500F572A5 /* PBXTextBookmark */;
+			19CB6018170E2B1D00F572A5 /* PBXTextBookmark */ = 19CB6018170E2B1D00F572A5 /* PBXTextBookmark */;
+			19CB601A170E2B4700F572A5 /* PBXTextBookmark */ = 19CB601A170E2B4700F572A5 /* PBXTextBookmark */;
+			19CB601D170E2C1300F572A5 /* PBXTextBookmark */ = 19CB601D170E2C1300F572A5 /* PBXTextBookmark */;
+			19CB601E170E2C1300F572A5 /* PBXTextBookmark */ = 19CB601E170E2C1300F572A5 /* PBXTextBookmark */;
+			19CB601F170E2C1300F572A5 /* PBXTextBookmark */ = 19CB601F170E2C1300F572A5 /* PBXTextBookmark */;
+			19CB6020170E2C1300F572A5 /* PBXTextBookmark */ = 19CB6020170E2C1300F572A5 /* PBXTextBookmark */;
+			19CB6021170E2C1300F572A5 /* PBXTextBookmark */ = 19CB6021170E2C1300F572A5 /* PBXTextBookmark */;
+			19CB6022170E2C1300F572A5 /* PBXTextBookmark */ = 19CB6022170E2C1300F572A5 /* PBXTextBookmark */;
+			19CB6025170E2CEC00F572A5 /* PBXTextBookmark */ = 19CB6025170E2CEC00F572A5 /* PBXTextBookmark */;
+			19CB6026170E2CEC00F572A5 /* PBXTextBookmark */ = 19CB6026170E2CEC00F572A5 /* PBXTextBookmark */;
+			19CB6027170E2CEC00F572A5 /* PBXTextBookmark */ = 19CB6027170E2CEC00F572A5 /* PBXTextBookmark */;
+			19CB6028170E2CEC00F572A5 /* PBXTextBookmark */ = 19CB6028170E2CEC00F572A5 /* PBXTextBookmark */;
+			19CB602B170E2EEA00F572A5 /* PBXTextBookmark */ = 19CB602B170E2EEA00F572A5 /* PBXTextBookmark */;
+			19CB602C170E2F3300F572A5 /* PBXTextBookmark */ = 19CB602C170E2F3300F572A5 /* PBXTextBookmark */;
 			19E00A0E170D633F00E7E7F8 = 19E00A0E170D633F00E7E7F8 /* PBXTextBookmark */;
 			19E00A17170D641900E7E7F8 = 19E00A17170D641900E7E7F8 /* PBXBookmark */;
 			19E00A18170D641900E7E7F8 = 19E00A18170D641900E7E7F8 /* PBXTextBookmark */;

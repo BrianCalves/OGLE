@@ -13,6 +13,7 @@
 
 - (NSString*) description;
 
-- (void) render: (GLenum) polygonMode;
+- (void) render: (GLenum) polygonMode
+          color: (NSColor*) color;
 
 @end

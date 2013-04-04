@@ -60,6 +60,19 @@
     [self setNeedsDisplay:YES];
 }
 
+- (NSColor*) geometryAmbientColor
+{
+    return _geometryAmbientColor;
+}
+
+- (void) setGeometryAmbientColor: (NSColor*) color
+{
+    [_geometryAmbientColor autorelease];
+    _geometryAmbientColor = [color retain];
+    [self setNeedsDisplay:YES];
+}
+
+
 - (void) resetModelView
 {
     glMatrixMode(GL_MODELVIEW);
@@ -91,6 +104,10 @@
     
     if ([self shadeModel] == 0)
         [self setShadeModel:GL_FLAT];
+    
+    if ([self geometryAmbientColor] == nil)
+        [self setGeometryAmbientColor:[NSColor colorWithDeviceWhite:0.5 alpha:1.0]];
+    
 }
 
 static void drawAxes(bool flags)
@@ -277,7 +294,8 @@ static void drawAxes(bool flags)
     
     drawAxes(false);
     
-    [[self geometricModel] render:[self polygonModel]];
+    [[self geometricModel] render:[self polygonModel]
+                            color:[self geometryAmbientColor]];
 
 	[self flushContext];
 	

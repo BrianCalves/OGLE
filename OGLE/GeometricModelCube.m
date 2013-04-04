@@ -52,14 +52,25 @@ static void normalVertex(double u, double t, double r, double h)
 }
 
 - (void) render: (GLenum) polygonMode
+          color: (NSColor*) color;
 {
 	glMatrixMode(GL_MODELVIEW);    
     glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
     //    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
+    color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
     
     GLfloat ambientReflection[] = { 0.5, 0.5, 0.5, 1.0 };
+    ambientReflection[0] = [color redComponent];
+    ambientReflection[1] = [color greenComponent];
+    ambientReflection[2] = [color blueComponent];
+    ambientReflection[3] = [color alphaComponent];
+    
     GLfloat specularReflection[] = { 0.5, 0.5, 0.5, 1.0 };
+    specularReflection[0] = [color redComponent];
+    specularReflection[1] = [color greenComponent];
+    specularReflection[2] = [color blueComponent];
+    specularReflection[3] = [color alphaComponent];
     
     glColor4f(0.5, 0.5, 0.5, 1);
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambientReflection);

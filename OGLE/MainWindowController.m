@@ -31,6 +31,8 @@
             [_shadeModelArray addObject:[ShadeModel createFlat]];
             [_shadeModelArray addObject:[ShadeModel createSmooth]];
             
+            _geometryAmbientColor = [[NSColor colorWithDeviceWhite:0.5 alpha:0.9] retain];
+            
             _statisticsTimer = [[NSTimer 
                 scheduledTimerWithTimeInterval:0.1 
                                         target:self 
@@ -47,6 +49,7 @@
 - (void) dealloc
 {
     [_statisticsTimer release];
+    [_geometryAmbientColor release];
     [_shadeModelArray release];
     [_polygonModelArray release];
     [_geometricModelArray release];
@@ -57,9 +60,10 @@
 - (void) awakeFromNib
 {
     [self cameraModelChanged:self];
-    [self geometricModelChanged: self];
-    [self polygonModelChanged: self];
-    [self shadeModelChanged: self];
+    [self geometricModelChanged:self];
+    [self polygonModelChanged:self];
+    [self shadeModelChanged:self];
+    [self geometryAmbientColorChanged:self];
 
     // XXX - Cope with 10.5.x Cocoa defect involving PDF-based image templates:
     //
@@ -77,6 +81,10 @@
     for (id imageRep in [[_resetViewpointToolbarItem image] representations])
         [imageRep setAlpha:YES];
 
+    // The following line of code causes NSColorPanel instances to support
+    // transparency, unless directed otherwise:
+    
+    [NSColor setIgnoresAlpha:NO];    
 }
 
 - (void) cameraModelChanged: (id) sender
@@ -107,6 +115,12 @@
     [_graphicView setShadeModel:[shadeModel value]];
 }
 
+- (void) geometryAmbientColorChanged: (id) sender
+{
+	NSLog(@"Geometry Ambient Color: %@", [self geometryAmbientColor]);
+    [_graphicView setGeometryAmbientColor:[self geometryAmbientColor]];
+}
+
 - (void) resetViewpoint: (id) sender
 {
     [_graphicView resetModelView];
@@ -120,6 +134,18 @@
 - (void) zoomOut: (id) sender
 {
     [_graphicView zoomOut];
+}
+
+- (NSColor*) geometryAmbientColor
+{
+    return _geometryAmbientColor;
+}
+
+- (void) setGeometryAmbientColor: (NSColor*) color
+{
+    [_geometryAmbientColor autorelease];
+    _geometryAmbientColor = [color retain];
+    [self geometryAmbientColorChanged:self];
 }
 
 - (unsigned int) countOfCameraProjections

@@ -141,7 +141,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			comments = "TODO\n\no\tAdd toolbar button to edit geometry material?\n\no\tAdd pop up button to control polygon mode? (GL_FILL, GL_LINE)\n\no\tAdd toolbar button to edit glClearColor?\n\no\tRender geometry that indicates position of light source?\n\no\tAdd toolbar button to edit light source properties?\n";
+			comments = "TODO\n\no\tAdd toolbar button to edit glClearColor?\n\no\tAdd toolbar button to edit geometry material?\n\no\tRender geometry that indicates position of light source?\n\no\tAdd toolbar button to edit light source properties?\n";
 			name = OGLE;
 			sourceTree = "<group>";
 		};

@@ -4,6 +4,7 @@
 @implementation GeometricModel
 
 - (void) render: (GLenum) polygonMode
+          color: (NSColor*) color
 {
     
 }
