@@ -55,6 +55,7 @@
 - (void) setStatisticsVisible: (BOOL) visible;
 
 - (NSString*) modelViewMatrix: (int)index;
+- (NSString*) projectionMatrix: (int)index;
 
 - (NSString*) modelViewMatrix0;
 - (NSString*) modelViewMatrix1;
@@ -72,6 +73,22 @@
 - (NSString*) modelViewMatrix13;
 - (NSString*) modelViewMatrix14;
 - (NSString*) modelViewMatrix15;
-- (NSString*) modelViewMatrix16;
+
+- (NSString*) projectionMatrix0;
+- (NSString*) projectionMatrix1;
+- (NSString*) projectionMatrix2;
+- (NSString*) projectionMatrix3;
+- (NSString*) projectionMatrix4;
+- (NSString*) projectionMatrix5;
+- (NSString*) projectionMatrix6;
+- (NSString*) projectionMatrix7;
+- (NSString*) projectionMatrix8;
+- (NSString*) projectionMatrix9;
+- (NSString*) projectionMatrix10;
+- (NSString*) projectionMatrix11;
+- (NSString*) projectionMatrix12;
+- (NSString*) projectionMatrix13;
+- (NSString*) projectionMatrix14;
+- (NSString*) projectionMatrix15;
 
 @end

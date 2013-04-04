@@ -206,6 +206,11 @@
     return [NSString stringWithFormat:@"%lf", [_graphicView modelViewMatrix:index]];
 }
 
+- (NSString*) projectionMatrix: (int)index
+{
+    return [NSString stringWithFormat:@"%lf", [_graphicView projectionMatrix:index]];
+}
+
 - (NSString*) modelViewMatrix0
 {
     return [self modelViewMatrix:0];
@@ -286,9 +291,84 @@
     return [self modelViewMatrix:15];
 }
 
-- (NSString*) modelViewMatrix16
+- (NSString*) projectionMatrix0
 {
-    return [self modelViewMatrix:16];
+    return [self projectionMatrix:0];
+}
+
+- (NSString*) projectionMatrix1
+{
+    return [self projectionMatrix:1];
+}
+
+- (NSString*) projectionMatrix2
+{
+    return [self projectionMatrix:2];
+}
+
+- (NSString*) projectionMatrix3
+{
+    return [self projectionMatrix:3];
+}
+
+- (NSString*) projectionMatrix4
+{
+    return [self projectionMatrix:4];
+}
+
+- (NSString*) projectionMatrix5
+{
+    return [self projectionMatrix:5];
+}
+
+- (NSString*) projectionMatrix6
+{
+    return [self projectionMatrix:6];
+}
+
+- (NSString*) projectionMatrix7
+{
+    return [self projectionMatrix:7];
+}
+
+- (NSString*) projectionMatrix8
+{
+    return [self projectionMatrix:8];
+}
+
+- (NSString*) projectionMatrix9
+{
+    return [self projectionMatrix:9];
+}
+
+- (NSString*) projectionMatrix10
+{
+    return [self projectionMatrix:10];
+}
+
+- (NSString*) projectionMatrix11
+{
+    return [self projectionMatrix:11];
+}
+
+- (NSString*) projectionMatrix12
+{
+    return [self projectionMatrix:12];
+}
+
+- (NSString*) projectionMatrix13
+{
+    return [self projectionMatrix:13];
+}
+
+- (NSString*) projectionMatrix14
+{
+    return [self projectionMatrix:14];
+}
+
+- (NSString*) projectionMatrix15
+{
+    return [self projectionMatrix:15];
 }
 
 - (void) refreshStatistics: (NSTimer*) timer
@@ -298,52 +378,97 @@
     
     [self willChangeValueForKey:@"modelViewMatrix1"];
     [self didChangeValueForKey:@"modelViewMatrix1"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix2"];
     [self didChangeValueForKey:@"modelViewMatrix2"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix3"];
     [self didChangeValueForKey:@"modelViewMatrix3"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix4"];
     [self didChangeValueForKey:@"modelViewMatrix4"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix5"];
     [self didChangeValueForKey:@"modelViewMatrix5"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix6"];
     [self didChangeValueForKey:@"modelViewMatrix6"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix7"];
     [self didChangeValueForKey:@"modelViewMatrix7"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix8"];
     [self didChangeValueForKey:@"modelViewMatrix8"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix9"];
     [self didChangeValueForKey:@"modelViewMatrix9"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix10"];
     [self didChangeValueForKey:@"modelViewMatrix10"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix11"];
     [self didChangeValueForKey:@"modelViewMatrix11"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix12"];
     [self didChangeValueForKey:@"modelViewMatrix12"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix13"];
     [self didChangeValueForKey:@"modelViewMatrix13"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix14"];
     [self didChangeValueForKey:@"modelViewMatrix14"];
-
+    
     [self willChangeValueForKey:@"modelViewMatrix15"];
     [self didChangeValueForKey:@"modelViewMatrix15"];
 
-    [self willChangeValueForKey:@"modelViewMatrix16"];
-    [self didChangeValueForKey:@"modelViewMatrix16"];
-
+    [self willChangeValueForKey:@"projectionMatrix0"];
+    [self didChangeValueForKey:@"projectionMatrix0"];
+    
+    [self willChangeValueForKey:@"projectionMatrix1"];
+    [self didChangeValueForKey:@"projectionMatrix1"];
+    
+    [self willChangeValueForKey:@"projectionMatrix2"];
+    [self didChangeValueForKey:@"projectionMatrix2"];
+    
+    [self willChangeValueForKey:@"projectionMatrix3"];
+    [self didChangeValueForKey:@"projectionMatrix3"];
+    
+    [self willChangeValueForKey:@"projectionMatrix4"];
+    [self didChangeValueForKey:@"projectionMatrix4"];
+    
+    [self willChangeValueForKey:@"projectionMatrix5"];
+    [self didChangeValueForKey:@"projectionMatrix5"];
+    
+    [self willChangeValueForKey:@"projectionMatrix6"];
+    [self didChangeValueForKey:@"projectionMatrix6"];
+    
+    [self willChangeValueForKey:@"projectionMatrix7"];
+    [self didChangeValueForKey:@"projectionMatrix7"];
+    
+    [self willChangeValueForKey:@"projectionMatrix8"];
+    [self didChangeValueForKey:@"projectionMatrix8"];
+    
+    [self willChangeValueForKey:@"projectionMatrix9"];
+    [self didChangeValueForKey:@"projectionMatrix9"];
+    
+    [self willChangeValueForKey:@"projectionMatrix10"];
+    [self didChangeValueForKey:@"projectionMatrix10"];
+    
+    [self willChangeValueForKey:@"projectionMatrix11"];
+    [self didChangeValueForKey:@"projectionMatrix11"];
+    
+    [self willChangeValueForKey:@"projectionMatrix12"];
+    [self didChangeValueForKey:@"projectionMatrix12"];
+    
+    [self willChangeValueForKey:@"projectionMatrix13"];
+    [self didChangeValueForKey:@"projectionMatrix13"];
+    
+    [self willChangeValueForKey:@"projectionMatrix14"];
+    [self didChangeValueForKey:@"projectionMatrix14"];
+    
+    [self willChangeValueForKey:@"projectionMatrix15"];
+    [self didChangeValueForKey:@"projectionMatrix15"];
+    
     
 //    NSLog(@"[MainWindowController refreshStatistics] modelViewMatrix0 = %@", [self modelViewMatrix0]);
     
