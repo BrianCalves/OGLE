@@ -2,6 +2,7 @@
 #import "CameraModelPerspective.h"
 #import "CameraModelOrthographic.h"
 #import "GeometricModelCone.h"
+#import "GeometricModelCube.h"
 #import "GeometricModelSphere.h"
 #import "ShadeModel.h"
 
@@ -19,6 +20,7 @@
             _geometricModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_geometricModelArray addObject:[GeometricModelSphere create]];
             [_geometricModelArray addObject:[GeometricModelCone create]];
+            [_geometricModelArray addObject:[GeometricModelCube create]];
 
             _shadeModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_shadeModelArray addObject:[ShadeModel createFlat]];

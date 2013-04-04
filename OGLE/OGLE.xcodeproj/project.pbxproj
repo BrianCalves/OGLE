@@ -18,6 +18,7 @@
 		19C3E596170C422B00340D0D /* CameraModelPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E595170C422B00340D0D /* CameraModelPerspective.m */; };
 		19C3E614170C4AD800340D0D /* CameraModelOrthographic.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E613170C4AD800340D0D /* CameraModelOrthographic.m */; };
 		19E00A0B170D631B00E7E7F8 /* ResetViewpointTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 19E00A09170D631B00E7E7F8 /* ResetViewpointTemplate.pdf */; };
+		19E00AB4170DAEE600E7E7F8 /* GeometricModelCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -48,6 +49,8 @@
 		19C3E612170C4AD800340D0D /* CameraModelOrthographic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModelOrthographic.h; sourceTree = "<group>"; };
 		19C3E613170C4AD800340D0D /* CameraModelOrthographic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModelOrthographic.m; sourceTree = "<group>"; };
 		19E00A0A170D631B00E7E7F8 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = English; path = English.lproj/ResetViewpointTemplate.pdf; sourceTree = "<group>"; };
+		19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModelCube.h; sourceTree = "<group>"; };
+		19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModelCube.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -83,6 +86,8 @@
 				19C3E4C5170BD76600340D0D /* GeometricModel.m */,
 				19C3E534170BE27000340D0D /* GeometricModelCone.h */,
 				19C3E535170BE27000340D0D /* GeometricModelCone.m */,
+				19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */,
+				19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */,
 				19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */,
 				19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */,
 				196EDC4C17040E9F00C834B5 /* GraphicView.h */,
@@ -131,7 +136,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			comments = "TODO\n\no\tAdd pop up button to control polygon mode? (GL_FILL, GL_LINE)\n\no\tAdd cube geometry?\n\no\tAdd toolbar button to edit glClearColor?\n\no\tAdd toolbar button to edit geometry material?\n\no\tRender geometry that indicates position of light source?\n\no\tAdd toolbar button to edit light source properties?\n\no\tConnect status label to model description?\n\no\tAdd projection matrix to statistics panel?\n";
+			comments = "TODO\n\no\tAdd cube geometry?\n\no\tAdd toolbar button to edit geometry material?\n\no\tAdd pop up button to control polygon mode? (GL_FILL, GL_LINE)\n\no\tAdd toolbar button to edit glClearColor?\n\no\tRender geometry that indicates position of light source?\n\no\tAdd toolbar button to edit light source properties?\n\no\tAdd projection matrix to statistics panel?\n";
 			name = OGLE;
 			sourceTree = "<group>";
 		};
@@ -230,6 +235,7 @@
 				19C3E593170C41E300340D0D /* CameraModel.m in Sources */,
 				19C3E596170C422B00340D0D /* CameraModelPerspective.m in Sources */,
 				19C3E614170C4AD800340D0D /* CameraModelOrthographic.m in Sources */,
+				19E00AB4170DAEE600E7E7F8 /* GeometricModelCube.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
