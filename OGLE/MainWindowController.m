@@ -51,6 +51,23 @@
     [self cameraModelChanged:self];
     [self geometricModelChanged: self];
     [self shadeModelChanged: self];
+
+    // XXX - Cope with 10.5.x Cocoa defect involving PDF-based image templates:
+    //
+    //       When the image is first loaded in the user interface, transparent
+    //       areas, such as the background, are improperly painted white.
+    //       Such a white background remains until an event forces the image to
+    //       be redrawn. 
+    //
+    //       Manually sending setAlpha: on NSImageRep objects seems to prevent
+    //       the inappropriate white background from ever appearing. This
+    //       defect is reported on the Internet, but it seems to be obscure,
+    //       perhaps due to infrequent use of PDF-based image templates circa
+    //       Mac OS X 10.5.
+    //
+    for (id imageRep in [[_resetViewpointToolbarItem image] representations])
+        [imageRep setAlpha:YES];
+
 }
 
 - (void) cameraModelChanged: (id) sender
@@ -72,6 +89,11 @@
 	NSLog(@"Shade Model: %@", [[_shadeModelArrayController selectedObjects] objectAtIndex:0]);    
     ShadeModel* shadeModel = [[_shadeModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setShadeModel:[shadeModel value]];
+}
+
+- (void) resetViewpoint: (id) sender
+{
+    [_graphicView resetModelView];
 }
 
 - (unsigned int) countOfCameraProjections

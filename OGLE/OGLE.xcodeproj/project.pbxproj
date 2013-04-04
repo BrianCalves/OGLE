@@ -17,6 +17,7 @@
 		19C3E593170C41E300340D0D /* CameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E592170C41E300340D0D /* CameraModel.m */; };
 		19C3E596170C422B00340D0D /* CameraModelPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E595170C422B00340D0D /* CameraModelPerspective.m */; };
 		19C3E614170C4AD800340D0D /* CameraModelOrthographic.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E613170C4AD800340D0D /* CameraModelOrthographic.m */; };
+		19E00A0B170D631B00E7E7F8 /* ResetViewpointTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 19E00A09170D631B00E7E7F8 /* ResetViewpointTemplate.pdf */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -46,6 +47,7 @@
 		19C3E595170C422B00340D0D /* CameraModelPerspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModelPerspective.m; sourceTree = "<group>"; };
 		19C3E612170C4AD800340D0D /* CameraModelOrthographic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraModelOrthographic.h; sourceTree = "<group>"; };
 		19C3E613170C4AD800340D0D /* CameraModelOrthographic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraModelOrthographic.m; sourceTree = "<group>"; };
+		19E00A0A170D631B00E7E7F8 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = English; path = English.lproj/ResetViewpointTemplate.pdf; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -129,6 +131,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
+			comments = "TODO\n\no\tAdd pop up button to control polygon mode? (GL_FILL, GL_LINE)\n\no\tAdd cube geometry?\n\no\tAdd toolbar button to edit glClearColor?\n\no\tAdd toolbar button to edit geometry material?\n\no\tRender geometry that indicates position of light source?\n\no\tAdd toolbar button to edit light source properties?\n\no\tConnect status label to model description?\n\no\tAdd projection matrix to statistics panel?\n";
 			name = OGLE;
 			sourceTree = "<group>";
 		};
@@ -144,6 +147,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				19E00A09170D631B00E7E7F8 /* ResetViewpointTemplate.pdf */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
@@ -205,6 +209,7 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				19E00A0B170D631B00E7E7F8 /* ResetViewpointTemplate.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +242,14 @@
 				089C165DFE840E0CC02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		19E00A09170D631B00E7E7F8 /* ResetViewpointTemplate.pdf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19E00A0A170D631B00E7E7F8 /* English */,
+			);
+			name = ResetViewpointTemplate.pdf;
 			sourceTree = "<group>";
 		};
 		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {

@@ -24,4 +24,6 @@
 - (CameraModel*) cameraModel;
 - (void) setCameraModel: (CameraModel*) cameraModel;
 
+- (void) resetModelView;
+
 @end

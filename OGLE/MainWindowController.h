@@ -3,6 +3,8 @@
 
 @interface MainWindowController : NSObject {
 
+    IBOutlet id _resetViewpointToolbarItem;
+    
     IBOutlet GraphicView* _graphicView;
     IBOutlet NSPanel* _statisticsView;
 
@@ -28,6 +30,8 @@
 - (void) cameraModelChanged: (id) sender;
 - (void) geometricModelChanged: (id) sender;
 - (void) shadeModelChanged: (id) sender;
+
+- (void) resetViewpoint: (id) sender;
 
 - (unsigned int) countOfCameraProjections;
 - (id) objectInCameraProjectionsAtIndex: (unsigned int)index;
