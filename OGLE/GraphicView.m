@@ -425,14 +425,24 @@ static void drawAxes(bool flags)
     
 }
 
+- (void) zoomIn
+{
+    [self zoomFactor:1.1];
+}
+
+- (void) zoomOut
+{
+    [self zoomFactor:1/1.1];
+}
+
 - (void) keyDown: (NSEvent*) event
 {
     if ([[event characters] compare:@"r"] == NSOrderedSame)
         [self resetModelView];
     if ([[event characters] compare:@"i"] == NSOrderedSame)
-        [self zoomFactor:1.1];
+        [self zoomIn];
     if ([[event characters] compare:@"o"] == NSOrderedSame)
-        [self zoomFactor:0.909];
+        [self zoomOut];
 }
 
 - (void) mouseDown: (NSEvent*) event 

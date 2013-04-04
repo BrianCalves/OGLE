@@ -98,6 +98,16 @@
     [_graphicView resetModelView];
 }
 
+- (void) zoomIn: (id) sender
+{
+    [_graphicView zoomIn];
+}
+
+- (void) zoomOut: (id) sender
+{
+    [_graphicView zoomOut];
+}
+
 - (unsigned int) countOfCameraProjections
 {
     return [_cameraModelArray count];

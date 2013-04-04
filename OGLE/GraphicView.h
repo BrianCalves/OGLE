@@ -25,5 +25,7 @@
 - (void) setCameraModel: (CameraModel*) cameraModel;
 
 - (void) resetModelView;
+- (void) zoomIn;
+- (void) zoomOut;
 
 @end

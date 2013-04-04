@@ -32,6 +32,8 @@
 - (void) shadeModelChanged: (id) sender;
 
 - (void) resetViewpoint: (id) sender;
+- (void) zoomIn: (id) sender;
+- (void) zoomOut: (id) sender;
 
 - (unsigned int) countOfCameraProjections;
 - (id) objectInCameraProjectionsAtIndex: (unsigned int)index;
