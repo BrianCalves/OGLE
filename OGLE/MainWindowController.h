@@ -10,10 +10,12 @@
 
     IBOutlet id _cameraModelArrayController;
     IBOutlet id _geometricModelArrayController;
+    IBOutlet id _polygonModelArrayController;
     IBOutlet id _shadeModelArrayController;
     
     NSMutableArray* _cameraModelArray;
 	NSMutableArray* _geometricModelArray;
+    NSMutableArray* _polygonModelArray;
     NSMutableArray* _shadeModelArray;
 
     NSTimer* _statisticsTimer;
@@ -29,6 +31,7 @@
 
 - (void) cameraModelChanged: (id) sender;
 - (void) geometricModelChanged: (id) sender;
+- (void) polygonModelChanged: (id) sender;
 - (void) shadeModelChanged: (id) sender;
 
 - (void) resetViewpoint: (id) sender;
@@ -46,6 +49,12 @@
 - (void)insertObject:(id)anObject inGeometricModelsAtIndex:(unsigned int)index;
 - (void)removeObjectFromGeometricModelsAtIndex:(unsigned int)index;
 - (void)replaceObjectInGeometricModelsAtIndex:(unsigned int)index withObject:(id)anObject;
+
+- (unsigned int) countOfPolygonModels;
+- (id) objectInPolygonModelsAtIndex: (unsigned int)index;
+- (void) insertObject: (id)anObject inPolygonModelsAtIndex: (unsigned int)index;
+- (void) removeObjectFromPolygonModelsAtIndex: (unsigned int)index;
+- (void) replaceObjectInPolygonModelsAtIndex: (unsigned int)index withObject: (id)anObject;
 
 - (unsigned int) countOfShadeModels;
 - (id) objectInShadeModelsAtIndex: (unsigned int)index;

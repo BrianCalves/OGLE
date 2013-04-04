@@ -13,6 +13,17 @@
 
 @implementation GraphicView
 
+- (GLenum) polygonModel 
+{
+    return _polygonModel;
+}
+
+- (void) setPolygonModel: (GLenum) newValue 
+{
+    _polygonModel = newValue;
+    [self setNeedsDisplay:YES];
+}
+
 - (GLenum) shadeModel 
 {
     return _shadeModel;
@@ -65,7 +76,21 @@
 - (void) prepareOpenGL
 {
     [self resetModelView];
-    [self setShadeModel:GL_FLAT];
+
+    // The prepareOpenGL: message may be received after some other
+    // controller has received awakeFromNib: and synchronized the
+    // GraphicView state with user interface controls.
+    //
+    // Therefor, only set state if it seems not to have been
+    // initialized, already. Objective-C guarantees that ivars
+    // are zero/nil/false after allocation, so that may indicate
+    // absence of prior initialization.
+    
+    if ([self polygonModel] == 0)
+        [self setPolygonModel:GL_LINE];
+    
+    if ([self shadeModel] == 0)
+        [self setShadeModel:GL_FLAT];
 }
 
 static void drawAxes(bool flags)
@@ -252,7 +277,7 @@ static void drawAxes(bool flags)
     
     drawAxes(false);
     
-    [[self geometricModel] render];
+    [[self geometricModel] render:[self polygonModel]];
 
 	[self flushContext];
 	

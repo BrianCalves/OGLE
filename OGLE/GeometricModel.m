@@ -3,7 +3,7 @@
 
 @implementation GeometricModel
 
-- (void) render
+- (void) render: (GLenum) polygonMode
 {
     
 }

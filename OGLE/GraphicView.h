@@ -6,6 +6,7 @@
 
     CameraModel* _cameraModel;    
     GeometricModel* _geometricModel;
+    GLenum _polygonModel;
     GLenum _shadeModel;
     
 }
@@ -14,6 +15,9 @@
 - (GLdouble) projectionMatrix: (int)index;
 
 - (void) drawRect: (NSRect) bounds;
+
+- (GLenum) polygonModel;
+- (void) setPolygonModel: (GLenum) newValue;
 
 - (GLenum) shadeModel;
 - (void) setShadeModel: (GLenum) newValue;

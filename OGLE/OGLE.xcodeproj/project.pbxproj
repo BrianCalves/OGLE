@@ -19,6 +19,7 @@
 		19C3E614170C4AD800340D0D /* CameraModelOrthographic.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E613170C4AD800340D0D /* CameraModelOrthographic.m */; };
 		19E00A0B170D631B00E7E7F8 /* ResetViewpointTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 19E00A09170D631B00E7E7F8 /* ResetViewpointTemplate.pdf */; };
 		19E00AB4170DAEE600E7E7F8 /* GeometricModelCube.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */; };
+		19E00B1F170DC39300E7E7F8 /* PolygonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E00B1E170DC39300E7E7F8 /* PolygonModel.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -51,6 +52,8 @@
 		19E00A0A170D631B00E7E7F8 /* English */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = English; path = English.lproj/ResetViewpointTemplate.pdf; sourceTree = "<group>"; };
 		19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModelCube.h; sourceTree = "<group>"; };
 		19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModelCube.m; sourceTree = "<group>"; };
+		19E00B1D170DC39300E7E7F8 /* PolygonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonModel.h; sourceTree = "<group>"; };
+		19E00B1E170DC39300E7E7F8 /* PolygonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolygonModel.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -94,6 +97,8 @@
 				196EDC4D17040E9F00C834B5 /* GraphicView.m */,
 				196EDC6E1704104000C834B5 /* MainWindowController.h */,
 				196EDC6D1704104000C834B5 /* MainWindowController.m */,
+				19E00B1D170DC39300E7E7F8 /* PolygonModel.h */,
+				19E00B1E170DC39300E7E7F8 /* PolygonModel.m */,
 				19C3E468170AA2E900340D0D /* ShadeModel.h */,
 				19C3E469170AA2E900340D0D /* ShadeModel.m */,
 			);
@@ -236,6 +241,7 @@
 				19C3E596170C422B00340D0D /* CameraModelPerspective.m in Sources */,
 				19C3E614170C4AD800340D0D /* CameraModelOrthographic.m in Sources */,
 				19E00AB4170DAEE600E7E7F8 /* GeometricModelCube.m in Sources */,
+				19E00B1F170DC39300E7E7F8 /* PolygonModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,7 @@
 #import "GeometricModelCone.h"
 #import "GeometricModelCube.h"
 #import "GeometricModelSphere.h"
+#import "PolygonModel.h"
 #import "ShadeModel.h"
 
 @implementation MainWindowController
@@ -22,6 +23,10 @@
             [_geometricModelArray addObject:[GeometricModelCone create]];
             [_geometricModelArray addObject:[GeometricModelCube create]];
 
+            _polygonModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
+            [_polygonModelArray addObject:[PolygonModel createFill]];
+            [_polygonModelArray addObject:[PolygonModel createLine]];
+            
             _shadeModelArray = [[NSMutableArray arrayWithCapacity:0] retain];
             [_shadeModelArray addObject:[ShadeModel createFlat]];
             [_shadeModelArray addObject:[ShadeModel createSmooth]];
@@ -43,6 +48,7 @@
 {
     [_statisticsTimer release];
     [_shadeModelArray release];
+    [_polygonModelArray release];
     [_geometricModelArray release];
     [_cameraModelArray release];
     [super dealloc];
@@ -52,6 +58,7 @@
 {
     [self cameraModelChanged:self];
     [self geometricModelChanged: self];
+    [self polygonModelChanged: self];
     [self shadeModelChanged: self];
 
     // XXX - Cope with 10.5.x Cocoa defect involving PDF-based image templates:
@@ -84,6 +91,13 @@
 	NSLog(@"Geometric Model: %@", [[_geometricModelArrayController selectedObjects] objectAtIndex:0]);    
     GeometricModel* geometricModel = [[_geometricModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setGeometricModel:geometricModel];
+}
+
+- (void) polygonModelChanged: (id) sender
+{
+	NSLog(@"Polygon Model: %@", [[_polygonModelArrayController selectedObjects] objectAtIndex:0]);    
+    PolygonModel* polygonModel = [[_polygonModelArrayController selectedObjects] objectAtIndex:0];
+    [_graphicView setPolygonModel:[polygonModel value]];
 }
 
 - (void) shadeModelChanged: (id) sender
@@ -160,6 +174,32 @@
     [_geometricModelArray replaceObjectAtIndex:index withObject:anObject];
 }
 
+- (unsigned int) countOfPolygonModels
+{
+    return [_polygonModelArray count];
+}
+
+- (id) objectInPolygonModelsAtIndex: (unsigned int)index
+{
+    return [_polygonModelArray objectAtIndex:index];
+}
+
+- (void) insertObject: (id)anObject inPolygonModelsAtIndex: (unsigned int)index
+{
+    [_polygonModelArray insertObject:anObject atIndex:index];
+}
+
+- (void) removeObjectFromPolygonModelsAtIndex: (unsigned int)index
+{
+    [_polygonModelArray removeObjectAtIndex:index];
+}
+
+- (void) replaceObjectInPolygonModelsAtIndex: (unsigned int)index
+                                withObject: (id)anObject
+{
+    [_polygonModelArray replaceObjectAtIndex:index withObject:anObject];
+}
+
 - (unsigned int) countOfShadeModels
 {
     return [_shadeModelArray count];
@@ -181,7 +221,7 @@
 }
 
 - (void) replaceObjectInShadeModelsAtIndex: (unsigned int)index
-                                      withObject: (id)anObject
+                                withObject: (id)anObject
 {
     [_shadeModelArray replaceObjectAtIndex:index withObject:anObject];
 }

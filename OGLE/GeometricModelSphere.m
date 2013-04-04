@@ -59,13 +59,13 @@
     glVertex3d(x, y, z);
 }
 
-- (void) render
+- (void) render: (GLenum) polygonMode
 {
 	glMatrixMode(GL_MODELVIEW);
     
-    //    glEnable(GL_CULL_FACE);
-    //    glCullFace(GL_BACK);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
     
     GLfloat ambientReflection[] = { 0.5, 0.5, 0.5, 1.0 };
     GLfloat specularReflection[] = { 0.5, 0.5, 0.5, 1.0 };

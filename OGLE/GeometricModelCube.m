@@ -51,10 +51,10 @@ static void normalVertex(double u, double t, double r, double h)
     glVertex3d(x, y, z);
 }
 
-- (void) render
+- (void) render: (GLenum) polygonMode
 {
 	glMatrixMode(GL_MODELVIEW);    
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
     //    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     

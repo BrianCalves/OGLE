@@ -13,6 +13,6 @@
 
 - (NSString*) description;
 
-- (void) render;
+- (void) render: (GLenum) polygonMode;
 
 @end

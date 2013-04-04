@@ -6,7 +6,7 @@
 {
 }
 
-- (void) render;
+- (void) render: (GLenum) polygonMode;
 - (NSString*) description;
 
 @end
