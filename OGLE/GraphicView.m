@@ -429,6 +429,10 @@ static void drawAxes(bool flags)
 {
     if ([[event characters] compare:@"r"] == NSOrderedSame)
         [self resetModelView];
+    if ([[event characters] compare:@"i"] == NSOrderedSame)
+        [self zoomFactor:1.1];
+    if ([[event characters] compare:@"o"] == NSOrderedSame)
+        [self zoomFactor:0.909];
 }
 
 - (void) mouseDown: (NSEvent*) event 
@@ -443,12 +447,34 @@ static void drawAxes(bool flags)
 
 - (void) mouseDragged: (NSEvent*) event 
 {
-    // NSLog(@"[GraphicView mouseDragged:%@]", event);
-    
-    GLdouble dx = [event deltaX];
-    GLdouble dy = [event deltaY];
-    
-    [self rotateDeltaX:dx deltaY:dy];
+    NSLog(@"[GraphicView mouseDragged:%@]", event);
+
+    if ([event type] == NSLeftMouseDragged)
+    {
+        NSUInteger modifierFlags = [event modifierFlags] & NSDeviceIndependentModifierFlagsMask;
+        
+        if (!modifierFlags) 
+        {
+            GLdouble dx = [event deltaX];
+            GLdouble dy = [event deltaY];        
+            [self rotateDeltaX:dx deltaY:dy];
+        }
+        
+        if (modifierFlags & NSCommandKeyMask) 
+        {
+            // There is probably a more sensible formula for converting
+            // offset to a scale factor than this:
+            
+            GLdouble offset = [event deltaY];
+            GLdouble factor = log(fabs(offset * 0.1) + M_E);
+            
+            if (offset > 0)
+                factor = 2 - factor;
+
+            [self zoomFactor:factor];
+        }
+    }
+
 
 }
 
@@ -483,10 +509,27 @@ static void drawAxes(bool flags)
 
 - (void) scrollWheel: (NSEvent*) event
 {
-    GLdouble dx = -[event deltaX];
-    GLdouble dy = -[event deltaY];
+    NSUInteger modifierFlags = [event modifierFlags] & NSDeviceIndependentModifierFlagsMask;
 
-    [self rotateDeltaX:dx deltaY:dy];
+    if (!modifierFlags)
+    {
+        GLdouble dx = -[event deltaX];
+        GLdouble dy = -[event deltaY];        
+        [self rotateDeltaX:dx deltaY:dy];        
+    }
+    else if (modifierFlags == NSCommandKeyMask)
+    {
+        // There is probably a more sensible formula for converting
+        // offset to a scale factor than this:
+        
+        GLdouble offset = -[event deltaY];
+        GLdouble factor = log(fabs(offset * 0.1) + M_E);
+        
+        if (offset > 0)
+            factor = 2 - factor;
+        
+        [self zoomFactor:factor];        
+    }
 }
 
 
