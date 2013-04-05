@@ -401,7 +401,7 @@ static void drawAxes(bool flags)
     GLdouble vx = dx/length;
     GLdouble vy = dy/length;    
     
-    NSLog(@"[GraphicView rotateDeltaX:deltaY:] dx=%lf, dy=%lf, vx=%lf, vy=%lf, angle=%lf", dx, dy, vx, vy, angle);
+    //NSLog(@"[GraphicView rotateDeltaX:deltaY:] dx=%lf, dy=%lf, vx=%lf, vy=%lf, angle=%lf", dx, dy, vx, vy, angle);
     
     if (isnan(vx) ||
         isnan(vy))
@@ -439,7 +439,7 @@ static void drawAxes(bool flags)
 
 - (void) rotateDeltaTheta: (GLdouble) angleDegrees
 {
-    NSLog(@"[GraphicView rotateDeltaTheta:] angle=%lf degrees", angleDegrees);
+    //NSLog(@"[GraphicView rotateDeltaTheta:] angle=%lf degrees", angleDegrees);
     
     if (angleDegrees == 0)
         return;
@@ -475,7 +475,7 @@ static void drawAxes(bool flags)
 
 - (void) zoomFactor: (GLdouble) factor
 {
-    NSLog(@"[GraphicView zoomFactor:] factor=%lf", factor);
+    //NSLog(@"[GraphicView zoomFactor:] factor=%lf", factor);
 
     if (factor == 1)
         return;
@@ -552,7 +552,7 @@ static void drawAxes(bool flags)
 
 - (void) mouseDragged: (NSEvent*) event 
 {
-    NSLog(@"[GraphicView mouseDragged:%@]", event);
+    //NSLog(@"[GraphicView mouseDragged:%@]", event);
 
     if ([event type] == NSLeftMouseDragged)
     {

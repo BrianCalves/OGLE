@@ -94,47 +94,47 @@
 
 - (void) cameraModelChanged: (id) sender
 {
-	NSLog(@"Camera Model: %@", [[_cameraModelArrayController selectedObjects] objectAtIndex:0]);
+	//NSLog(@"Camera Model: %@", [[_cameraModelArrayController selectedObjects] objectAtIndex:0]);
     CameraModel* cameraModel = [[_cameraModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setCameraModel:cameraModel];
 }
 
 - (void) geometricModelChanged: (id) sender
 {
-	NSLog(@"Geometric Model: %@", [[_geometricModelArrayController selectedObjects] objectAtIndex:0]);    
+	//NSLog(@"Geometric Model: %@", [[_geometricModelArrayController selectedObjects] objectAtIndex:0]);    
     GeometricModel* geometricModel = [[_geometricModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setGeometricModel:geometricModel];
 }
 
 - (void) polygonModelChanged: (id) sender
 {
-	NSLog(@"Polygon Model: %@", [[_polygonModelArrayController selectedObjects] objectAtIndex:0]);    
+	//NSLog(@"Polygon Model: %@", [[_polygonModelArrayController selectedObjects] objectAtIndex:0]);    
     PolygonModel* polygonModel = [[_polygonModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setPolygonModel:[polygonModel value]];
 }
 
 - (void) shadeModelChanged: (id) sender
 {
-	NSLog(@"Shade Model: %@", [[_shadeModelArrayController selectedObjects] objectAtIndex:0]);    
+	//NSLog(@"Shade Model: %@", [[_shadeModelArrayController selectedObjects] objectAtIndex:0]);    
     ShadeModel* shadeModel = [[_shadeModelArrayController selectedObjects] objectAtIndex:0];
     [_graphicView setShadeModel:[shadeModel value]];
 }
 
 - (void) backgroundColorChanged: (id) sender
 {
-	NSLog(@"Background Color: %@", [self backgroundColor]);
+	//NSLog(@"Background Color: %@", [self backgroundColor]);
     [_graphicView setBackgroundColor:[self backgroundColor]];
 }
 
 - (void) geometryAmbientColorChanged: (id) sender
 {
-	NSLog(@"Geometry Ambient Color: %@", [self geometryAmbientColor]);
+	//NSLog(@"Geometry Ambient Color: %@", [self geometryAmbientColor]);
     [_graphicView setGeometryAmbientColor:[self geometryAmbientColor]];
 }
 
 - (void) luminaireGeometryVisibleChanged: (id) sender
 {
-	NSLog(@"Luminaire Geometry Visible: %hhd", [self luminaireGeometryVisible]);
+	//NSLog(@"Luminaire Geometry Visible: %hhd", [self luminaireGeometryVisible]);
     [_graphicView setLuminaireGeometryVisible:[self luminaireGeometryVisible]];
 }
 
