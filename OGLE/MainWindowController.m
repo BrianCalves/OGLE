@@ -31,7 +31,8 @@
             [_shadeModelArray addObject:[ShadeModel createFlat]];
             [_shadeModelArray addObject:[ShadeModel createSmooth]];
             
-            _geometryAmbientColor = [[NSColor colorWithDeviceWhite:0.5 alpha:0.9] retain];
+            _backgroundColor = [[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] retain];
+            _geometryAmbientColor = [[NSColor colorWithCalibratedWhite:0.5 alpha:0.9] retain];
             
             _statisticsTimer = [[NSTimer 
                 scheduledTimerWithTimeInterval:0.1 
@@ -50,6 +51,7 @@
 {
     [_statisticsTimer release];
     [_geometryAmbientColor release];
+    [_backgroundColor release];
     [_shadeModelArray release];
     [_polygonModelArray release];
     [_geometricModelArray release];
@@ -63,6 +65,7 @@
     [self geometricModelChanged:self];
     [self polygonModelChanged:self];
     [self shadeModelChanged:self];
+    [self backgroundColorChanged:self];
     [self geometryAmbientColorChanged:self];
 
     // XXX - Cope with 10.5.x Cocoa defect involving PDF-based image templates:
@@ -115,6 +118,12 @@
     [_graphicView setShadeModel:[shadeModel value]];
 }
 
+- (void) backgroundColorChanged: (id) sender
+{
+	NSLog(@"Background Color: %@", [self backgroundColor]);
+    [_graphicView setBackgroundColor:[self backgroundColor]];
+}
+
 - (void) geometryAmbientColorChanged: (id) sender
 {
 	NSLog(@"Geometry Ambient Color: %@", [self geometryAmbientColor]);
@@ -134,6 +143,18 @@
 - (void) zoomOut: (id) sender
 {
     [_graphicView zoomOut];
+}
+
+- (NSColor*) backgroundColor;
+{
+    return _backgroundColor;
+}
+
+- (void) setBackgroundColor: (NSColor*) color
+{
+    [_backgroundColor autorelease];
+    _backgroundColor = [color retain];
+    [self backgroundColorChanged:self];
 }
 
 - (NSColor*) geometryAmbientColor

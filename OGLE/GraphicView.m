@@ -60,6 +60,18 @@
     [self setNeedsDisplay:YES];
 }
 
+- (NSColor*) backgroundColor
+{
+    return _backgroundColor;
+}
+
+- (void) setBackgroundColor: (NSColor*) color
+{
+    [_backgroundColor autorelease];
+    _backgroundColor = [color retain];
+    [self setNeedsDisplay:YES];
+}
+
 - (NSColor*) geometryAmbientColor
 {
     return _geometryAmbientColor;
@@ -71,7 +83,6 @@
     _geometryAmbientColor = [color retain];
     [self setNeedsDisplay:YES];
 }
-
 
 - (void) resetModelView
 {
@@ -105,8 +116,11 @@
     if ([self shadeModel] == 0)
         [self setShadeModel:GL_FLAT];
     
+    if ([self backgroundColor] == nil)
+        [self setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0]];
+    
     if ([self geometryAmbientColor] == nil)
-        [self setGeometryAmbientColor:[NSColor colorWithDeviceWhite:0.5 alpha:1.0]];
+        [self setGeometryAmbientColor:[NSColor colorWithCalibratedWhite:0.5 alpha:1.0]];
     
 }
 
@@ -288,8 +302,16 @@ static void drawAxes(bool flags)
 	// glClearColor(0, 0, 0, 0);
     // glClearColor(0.8, 0.8, 0.8, 0);
     // glClearColor(0.98, 0.98, 0.98, 0);
-    glClearColor(1, 1, 1, 0);
-
+    // glClearColor(1, 1, 1, 1);
+    
+    NSColor* clearColor = [[self backgroundColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    
+    glClearColor(
+                 [clearColor redComponent],
+                 [clearColor greenComponent],
+                 [clearColor blueComponent],
+                 [clearColor alphaComponent]);
+    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     drawAxes(false);

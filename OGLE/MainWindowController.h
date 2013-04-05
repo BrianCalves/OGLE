@@ -19,6 +19,7 @@
     NSMutableArray* _shadeModelArray;
 
     NSTimer* _statisticsTimer;
+    NSColor* _backgroundColor;
     NSColor* _geometryAmbientColor;
     
     BOOL _statisticsVisible;
@@ -34,11 +35,15 @@
 - (void) geometricModelChanged: (id) sender;
 - (void) polygonModelChanged: (id) sender;
 - (void) shadeModelChanged: (id) sender;
+- (void) backgroundColorChanged: (id) sender;
 - (void) geometryAmbientColorChanged: (id) sender;
 
 - (void) resetViewpoint: (id) sender;
 - (void) zoomIn: (id) sender;
 - (void) zoomOut: (id) sender;
+
+- (NSColor*) backgroundColor;
+- (void) setBackgroundColor: (NSColor*) color;
 
 - (NSColor*) geometryAmbientColor;
 - (void) setGeometryAmbientColor: (NSColor*) color;

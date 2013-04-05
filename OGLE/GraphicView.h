@@ -6,6 +6,7 @@
 
     CameraModel* _cameraModel;    
     GeometricModel* _geometricModel;
+    NSColor* _backgroundColor;
     NSColor* _geometryAmbientColor;
     GLenum _polygonModel;
     GLenum _shadeModel;
@@ -28,6 +29,9 @@
 
 - (CameraModel*) cameraModel;
 - (void) setCameraModel: (CameraModel*) cameraModel;
+
+- (NSColor*) backgroundColor;
+- (void) setBackgroundColor: (NSColor*) color;
 
 - (NSColor*) geometryAmbientColor;
 - (void) setGeometryAmbientColor: (NSColor*) color;
