@@ -11,7 +11,265 @@
 @end 
 
 
+
+// XXX - Factor drawAxes() out?
+static void drawAxes(bool flags)
+{
+    glMatrixMode(GL_MODELVIEW);
+    
+    glBegin(GL_LINES);
+    {
+        GLfloat xAmbientReflection[] = { 1, 0, 0, 1.0 };
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, xAmbientReflection);
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glVertex3f( 0.0,  0.0,  0.0);
+        glVertex3f( 1.0,  0.0,  0.0);
+        
+        GLfloat yAmbientReflection[] = { 0, 1, 0, 1.0 };
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, yAmbientReflection);
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex3f( 0.0,  0.0,  0.0);
+        glVertex3f( 0.0,  1.0,  0.0);
+        
+        GLfloat zAmbientReflection[] = { 0, 0, 1, 1.0 };
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, zAmbientReflection);
+        glColor3f(0.0f, 0.0f, 1.0f);
+        glVertex3f( 0.0,  0.0,  0.0);
+        glVertex3f( 0.0,  0.0,  1.0);
+    }
+    glEnd();
+    
+    if (flags)
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);        
+        
+        GLfloat flagAmbientReflection[] = { 1.0f, 0.85f, 0.35f, 1.0 };
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, flagAmbientReflection);
+        glColor3f(1.0f, 0.85f, 0.35f);
+        
+        // X-Z plane    
+        glBegin(GL_TRIANGLES);
+        {
+            glVertex3f(  0.0,  1.0,  0.1);
+            glVertex3f( -0.1,  1.0, -0.1);
+            glVertex3f(  0.1,  1.0, -0.1);
+        }
+        glEnd();
+        
+        // X-Y plane    
+        glBegin(GL_TRIANGLES);
+        {
+            glVertex3f(  0.0,  0.1,  1.0);
+            glVertex3f( -0.1, -0.1,  1.0);
+            glVertex3f(  0.1, -0.1,  1.0);
+        }
+        glEnd();
+        
+        // Y-Z plane    
+        glBegin(GL_TRIANGLES);
+        {
+            glVertex3f(  1.0,  0.0,  0.1);
+            glVertex3f(  1.0, -0.1, -0.1);
+            glVertex3f(  1.0,  0.1, -0.1);
+        }
+        glEnd();
+    }
+    
+}
+
+
+
 @implementation GraphicView
+
+- (void) prepareOpenGL
+{
+    [self resetModelView];
+    
+    // The prepareOpenGL: message may be received after some other
+    // controller has received awakeFromNib: and synchronized the
+    // GraphicView state with user interface controls.
+    //
+    // Therefor, only set state if it seems not to have been
+    // initialized, already. Objective-C guarantees that ivars
+    // are zero/nil/false after allocation, so that may indicate
+    // absence of prior initialization.
+    
+    if ([self polygonModel] == 0)
+        [self setPolygonModel:GL_LINE];
+    
+    if ([self shadeModel] == 0)
+        [self setShadeModel:GL_FLAT];
+    
+    if ([self backgroundColor] == nil)
+        [self setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0]];
+    
+    if ([self geometryAmbientColor] == nil)
+        [self setGeometryAmbientColor:[NSColor colorWithCalibratedWhite:0.5 alpha:1.0]];
+    
+}
+
+-(void) drawRect: (NSRect) bounds
+{
+	[self activateContext];
+    
+    GLfloat ambientLight[] = { 0.4, 0.4, 0.4, 1.0 };
+    
+    GLfloat lightPosition0[] = { 1.0, 1.0, 1.0, 0.0 }; // Directional source from `position'
+    GLfloat lightAmbient0[] = { 0.2, 0.2, 0.2, 1.0 };
+    GLfloat lightDiffuse0[] = { 0.6, 0.6, 0.6, 1.0 };
+    GLfloat lightSpecular0[] = { 0.2, 0.2, 0.2, 1.0 };
+    
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    glCullFace(GL_BACK);
+    
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
+    
+    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition0);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient0);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse0);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular0);
+    
+    glShadeModel([self shadeModel]);
+    
+    glEnable(GL_BLEND);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+	
+    NSColor* clearColor = [[self backgroundColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];    
+    glClearColor(
+                 [clearColor redComponent],
+                 [clearColor greenComponent],
+                 [clearColor blueComponent],
+                 [clearColor alphaComponent]);    
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    drawAxes(false);
+    
+    if ([self luminaireGeometryVisible])
+    {
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        
+        NSColor* color = [NSColor colorWithCalibratedRed:0.5 green:0.0 blue:0.5 alpha:1.0];
+        
+        GLfloat ambientReflection[] = { 0.5, 0.5, 0.5, 1.0 };
+        ambientReflection[0] = [color redComponent];
+        ambientReflection[1] = [color greenComponent];
+        ambientReflection[2] = [color blueComponent];
+        ambientReflection[3] = [color alphaComponent];
+        
+        GLfloat specularReflection[] = { 0.5, 0.5, 0.5, 1.0 };
+        specularReflection[0] = [color redComponent];
+        specularReflection[1] = [color greenComponent];
+        specularReflection[2] = [color blueComponent];
+        specularReflection[3] = [color alphaComponent];
+        
+        glColor4f(
+                  [color redComponent],
+                  [color greenComponent],
+                  [color blueComponent],
+                  [color alphaComponent]);
+        
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambientReflection);
+        glMaterialfv(GL_FRONT, GL_SPECULAR, specularReflection);
+        
+        glPushAttrib(GL_ENABLE_BIT);         
+        glLineStipple(5, 0xAAAA);
+        glEnable(GL_LINE_STIPPLE);
+        glBegin(GL_LINES);
+        {    
+            glVertex3d(
+                       lightPosition0[0] * 0.1,
+                       lightPosition0[1] * 0.1,
+                       lightPosition0[2] * 0.1);
+            glVertex3d(
+                       lightPosition0[0],
+                       lightPosition0[1],
+                       lightPosition0[2]);
+        }    
+        glEnd();    
+        glPopAttrib();
+        glPopMatrix();
+    }
+    
+    [[self geometricModel] render:[self polygonModel]
+                            color:[self geometryAmbientColor]];
+    
+	[self flushContext];
+	
+}
+
+- (void) reshape	
+{
+    // The viewing frustum must be updated. The frustum is defined by
+	// a field of view, a near clipping plane, and the distance to
+	// the far clipping plane.
+	//
+	// In OpenGL, the viewing frustum looks down the -Z axis. The
+	// +Y axis is up. The +X axis is to the right. The world is
+	// translated and rotated in front of the frustum by means
+	// of the model-view matrix.
+	//
+	// In general, it is not practical to incorporate the actual
+	// characteristics of the physical computer display into the
+	// frustum calculation: the visual may span multiple display
+	// devices of varying dimension and resolution. In other
+	// words, nothing can be assumed about the number of pixels
+	// or the number of pixels per inch, because these
+	// characteristics might vary across the logical viewport.
+	//
+	// Depth buffer precision is affected by the values specified for
+	// zNear and zFar. Bits of lost depth buffer precision (L) is
+	// approximately:
+	//
+	//     L = log2(zFar / zNear)
+	//
+	// The greater the ratio of zFar to zNear, the less effective
+	// the depth buffer will be at distinguishing surfaces that are
+	// near each other. Depth buffer effectiveness also declines if
+	// zNear approaches zero.
+    
+	[self activateContext];
+    
+	NSRect bounds = [self bounds];
+	
+	GLint x = NSMinX(bounds);
+	GLint y = NSMinY(bounds);
+	GLsizei w = NSWidth(bounds);
+	GLsizei h = NSHeight(bounds);
+	
+	glViewport(x, y, w, h); // Map OpenGL projection plane to NSWindow
+    
+    [[self cameraModel] applyProjection:bounds]; // glFrustum() / glOrtho()
+}
+
+
+- (void) resetModelView
+{
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glTranslated(0.0, 0.0, -2.5);
+    glRotated(-90.0, 1.0, 0.0, 0.0);
+    glRotated(-90.0, 0.0, 0.0, 1.0);
+    glRotated(  5.0, 0.0, 1.0, 0.0);
+    glRotated( -5.0, 0.0, 0.0, 1.0);        
+    
+    [self setNeedsDisplay:YES];
+}
+
+- (void) activateContext
+{
+	[[self openGLContext] makeCurrentContext];
+}
+
+- (void) flushContext
+{
+	[[self openGLContext] flushBuffer];
+}
+
 
 - (GLenum) polygonModel 
 {
@@ -84,243 +342,15 @@
     [self setNeedsDisplay:YES];
 }
 
-- (void) resetModelView
+- (BOOL) luminaireGeometryVisible
 {
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glTranslated(0.0, 0.0, -2.5);
-    glRotated(-90.0, 1.0, 0.0, 0.0);
-    glRotated(-90.0, 0.0, 0.0, 1.0);
-    glRotated(  5.0, 0.0, 1.0, 0.0);
-    glRotated( -5.0, 0.0, 0.0, 1.0);        
-    
+    return _luminaireGeometryVisible;
+}
+
+- (void) setLuminaireGeometryVisible: (BOOL) visible
+{
+    _luminaireGeometryVisible = visible;
     [self setNeedsDisplay:YES];
-}
-
-- (void) prepareOpenGL
-{
-    [self resetModelView];
-
-    // The prepareOpenGL: message may be received after some other
-    // controller has received awakeFromNib: and synchronized the
-    // GraphicView state with user interface controls.
-    //
-    // Therefor, only set state if it seems not to have been
-    // initialized, already. Objective-C guarantees that ivars
-    // are zero/nil/false after allocation, so that may indicate
-    // absence of prior initialization.
-    
-    if ([self polygonModel] == 0)
-        [self setPolygonModel:GL_LINE];
-    
-    if ([self shadeModel] == 0)
-        [self setShadeModel:GL_FLAT];
-    
-    if ([self backgroundColor] == nil)
-        [self setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0]];
-    
-    if ([self geometryAmbientColor] == nil)
-        [self setGeometryAmbientColor:[NSColor colorWithCalibratedWhite:0.5 alpha:1.0]];
-    
-}
-
-static void drawAxes(bool flags)
-{
-    glMatrixMode(GL_MODELVIEW);
-    
-    glBegin(GL_LINES);
-    {
-        GLfloat xAmbientReflection[] = { 1, 0, 0, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, xAmbientReflection);
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3f( 0.0,  0.0,  0.0);
-        glVertex3f( 1.0,  0.0,  0.0);
-        
-        GLfloat yAmbientReflection[] = { 0, 1, 0, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, yAmbientReflection);
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3f( 0.0,  0.0,  0.0);
-        glVertex3f( 0.0,  1.0,  0.0);
-
-        GLfloat zAmbientReflection[] = { 0, 0, 1, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, zAmbientReflection);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3f( 0.0,  0.0,  0.0);
-        glVertex3f( 0.0,  0.0,  1.0);
-    }
-    glEnd();
- 
-    if (flags)
-    {
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);        
-        
-        GLfloat flagAmbientReflection[] = { 1.0f, 0.85f, 0.35f, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, flagAmbientReflection);
-        glColor3f(1.0f, 0.85f, 0.35f);
-
-        // X-Z plane    
-        glBegin(GL_TRIANGLES);
-        {
-            glVertex3f(  0.0,  1.0,  0.1);
-            glVertex3f( -0.1,  1.0, -0.1);
-            glVertex3f(  0.1,  1.0, -0.1);
-        }
-        glEnd();
-        
-        // X-Y plane    
-        glBegin(GL_TRIANGLES);
-        {
-            glVertex3f(  0.0,  0.1,  1.0);
-            glVertex3f( -0.1, -0.1,  1.0);
-            glVertex3f(  0.1, -0.1,  1.0);
-        }
-        glEnd();
-        
-        // Y-Z plane    
-        glBegin(GL_TRIANGLES);
-        {
-            glVertex3f(  1.0,  0.0,  0.1);
-            glVertex3f(  1.0, -0.1, -0.1);
-            glVertex3f(  1.0,  0.1, -0.1);
-        }
-        glEnd();
-    }
-    
-}
-
-- (void) activateContext
-{
-	[[self openGLContext] makeCurrentContext];
-}
-
-- (void) flushContext
-{
-	[[self openGLContext] flushBuffer];
-}
-
-- (void) reshape	
-{
-    // The viewing frustum must be updated. The frustum is defined by
-	// a field of view, a near clipping plane, and the distance to
-	// the far clipping plane.
-	//
-	// In OpenGL, the viewing frustum looks down the -Z axis. The
-	// +Y axis is up. The +X axis is to the right. The world is
-	// translated and rotated in front of the frustum by means
-	// of the model-view matrix.
-	//
-	// In general, it is not practical to incorporate the actual
-	// characteristics of the physical computer display into the
-	// frustum calculation: the visual may span multiple display
-	// devices of varying dimension and resolution. In other
-	// words, nothing can be assumed about the number of pixels
-	// or the number of pixels per inch, because these
-	// characteristics might vary across the logical viewport.
-	//
-	// Depth buffer precision is affected by the values specified for
-	// zNear and zFar. Bits of lost depth buffer precision (L) is
-	// approximately:
-	//
-	//     L = log2(zFar / zNear)
-	//
-	// The greater the ratio of zFar to zNear, the less effective
-	// the depth buffer will be at distinguishing surfaces that are
-	// near each other. Depth buffer effectiveness also declines if
-	// zNear approaches zero.
-
-	[self activateContext];
-
-	NSRect bounds = [self bounds];
-	
-	GLint x = NSMinX(bounds);
-	GLint y = NSMinY(bounds);
-	GLsizei w = NSWidth(bounds);
-	GLsizei h = NSHeight(bounds);
-	
-	glViewport(x, y, w, h); // Map OpenGL projection plane to NSWindow
-
-    [[self cameraModel] applyProjection:bounds];
-    
-    /*
-	GLdouble fieldOfViewDegrees = 40; // Measured vertically (y-axis)
-	GLdouble fieldOfViewRadians = fieldOfViewDegrees * (M_PI / 180.0);
-
-    GLdouble aspectRatio = NSWidth(bounds) / NSHeight(bounds);
-
-	GLdouble zMin = 1;      // Near clipping plane; 0 < zMin < zMax
-	GLdouble zMax = 500;    // Far clipping plane;  0 < zMin < zMax
-	
-	GLdouble yMax = zMin * tan(fieldOfViewRadians/2.0);
-	GLdouble yMin = -yMax;
-	
-	GLdouble xMax = aspectRatio * yMax;
-	GLdouble xMin = aspectRatio * yMin;
-	
-	glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-		
-	glFrustum(
-//    glOrtho(
-		xMin,  // left, near clipping plane
-		xMax,  // right, near clipping plane
-		yMin,  // bottom, near clipping plane
-		yMax,  // top, near clipping plane
-		zMin,  // distance to near clipping plane
-		zMax); // distance to far clipping plane
-     */
-
-}
-
--(void) drawRect: (NSRect) bounds
-{
-	[self activateContext];
-
-    GLfloat ambientLight[] = { 0.4, 0.4, 0.4, 1.0 };
-    GLfloat lightPosition0[] = { 2.0, 2.0, 2.0, 0.0 };
-    GLfloat lightAmbient0[] = { 0.2, 0.2, 0.2, 1.0 };
-    GLfloat lightDiffuse0[] = { 0.6, 0.6, 0.6, 1.0 };
-    GLfloat lightSpecular0[] = { 0.2, 0.2, 0.2, 1.0 };
-        
-        
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glCullFace(GL_BACK);
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
-    
-    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition0);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient0);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse0);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular0);
-    
-    glShadeModel([self shadeModel]);
-    
-    glEnable(GL_BLEND);
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-	
-	// glClearColor(0, 0, 0, 0);
-    // glClearColor(0.8, 0.8, 0.8, 0);
-    // glClearColor(0.98, 0.98, 0.98, 0);
-    // glClearColor(1, 1, 1, 1);
-    
-    NSColor* clearColor = [[self backgroundColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
-    
-    glClearColor(
-                 [clearColor redComponent],
-                 [clearColor greenComponent],
-                 [clearColor blueComponent],
-                 [clearColor alphaComponent]);
-    
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    drawAxes(false);
-    
-    [[self geometricModel] render:[self polygonModel]
-                            color:[self geometryAmbientColor]];
-
-	[self flushContext];
-	
 }
 
 - (BOOL) acceptsFirstResponder

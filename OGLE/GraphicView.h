@@ -10,13 +10,20 @@
     NSColor* _geometryAmbientColor;
     GLenum _polygonModel;
     GLenum _shadeModel;
+    BOOL _luminaireGeometryVisible;
     
 }
 
-- (GLdouble) modelViewMatrix: (int)index;
-- (GLdouble) projectionMatrix: (int)index;
+- (void) prepareOpenGL;
+
+- (void) activateContext;
+- (void) flushContext;
 
 - (void) drawRect: (NSRect) bounds;
+- (void) reshape;
+
+- (GLdouble) modelViewMatrix: (int)index;
+- (GLdouble) projectionMatrix: (int)index;
 
 - (GLenum) polygonModel;
 - (void) setPolygonModel: (GLenum) newValue;
@@ -35,6 +42,9 @@
 
 - (NSColor*) geometryAmbientColor;
 - (void) setGeometryAmbientColor: (NSColor*) color;
+
+- (BOOL) luminaireGeometryVisible;
+- (void) setLuminaireGeometryVisible: (BOOL) visible;
 
 - (void) resetModelView;
 - (void) zoomIn;

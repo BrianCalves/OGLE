@@ -8,12 +8,27 @@
     return [[[GeometricModelSphere alloc] init] autorelease];
 }
 
++ (id) createRadius: (double) radius
+{
+    return [[[GeometricModelSphere alloc] initRadius:radius] autorelease];
+}
+
 - (id) init
 {
     self = [super init];
     if (self)
     {
-        
+        _radius = 0.5;
+    }
+    return self;
+}
+
+- (id) initRadius: (double) radius
+{
+    self = [super init];
+    if (self)
+    {
+        _radius = radius;
     }
     return self;
 }
@@ -21,6 +36,11 @@
 - (void) dealloc
 {
     [super dealloc];
+}
+
+- (double) radius
+{
+    return _radius;
 }
 
 - (NSString*) description
@@ -43,7 +63,7 @@
     lat = (lat +  0.0) * (M_PI / 180.0);
     lon = (lon +  0.0) * (M_PI / 180.0);
         
-    double r = .5;
+    double r = [self radius];
     
     double x = (r + alt) * cos(lat) * cos(lon);
     double y = (r + alt) * cos(lat) * sin(lon);

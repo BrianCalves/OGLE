@@ -33,6 +33,7 @@
             
             _backgroundColor = [[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] retain];
             _geometryAmbientColor = [[NSColor colorWithCalibratedWhite:0.5 alpha:0.9] retain];
+            _luminaireGeometryVisible = NO;
             
             _statisticsTimer = [[NSTimer 
                 scheduledTimerWithTimeInterval:0.1 
@@ -67,6 +68,7 @@
     [self shadeModelChanged:self];
     [self backgroundColorChanged:self];
     [self geometryAmbientColorChanged:self];
+    [self luminaireGeometryVisibleChanged:self];
 
     // XXX - Cope with 10.5.x Cocoa defect involving PDF-based image templates:
     //
@@ -130,6 +132,12 @@
     [_graphicView setGeometryAmbientColor:[self geometryAmbientColor]];
 }
 
+- (void) luminaireGeometryVisibleChanged: (id) sender
+{
+	NSLog(@"Luminaire Geometry Visible: %hhd", [self luminaireGeometryVisible]);
+    [_graphicView setLuminaireGeometryVisible:[self luminaireGeometryVisible]];
+}
+
 - (void) resetViewpoint: (id) sender
 {
     [_graphicView resetModelView];
@@ -155,6 +163,17 @@
     [_backgroundColor autorelease];
     _backgroundColor = [color retain];
     [self backgroundColorChanged:self];
+}
+
+- (BOOL) luminaireGeometryVisible
+{
+    return _luminaireGeometryVisible;
+}
+
+- (void) setLuminaireGeometryVisible: (BOOL) visible
+{
+    _luminaireGeometryVisible = visible;
+    [self luminaireGeometryVisibleChanged:self];
 }
 
 - (NSColor*) geometryAmbientColor

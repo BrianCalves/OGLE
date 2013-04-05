@@ -21,6 +21,7 @@
     NSTimer* _statisticsTimer;
     NSColor* _backgroundColor;
     NSColor* _geometryAmbientColor;
+    BOOL _luminaireGeometryVisible;
     
     BOOL _statisticsVisible;
 }
@@ -37,6 +38,7 @@
 - (void) shadeModelChanged: (id) sender;
 - (void) backgroundColorChanged: (id) sender;
 - (void) geometryAmbientColorChanged: (id) sender;
+- (void) luminaireGeometryVisibleChanged: (id) sender;
 
 - (void) resetViewpoint: (id) sender;
 - (void) zoomIn: (id) sender;
@@ -47,6 +49,9 @@
 
 - (NSColor*) geometryAmbientColor;
 - (void) setGeometryAmbientColor: (NSColor*) color;
+
+- (BOOL) luminaireGeometryVisible;
+- (void) setLuminaireGeometryVisible: (BOOL) visible;
 
 - (unsigned int) countOfCameraProjections;
 - (id) objectInCameraProjectionsAtIndex: (unsigned int)index;
