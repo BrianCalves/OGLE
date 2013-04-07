@@ -532,6 +532,11 @@ static void drawAxes(bool flags)
 
 - (void) keyDown: (NSEvent*) event
 {
+    NSUInteger modifierFlags = [event modifierFlags] & NSDeviceIndependentModifierFlagsMask;
+    
+    if (modifierFlags)
+        return;
+    
     if ([[event characters] compare:@"r"] == NSOrderedSame)
         [self resetModelView];
     if ([[event characters] compare:@"i"] == NSOrderedSame)

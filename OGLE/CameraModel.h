@@ -1,12 +1,14 @@
 #import <Cocoa/Cocoa.h>
 
+// CameraModels calculate OpenGL projection matrices. This is a superclass.
 
 @interface CameraModel : NSObject
 {
     
 }
 
-- (NSString*) description;
-- (void) applyProjection: (NSRect) bounds;
+- (NSString*) description; // Get user-friendly name
+
+- (void) applyProjection: (NSRect) bounds; // Set OpenGL projection
 
 @end

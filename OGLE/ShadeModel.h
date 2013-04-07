@@ -1,5 +1,9 @@
 #import <Cocoa/Cocoa.h>
 
+// ShadeModel is a wrapper/proxy for OpenGL shade models GL_FLAT and GL_SMOOTH.
+// Because ShadeModel responds to description, it is suitable for use with
+// certain user-interface controls. An alternative design would have been to
+// use NSValueTransformer.
 
 @interface ShadeModel : NSObject {
 

@@ -3,15 +3,17 @@
 
 @implementation GeometricModel
 
-- (void) render: (GLenum) polygonMode
-          color: (NSColor*) color
-{
-    
-}
-
 - (NSString*) description
 {
     return nil;
+    // Override in subclass.
+}
+
+- (void) render: (GLenum) polygonMode
+          color: (NSColor*) color
+{
+    // Intentionally left blank.
+    // Override in subclass.
 }
 
 @end

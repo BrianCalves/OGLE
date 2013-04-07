@@ -1,6 +1,8 @@
 #import <Cocoa/Cocoa.h>
 #import "GeometricModel.h"
 
+// GeometricModelCube renders a cube using OpenGL APIs.
+
 @interface GeometricModelCube : GeometricModel
 {
 
@@ -11,9 +13,9 @@
 - (id) init;
 - (void) dealloc;
 
-- (NSString*) description;
+- (NSString*) description;  // Get user-friendly name
 
-- (void) render: (GLenum) polygonMode
+- (void) render: (GLenum) polygonMode // Render using OpenGL
           color: (NSColor*) color;
 
 @end

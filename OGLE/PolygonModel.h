@@ -1,5 +1,9 @@
 #import <Cocoa/Cocoa.h>
 
+// PolygonModel is a wrapper/proxy for OpenGL polygon modes GL_FILL and GL_LINE.
+// Because PolygonModel responds to description, it is suitable for use with
+// certain user-interface controls. An alternative design would have been to
+// use NSValueTransformer.
 
 @interface PolygonModel : NSObject 
 {

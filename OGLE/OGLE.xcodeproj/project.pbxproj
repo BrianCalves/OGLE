@@ -141,6 +141,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
+			comments = "TODO\n\no\tFactor redundant code into an OpenGL-aware Color class?\n\no\tFactor drawing of coordinate axes into a separate geometry class?\n\no\tFactor drawing of luminaire direction vector into a separate geometry class?\n\no\tFactor drawing of equatorial plane into a separate geometry class?\n\no\tFactor OpenGL lighting code into a separate class: LuminaireDirectional?\n\no\tCorrect the improper calculation of surface normals for the cone.\n\no\tCheck for memory leaks\n\no\tInternationalize application (e.g. externalize hard-coded strings)?\n\no\tProvide a sample localization?\n\n";
 			name = OGLE;
 			sourceTree = "<group>";
 		};

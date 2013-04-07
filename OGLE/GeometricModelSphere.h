@@ -1,6 +1,8 @@
 #import <Cocoa/Cocoa.h>
 #import "GeometricModel.h"
 
+// GeometricModelSphere renders a sphere using OpenGL APIs.
+
 @interface GeometricModelSphere : GeometricModel 
 {
     double _radius;
@@ -13,10 +15,12 @@
 - (id) initRadius: (double) radius;
 - (void) dealloc;
 
-- (double) radius;
-- (NSString*) description;
+- (double) radius; // Get radius of sphere in world coordinates
 
-- (void) render: (GLenum) polygonMode
+- (NSString*) description;  // Get user-friendly name
+
+- (void) render: (GLenum) polygonMode // Render using OpenGL
           color: (NSColor*) color;
+
 
 @end

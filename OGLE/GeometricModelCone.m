@@ -1,5 +1,33 @@
 #import "GeometricModelCone.h"
 
+// Convert parametric coordinates of cone to XYZ coordinates, calculate normal
+// vector, and render vertex.
+static void normalVertex(double u, double t, double r, double h)
+{                     
+    // u: [0, h]
+    // t: [0, 2pi]
+    // r: radius
+    // h: height
+    
+    double huh = (h - u) / h;
+    
+    double x = huh * r * cos(t);
+    double y = huh * r * sin(t);
+    double z = u;
+    
+    // FIXME - This normal vector is incorrect: it is being calculated from
+    //         the origin of the cone.
+    
+    double len = sqrt(x*x + y*y + z*z);
+    
+    double a = x / len;
+    double b = y / len;
+    double c = z / len;
+    
+    glNormal3d(a, b, c);
+    glVertex3d(x, y, z);
+}
+
 
 @implementation GeometricModelCone
 
@@ -28,35 +56,11 @@
     return @"Cone";
 }
 
-static void normalVertex(double u, double t, double r, double h)
-{                     
-    // u: [0, h]
-    // t: [0, 2pi]
-    // r: radius
-    // h: height
-    
-    double huh = (h - u) / h;
-    
-    double x = huh * r * cos(t);
-    double y = huh * r * sin(t);
-    double z = u;
-    
-    double len = sqrt(x*x + y*y + z*z);
-    
-    double a = x / len;
-    double b = y / len;
-    double c = z / len;
-    
-    glNormal3d(a, b, c);
-    glVertex3d(x, y, z);
-}
-
 - (void) render: (GLenum) polygonMode
           color: (NSColor*) color;
 {
 	glMatrixMode(GL_MODELVIEW);    
     glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
-//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     glPushMatrix();
     glTranslated(0, 0, -0.37);

@@ -2,8 +2,13 @@
 #import "CameraModel.h"
 #import "GeometricModel.h"
 
-@interface GraphicView : NSOpenGLView {
+// GraphicView overrides NSOpenGLView drawRect: in order to render a scene.
+// GraphicView provides state and behavior to facilitate scene rendering.
+// GraphicView manipulates viewpoint according to mouse, trackpad, or keyboard.
+// In this application, GraphicView is regulated by MainWindowController.
 
+@interface GraphicView : NSOpenGLView 
+{
     CameraModel* _cameraModel;    
     GeometricModel* _geometricModel;
     NSColor* _backgroundColor;
@@ -11,43 +16,60 @@
     GLenum _polygonModel;
     GLenum _shadeModel;
     BOOL _luminaireGeometryVisible;
-    
 }
 
 - (void) prepareOpenGL;
 
-- (void) activateContext;
-- (void) flushContext;
+- (void) activateContext; // Make the associated OpenGL context current
+- (void) flushContext; // Force execution of buffered OpenGL commands
 
-- (void) drawRect: (NSRect) bounds;
-- (void) reshape;
+- (void) drawRect: (NSRect) bounds; // Render the scene
+- (void) reshape; // Adjust the OpenGL viewport in response to window resize
 
-- (GLdouble) modelViewMatrix: (int)index;
-- (GLdouble) projectionMatrix: (int)index;
+- (GLdouble) modelViewMatrix: (int)index; // Access matrix; column-major order
+- (GLdouble) projectionMatrix: (int)index; // Access matrix; column-major order
 
-- (GLenum) polygonModel;
+- (GLenum) polygonModel; // Corresponds to glPolygonMode(), GL_FILL, GL_LINE
 - (void) setPolygonModel: (GLenum) newValue;
 
-- (GLenum) shadeModel;
+- (GLenum) shadeModel; // Corresponds to glShadeModel(), GL_FLAT, GL_SMOOTH
 - (void) setShadeModel: (GLenum) newValue;
 
-- (GeometricModel*) geometricModel;
+- (GeometricModel*) geometricModel; // Something to render
 - (void) setGeometricModel: (GeometricModel*) geometricModel;
 
-- (CameraModel*) cameraModel;
+- (CameraModel*) cameraModel; // Defines projection matrix (glFrustum/glOrtho)
 - (void) setCameraModel: (CameraModel*) cameraModel;
 
-- (NSColor*) backgroundColor;
+- (NSColor*) backgroundColor; // Corresponds to glClearColor()
 - (void) setBackgroundColor: (NSColor*) color;
 
-- (NSColor*) geometryAmbientColor;
+- (NSColor*) geometryAmbientColor; // Used to specify glMaterial()
 - (void) setGeometryAmbientColor: (NSColor*) color;
 
-- (BOOL) luminaireGeometryVisible;
+- (BOOL) luminaireGeometryVisible; // Render indication of light direction
 - (void) setLuminaireGeometryVisible: (BOOL) visible;
 
-- (void) resetModelView;
-- (void) zoomIn;
-- (void) zoomOut;
+- (void) resetModelView; // Return camera/viewer to default location/orientation
+
+- (void) zoomIn; // Move the camera/viewer toward the scene by a quantum
+- (void) zoomOut; // Move the camera/viewer away from the scene by a quantum
+- (void) zoomFactor: (GLdouble) factor; // Move the camera/viewer toward/away
+
+- (void) rotateDeltaTheta: (GLdouble) angleDegrees; // Rotate around the vector defined by the model origin and the camera position.
+- (void) rotateDeltaX: (GLdouble) dx // Rotate geometry about its origin
+               deltaY: (GLdouble) dy;
+
+- (void) scrollWheel: (NSEvent*) event; // Mouse scroll wheel movement
+- (void) swipeWithEvent: (NSEvent*) event; // Trackpad swipe gesture
+- (void) rotateWithEvent: (NSEvent*) event; // Trackpad twist gesture
+- (void) magnifyWithEvent: (NSEvent*) event; // Trackpad pinch gesture
+- (void) mouseDragged: (NSEvent*) event; // Mouse click-and-drag
+- (void) mouseUp: (NSEvent*) event; // Mouse button released
+- (void) mouseDown: (NSEvent*) event; // Mouse button pressed
+- (void) keyDown: (NSEvent*) event; // Keyboard key pressed
+
+
+
 
 @end

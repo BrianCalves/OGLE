@@ -24,7 +24,7 @@
 	GLdouble fieldOfViewRadians = fieldOfViewDegrees * (M_PI / 180.0);
     
     // FIXME - Inappropriate hard-coded values: zMin, zMax
-    //         Perhaps these could be scene/model dependent?
+    //         These should probably be scene/geometry dependent?
     
 	GLdouble zMin = 1;      // Near clipping plane; 0 < zMin < zMax
 	GLdouble zMax = 500;    // Far clipping plane;  0 < zMin < zMax
