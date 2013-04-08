@@ -12,6 +12,8 @@
 {
     CameraModel* _cameraModel;    
     GeometricModel* _geometricModel;
+    GeometricModel* _axesModel;
+    GeometricModel* _directionModel; // Luminaire direction vector
     Color* _backgroundColor;
     Color* _geometryColor;
     GLenum _polygonModel;
@@ -23,6 +25,8 @@
 
 - (void) activateContext; // Make the associated OpenGL context current
 - (void) flushContext; // Force execution of buffered OpenGL commands
+
+- (void) clear;
 
 - (void) drawRect: (NSRect) bounds; // Render the scene
 - (void) reshape; // Adjust the OpenGL viewport in response to window resize
@@ -39,6 +43,12 @@
 - (GeometricModel*) geometricModel; // Something to render
 - (void) setGeometricModel: (GeometricModel*) geometricModel;
 
+- (GeometricModel*) axesModel; // Visualization of coordinate axes
+- (void) setAxesModel: (GeometricModel*) axesModel;
+
+- (GeometricModel*) directionModel; // Visualization of light direction
+- (void) setDirectionModel: (GeometricModel*) directionModel;
+
 - (CameraModel*) cameraModel; // Defines projection matrix (glFrustum/glOrtho)
 - (void) setCameraModel: (CameraModel*) cameraModel;
 
@@ -51,6 +61,7 @@
 - (BOOL) luminaireGeometryVisible; // Render indication of light direction
 - (void) setLuminaireGeometryVisible: (BOOL) visible;
 
+- (void) initializeModelView; // Set camera/viewer to default
 - (void) resetModelView; // Return camera/viewer to default location/orientation
 
 - (void) zoomIn; // Move the camera/viewer toward the scene by a quantum

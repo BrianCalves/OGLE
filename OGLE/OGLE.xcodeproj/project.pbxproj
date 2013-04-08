@@ -11,6 +11,8 @@
 		196EDC4E17040E9F00C834B5 /* GraphicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */; };
 		196EDC6F1704104000C834B5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */; };
 		197B4FE71712954C00101837 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 197B4FE61712954C00101837 /* Color.m */; };
+		197B506F1712AC5B00101837 /* GeometricModelAxes.m in Sources */ = {isa = PBXBuildFile; fileRef = 197B506E1712AC5B00101837 /* GeometricModelAxes.m */; };
+		197B51021712B0EA00101837 /* GeometricModelVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 197B51011712B0EA00101837 /* GeometricModelVector.m */; };
 		19C3E46A170AA2E900340D0D /* ShadeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */; };
 		19C3E4C6170BD76600340D0D /* GeometricModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E4C5170BD76600340D0D /* GeometricModel.m */; };
 		19C3E4C9170BD7DF00340D0D /* GeometricModelSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */; };
@@ -38,6 +40,10 @@
 		196EDC6E1704104000C834B5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		197B4FE51712954C00101837 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		197B4FE61712954C00101837 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
+		197B506D1712AC5B00101837 /* GeometricModelAxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModelAxes.h; sourceTree = "<group>"; };
+		197B506E1712AC5B00101837 /* GeometricModelAxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModelAxes.m; sourceTree = "<group>"; };
+		197B51001712B0EA00101837 /* GeometricModelVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModelVector.h; sourceTree = "<group>"; };
+		197B51011712B0EA00101837 /* GeometricModelVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometricModelVector.m; sourceTree = "<group>"; };
 		19C3E468170AA2E900340D0D /* ShadeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeModel.h; sourceTree = "<group>"; };
 		19C3E469170AA2E900340D0D /* ShadeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeModel.m; sourceTree = "<group>"; };
 		19C3E4C4170BD76600340D0D /* GeometricModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModel.h; sourceTree = "<group>"; };
@@ -92,12 +98,16 @@
 				19C3E595170C422B00340D0D /* CameraModelPerspective.m */,
 				19C3E4C4170BD76600340D0D /* GeometricModel.h */,
 				19C3E4C5170BD76600340D0D /* GeometricModel.m */,
+				197B506D1712AC5B00101837 /* GeometricModelAxes.h */,
+				197B506E1712AC5B00101837 /* GeometricModelAxes.m */,
 				19C3E534170BE27000340D0D /* GeometricModelCone.h */,
 				19C3E535170BE27000340D0D /* GeometricModelCone.m */,
 				19E00AB2170DAEE600E7E7F8 /* GeometricModelCube.h */,
 				19E00AB3170DAEE600E7E7F8 /* GeometricModelCube.m */,
 				19C3E4C7170BD7DF00340D0D /* GeometricModelSphere.h */,
 				19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */,
+				197B51001712B0EA00101837 /* GeometricModelVector.h */,
+				197B51011712B0EA00101837 /* GeometricModelVector.m */,
 				196EDC4C17040E9F00C834B5 /* GraphicView.h */,
 				196EDC4D17040E9F00C834B5 /* GraphicView.m */,
 				196EDC6E1704104000C834B5 /* MainWindowController.h */,
@@ -146,7 +156,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			comments = "TODO\n\no\tFactor redundant code into an OpenGL-aware Color class?\n\no\tFactor drawing of coordinate axes into a separate geometry class?\n\no\tFactor drawing of luminaire direction vector into a separate geometry class?\n\no\tFactor drawing of equatorial plane into a separate geometry class?\n\no\tFactor OpenGL lighting code into a separate class: LuminaireDirectional?\n\no\tCorrect the improper calculation of surface normals for the cone.\n\no\tCheck for memory leaks\n\no\tInternationalize application (e.g. externalize hard-coded strings)?\n\no\tProvide a sample localization?\n\n";
+			comments = "TODO\n\no\tFactor drawing of equatorial plane into a separate geometry class?\n\no\tFactor OpenGL lighting code into a separate class: LuminaireDirectional?\n\no\tCorrect the improper calculation of surface normals for the cone.\n\no\tCheck for memory leaks\n\no\tInternationalize application (e.g. externalize hard-coded strings)?\n\no\tProvide a sample localization?\n\n";
 			name = OGLE;
 			sourceTree = "<group>";
 		};
@@ -248,6 +258,8 @@
 				19E00AB4170DAEE600E7E7F8 /* GeometricModelCube.m in Sources */,
 				19E00B1F170DC39300E7E7F8 /* PolygonModel.m in Sources */,
 				197B4FE71712954C00101837 /* Color.m in Sources */,
+				197B506F1712AC5B00101837 /* GeometricModelAxes.m in Sources */,
+				197B51021712B0EA00101837 /* GeometricModelVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

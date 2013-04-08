@@ -1,5 +1,6 @@
 #import "GraphicView.h"
-
+#import "GeometricModelAxes.h"
+#import "GeometricModelVector.h"
 #include <OpenGL/gl.h>
 
 //
@@ -12,63 +13,11 @@
 
 
 
-// XXX - Factor drawAxes() out?
-static void drawAxes(bool flags)
-{
-    glMatrixMode(GL_MODELVIEW);
-    
-    glBegin(GL_LINES);
-    
-    [[Color red] apply: GL_AMBIENT_AND_DIFFUSE, nil];
-    glVertex3f( 0.0,  0.0,  0.0);
-    glVertex3f( 1.0,  0.0,  0.0);
-        
-    [[Color green] apply: GL_AMBIENT_AND_DIFFUSE, nil];
-    glVertex3f( 0.0,  0.0,  0.0);
-    glVertex3f( 0.0,  1.0,  0.0);
-        
-    [[Color blue] apply: GL_AMBIENT_AND_DIFFUSE, nil];
-    glVertex3f( 0.0,  0.0,  0.0);
-    glVertex3f( 0.0,  0.0,  1.0);
-
-    glEnd();
-    
-    if (flags)
-    {
-        Color* flagColor = [Color createRed:1.0 green:0.85 blue:0.35 alpha:1.0];
-        [flagColor applyToFaces:GL_AMBIENT_AND_DIFFUSE];
-          
-        glDisable(GL_CULL_FACE);
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);        
-        
-        glBegin(GL_TRIANGLES); // X-Z plane
-        glVertex3f(  0.0,  1.0,  0.1);
-        glVertex3f( -0.1,  1.0, -0.1);
-        glVertex3f(  0.1,  1.0, -0.1);
-        glEnd();
-           
-        glBegin(GL_TRIANGLES); // X-Y plane 
-        glVertex3f(  0.0,  0.1,  1.0);
-        glVertex3f( -0.1, -0.1,  1.0);
-        glVertex3f(  0.1, -0.1,  1.0);
-        glEnd();
-           
-        glBegin(GL_TRIANGLES); // Y-Z plane 
-        glVertex3f(  1.0,  0.0,  0.1);
-        glVertex3f(  1.0, -0.1, -0.1);
-        glVertex3f(  1.0,  0.1, -0.1);
-        glEnd();
-        
-        glEnable(GL_CULL_FACE);
-    }
-}
-
-
 @implementation GraphicView
 
 - (void) prepareOpenGL
 {
-    [self resetModelView];
+    [self initializeModelView];
     
     // The prepareOpenGL: message may be received after some other
     // controller has received awakeFromNib: and synchronized the
@@ -91,22 +40,35 @@ static void drawAxes(bool flags)
     if ([self geometryColor] == nil)
         [self setGeometryColor:[Color createWhite:0.5 alpha:1.0]];
     
+    if ([self axesModel] == nil)
+        [self setAxesModel:[GeometricModelAxes create]];
+    
+}
+
+- (void) clear
+{
+    [[self backgroundColor] applyToBackground];
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 -(void) drawRect: (NSRect) bounds
 {
+    GLenum polygonMode = [self polygonModel];
+    
 	[self activateContext];
     
+    glEnable(GL_BLEND);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+	
     GLfloat ambientLight[] = { 0.4, 0.4, 0.4, 1.0 };
     
     GLfloat lightPosition0[] = { 1.0, 1.0, 1.0, 0.0 }; // Directional source from `position'
     GLfloat lightAmbient0[] = { 0.2, 0.2, 0.2, 1.0 };
     GLfloat lightDiffuse0[] = { 0.6, 0.6, 0.6, 1.0 };
     GLfloat lightSpecular0[] = { 0.2, 0.2, 0.2, 1.0 };
-    
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
-    glCullFace(GL_BACK);
     
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
     
@@ -115,57 +77,17 @@ static void drawAxes(bool flags)
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse0);
     glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular0);
     
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);    
+    glCullFace(GL_BACK);    
     glShadeModel([self shadeModel]);
     
-    glEnable(GL_BLEND);
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-	
-    /*
-    NSColor* clearColor = [[self backgroundColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];    
-    glClearColor(
-                 [clearColor redComponent],
-                 [clearColor greenComponent],
-                 [clearColor blueComponent],
-                 [clearColor alphaComponent]);    
-     */
+    [self clear];
     
-    [[self backgroundColor] applyToBackground];
-    
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    drawAxes(false);
-    
-    if ([self luminaireGeometryVisible])
-    {
-        [[Color purple] apply: GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR, nil];
-        
-        glMatrixMode(GL_MODELVIEW);
-        glPushMatrix();
-        
-        glPushAttrib(GL_ENABLE_BIT);         
-        glLineStipple(5, 0xAAAA);
-        glEnable(GL_LINE_STIPPLE);
-        glBegin(GL_LINES);
-        {    
-            glVertex3d(
-                       lightPosition0[0] * 0.1,
-                       lightPosition0[1] * 0.1,
-                       lightPosition0[2] * 0.1);
-            glVertex3d(
-                       lightPosition0[0],
-                       lightPosition0[1],
-                       lightPosition0[2]);
-        }    
-        glEnd();    
-        glPopAttrib();
-        glPopMatrix();
-    }
-    
-    [[self geometricModel] render:[self polygonModel]
-                            color:[self geometryColor]];
+    [[self axesModel] render:polygonMode color:nil];
+
+    [[self directionModel] render:polygonMode color:[Color purple]];
+
+    [[self geometricModel] render:polygonMode color:[self geometryColor]];
     
 	[self flushContext];
 	
@@ -216,22 +138,27 @@ static void drawAxes(bool flags)
 }
 
 
-- (void) resetModelView
-{
+- (void) initializeModelView
+{    
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     glTranslated(0.0, 0.0, -2.5);
     glRotated(-90.0, 1.0, 0.0, 0.0);
     glRotated(-90.0, 0.0, 0.0, 1.0);
     glRotated(  5.0, 0.0, 1.0, 0.0);
-    glRotated( -5.0, 0.0, 0.0, 1.0);        
-    
+    glRotated( -5.0, 0.0, 0.0, 1.0);            
+}
+
+- (void) resetModelView
+{
+    [self activateContext];
+    [self initializeModelView];
     [self setNeedsDisplay:YES];
 }
 
 - (void) activateContext
 {
-	[[self openGLContext] makeCurrentContext];
+	[[self openGLContext] makeCurrentContext]; // Infinite loop if called within prepareOpenGL?
 }
 
 - (void) flushContext
@@ -274,6 +201,30 @@ static void drawAxes(bool flags)
     [self setNeedsDisplay:YES];
 }
 
+- (GeometricModel*) axesModel
+{
+    return _axesModel;
+}
+
+- (void) setAxesModel: (GeometricModel*) axesModel
+{
+    [_axesModel autorelease];
+    _axesModel = [axesModel retain];
+    [self setNeedsDisplay:YES];
+}
+
+- (GeometricModel*) directionModel
+{
+    return _directionModel;
+}
+
+- (void) setDirectionModel: (GeometricModel*) directionModel
+{
+    [_directionModel autorelease];
+    _directionModel = [directionModel retain];
+    [self setNeedsDisplay:YES];
+}
+
 - (CameraModel*) cameraModel
 {
     return _cameraModel;
@@ -313,13 +264,31 @@ static void drawAxes(bool flags)
 
 - (BOOL) luminaireGeometryVisible
 {
-    return _luminaireGeometryVisible;
+    return [self directionModel] != nil;
 }
 
 - (void) setLuminaireGeometryVisible: (BOOL) visible
 {
-    _luminaireGeometryVisible = visible;
-    [self setNeedsDisplay:YES];
+    if (visible)
+    {
+        if (![self directionModel])
+        {
+            // FIXME - Redundant, hard-coded values must match light position!
+            GLdouble from[] = {1.0, 1.0, 1.0};
+            GLdouble to[] = {0.1, 0.1, 0.1};
+            GeometricModel* v = [GeometricModelVector createFrom:from to:to];
+            [self setDirectionModel:v];
+            [self setNeedsDisplay:YES];
+        }
+    }
+    else
+    {
+        if ([self directionModel])
+        {
+            [self setDirectionModel:nil];
+            [self setNeedsDisplay:YES];
+        }
+    }
 }
 
 - (BOOL) acceptsFirstResponder
