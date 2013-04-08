@@ -1,5 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import "CameraModel.h"
+#import "Color.h"
 #import "GeometricModel.h"
 
 // GraphicView overrides NSOpenGLView drawRect: in order to render a scene.
@@ -11,8 +12,8 @@
 {
     CameraModel* _cameraModel;    
     GeometricModel* _geometricModel;
-    NSColor* _backgroundColor;
-    NSColor* _geometryAmbientColor;
+    Color* _backgroundColor;
+    Color* _geometryColor;
     GLenum _polygonModel;
     GLenum _shadeModel;
     BOOL _luminaireGeometryVisible;
@@ -41,11 +42,11 @@
 - (CameraModel*) cameraModel; // Defines projection matrix (glFrustum/glOrtho)
 - (void) setCameraModel: (CameraModel*) cameraModel;
 
-- (NSColor*) backgroundColor; // Corresponds to glClearColor()
-- (void) setBackgroundColor: (NSColor*) color;
+- (Color*) backgroundColor; // Corresponds to glClearColor()
+- (void) setBackgroundColor: (Color*) color;
 
-- (NSColor*) geometryAmbientColor; // Used to specify glMaterial()
-- (void) setGeometryAmbientColor: (NSColor*) color;
+- (Color*) geometryColor; // Used to specify glMaterial()
+- (void) setGeometryColor: (Color*) color;
 
 - (BOOL) luminaireGeometryVisible; // Render indication of light direction
 - (void) setLuminaireGeometryVisible: (BOOL) visible;

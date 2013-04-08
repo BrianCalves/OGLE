@@ -80,7 +80,7 @@
 }
 
 - (void) render: (GLenum) polygonMode
-          color: (NSColor*) color;
+          color: (Color*) color;
 {
 	glMatrixMode(GL_MODELVIEW);
     
@@ -88,23 +88,11 @@
     glCullFace(GL_BACK);
     glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
     
-    color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    [color applyToColor]; // In case someone turns off the lights
+    [color applyToFront:GL_AMBIENT];
+    [color applyToFront:GL_DIFFUSE];
+    [color applyToFront:GL_SPECULAR];
     
-    GLfloat ambientReflection[] = { 0.5, 0.5, 0.5, 1.0 };
-    ambientReflection[0] = [color redComponent];
-    ambientReflection[1] = [color greenComponent];
-    ambientReflection[2] = [color blueComponent];
-    ambientReflection[3] = [color alphaComponent];
-    
-    GLfloat specularReflection[] = { 0.5, 0.5, 0.5, 1.0 };
-    specularReflection[0] = [color redComponent];
-    specularReflection[1] = [color greenComponent];
-    specularReflection[2] = [color blueComponent];
-    specularReflection[3] = [color alphaComponent];
-        
-    glColor4f(0.5, 0.5, 0.5, 1);
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambientReflection);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, specularReflection);
     glBegin(GL_QUADS);
     {    
         int n = 10;

@@ -1,4 +1,5 @@
 #import <Cocoa/Cocoa.h>
+#import "Color.h"
 
 // GeometricModels render geometry using OpenGL APIs.
 
@@ -9,7 +10,7 @@
 - (NSString*) description;  // Get user-friendly name
 
 - (void) render: (GLenum) polygonMode // Render using OpenGL
-          color: (NSColor*) color;
+          color: (Color*) color;
 
 
 @end

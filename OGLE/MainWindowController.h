@@ -22,7 +22,7 @@
 
     NSTimer* _statisticsTimer; // To update the scene statistics occasionally
     NSColor* _backgroundColor; // To specify the OpenGL clear color
-    NSColor* _geometryAmbientColor; // To specify OpenGL material properties
+    NSColor* _geometryColor; // To specify OpenGL material properties
     BOOL _luminaireGeometryVisible; // To reveal direction of OpenGL light
     
     BOOL _statisticsVisible; // Whether the statistics panel is on screen
@@ -39,7 +39,7 @@
 - (void) polygonModelChanged: (id) sender; // Notifies GraphicView
 - (void) shadeModelChanged: (id) sender; // Notifies GraphicView
 - (void) backgroundColorChanged: (id) sender; // Notifies GraphicView
-- (void) geometryAmbientColorChanged: (id) sender; // Notifies GraphicView
+- (void) geometryColorChanged: (id) sender; // Notifies GraphicView
 - (void) luminaireGeometryVisibleChanged: (id) sender; // Notifies GraphicView
 
 - (void) resetViewpoint: (id) sender; // Delegates to GraphicView
@@ -49,8 +49,8 @@
 - (NSColor*) backgroundColor; // Intermediary with GraphicView
 - (void) setBackgroundColor: (NSColor*) color;
 
-- (NSColor*) geometryAmbientColor; // Intermediate with GraphicView
-- (void) setGeometryAmbientColor: (NSColor*) color;
+- (NSColor*) geometryColor; // Intermediate with GraphicView
+- (void) setGeometryColor: (NSColor*) color;
 
 - (BOOL) luminaireGeometryVisible; // Intermediate with GraphicView
 - (void) setLuminaireGeometryVisible: (BOOL) visible;

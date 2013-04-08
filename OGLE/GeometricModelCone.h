@@ -16,6 +16,6 @@
 - (NSString*) description;  // Get user-friendly name
 
 - (void) render: (GLenum) polygonMode // Render using OpenGL
-          color: (NSColor*) color;
+          color: (Color*) color;
 
 @end

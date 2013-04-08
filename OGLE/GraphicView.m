@@ -18,65 +18,50 @@ static void drawAxes(bool flags)
     glMatrixMode(GL_MODELVIEW);
     
     glBegin(GL_LINES);
-    {
-        GLfloat xAmbientReflection[] = { 1, 0, 0, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, xAmbientReflection);
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3f( 0.0,  0.0,  0.0);
-        glVertex3f( 1.0,  0.0,  0.0);
+    
+    [[Color red] apply: GL_AMBIENT_AND_DIFFUSE, nil];
+    glVertex3f( 0.0,  0.0,  0.0);
+    glVertex3f( 1.0,  0.0,  0.0);
         
-        GLfloat yAmbientReflection[] = { 0, 1, 0, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, yAmbientReflection);
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3f( 0.0,  0.0,  0.0);
-        glVertex3f( 0.0,  1.0,  0.0);
+    [[Color green] apply: GL_AMBIENT_AND_DIFFUSE, nil];
+    glVertex3f( 0.0,  0.0,  0.0);
+    glVertex3f( 0.0,  1.0,  0.0);
         
-        GLfloat zAmbientReflection[] = { 0, 0, 1, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, zAmbientReflection);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3f( 0.0,  0.0,  0.0);
-        glVertex3f( 0.0,  0.0,  1.0);
-    }
+    [[Color blue] apply: GL_AMBIENT_AND_DIFFUSE, nil];
+    glVertex3f( 0.0,  0.0,  0.0);
+    glVertex3f( 0.0,  0.0,  1.0);
+
     glEnd();
     
     if (flags)
     {
+        Color* flagColor = [Color createRed:1.0 green:0.85 blue:0.35 alpha:1.0];
+        [flagColor applyToFaces:GL_AMBIENT_AND_DIFFUSE];
+          
+        glDisable(GL_CULL_FACE);
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);        
         
-        GLfloat flagAmbientReflection[] = { 1.0f, 0.85f, 0.35f, 1.0 };
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, flagAmbientReflection);
-        glColor3f(1.0f, 0.85f, 0.35f);
-        
-        // X-Z plane    
-        glBegin(GL_TRIANGLES);
-        {
-            glVertex3f(  0.0,  1.0,  0.1);
-            glVertex3f( -0.1,  1.0, -0.1);
-            glVertex3f(  0.1,  1.0, -0.1);
-        }
+        glBegin(GL_TRIANGLES); // X-Z plane
+        glVertex3f(  0.0,  1.0,  0.1);
+        glVertex3f( -0.1,  1.0, -0.1);
+        glVertex3f(  0.1,  1.0, -0.1);
+        glEnd();
+           
+        glBegin(GL_TRIANGLES); // X-Y plane 
+        glVertex3f(  0.0,  0.1,  1.0);
+        glVertex3f( -0.1, -0.1,  1.0);
+        glVertex3f(  0.1, -0.1,  1.0);
+        glEnd();
+           
+        glBegin(GL_TRIANGLES); // Y-Z plane 
+        glVertex3f(  1.0,  0.0,  0.1);
+        glVertex3f(  1.0, -0.1, -0.1);
+        glVertex3f(  1.0,  0.1, -0.1);
         glEnd();
         
-        // X-Y plane    
-        glBegin(GL_TRIANGLES);
-        {
-            glVertex3f(  0.0,  0.1,  1.0);
-            glVertex3f( -0.1, -0.1,  1.0);
-            glVertex3f(  0.1, -0.1,  1.0);
-        }
-        glEnd();
-        
-        // Y-Z plane    
-        glBegin(GL_TRIANGLES);
-        {
-            glVertex3f(  1.0,  0.0,  0.1);
-            glVertex3f(  1.0, -0.1, -0.1);
-            glVertex3f(  1.0,  0.1, -0.1);
-        }
-        glEnd();
+        glEnable(GL_CULL_FACE);
     }
-    
 }
-
 
 
 @implementation GraphicView
@@ -101,10 +86,10 @@ static void drawAxes(bool flags)
         [self setShadeModel:GL_FLAT];
     
     if ([self backgroundColor] == nil)
-        [self setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0]];
+        [self setBackgroundColor:[Color createWhite:1.0 alpha:1.0]];
     
-    if ([self geometryAmbientColor] == nil)
-        [self setGeometryAmbientColor:[NSColor colorWithCalibratedWhite:0.5 alpha:1.0]];
+    if ([self geometryColor] == nil)
+        [self setGeometryColor:[Color createWhite:0.5 alpha:1.0]];
     
 }
 
@@ -138,43 +123,27 @@ static void drawAxes(bool flags)
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
 	
+    /*
     NSColor* clearColor = [[self backgroundColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];    
     glClearColor(
                  [clearColor redComponent],
                  [clearColor greenComponent],
                  [clearColor blueComponent],
                  [clearColor alphaComponent]);    
+     */
+    
+    [[self backgroundColor] applyToBackground];
+    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     drawAxes(false);
     
     if ([self luminaireGeometryVisible])
     {
+        [[Color purple] apply: GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR, nil];
+        
         glMatrixMode(GL_MODELVIEW);
         glPushMatrix();
-        
-        NSColor* color = [NSColor colorWithCalibratedRed:0.5 green:0.0 blue:0.5 alpha:1.0];
-        
-        GLfloat ambientReflection[] = { 0.5, 0.5, 0.5, 1.0 };
-        ambientReflection[0] = [color redComponent];
-        ambientReflection[1] = [color greenComponent];
-        ambientReflection[2] = [color blueComponent];
-        ambientReflection[3] = [color alphaComponent];
-        
-        GLfloat specularReflection[] = { 0.5, 0.5, 0.5, 1.0 };
-        specularReflection[0] = [color redComponent];
-        specularReflection[1] = [color greenComponent];
-        specularReflection[2] = [color blueComponent];
-        specularReflection[3] = [color alphaComponent];
-        
-        glColor4f(
-                  [color redComponent],
-                  [color greenComponent],
-                  [color blueComponent],
-                  [color alphaComponent]);
-        
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambientReflection);
-        glMaterialfv(GL_FRONT, GL_SPECULAR, specularReflection);
         
         glPushAttrib(GL_ENABLE_BIT);         
         glLineStipple(5, 0xAAAA);
@@ -196,7 +165,7 @@ static void drawAxes(bool flags)
     }
     
     [[self geometricModel] render:[self polygonModel]
-                            color:[self geometryAmbientColor]];
+                            color:[self geometryColor]];
     
 	[self flushContext];
 	
@@ -318,27 +287,27 @@ static void drawAxes(bool flags)
     [self setNeedsDisplay:YES];
 }
 
-- (NSColor*) backgroundColor
+- (Color*) backgroundColor
 {
     return _backgroundColor;
 }
 
-- (void) setBackgroundColor: (NSColor*) color
+- (void) setBackgroundColor: (Color*) color
 {
     [_backgroundColor autorelease];
     _backgroundColor = [color retain];
     [self setNeedsDisplay:YES];
 }
 
-- (NSColor*) geometryAmbientColor
+- (Color*) geometryColor
 {
-    return _geometryAmbientColor;
+    return _geometryColor;
 }
 
-- (void) setGeometryAmbientColor: (NSColor*) color
+- (void) setGeometryColor: (Color*) color
 {
-    [_geometryAmbientColor autorelease];
-    _geometryAmbientColor = [color retain];
+    [_geometryColor autorelease];
+    _geometryColor = [color retain];
     [self setNeedsDisplay:YES];
 }
 

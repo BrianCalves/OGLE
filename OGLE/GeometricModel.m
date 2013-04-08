@@ -10,7 +10,7 @@
 }
 
 - (void) render: (GLenum) polygonMode
-          color: (NSColor*) color
+          color: (Color*) color
 {
     // Intentionally left blank.
     // Override in subclass.

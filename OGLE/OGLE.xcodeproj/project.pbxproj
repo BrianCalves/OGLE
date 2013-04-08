@@ -10,6 +10,7 @@
 		196EDC49170400BD00C834B5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196EDC48170400BD00C834B5 /* OpenGL.framework */; };
 		196EDC4E17040E9F00C834B5 /* GraphicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 196EDC4D17040E9F00C834B5 /* GraphicView.m */; };
 		196EDC6F1704104000C834B5 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 196EDC6D1704104000C834B5 /* MainWindowController.m */; };
+		197B4FE71712954C00101837 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 197B4FE61712954C00101837 /* Color.m */; };
 		19C3E46A170AA2E900340D0D /* ShadeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E469170AA2E900340D0D /* ShadeModel.m */; };
 		19C3E4C6170BD76600340D0D /* GeometricModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E4C5170BD76600340D0D /* GeometricModel.m */; };
 		19C3E4C9170BD7DF00340D0D /* GeometricModelSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3E4C8170BD7DF00340D0D /* GeometricModelSphere.m */; };
@@ -35,6 +36,8 @@
 		196EDC4D17040E9F00C834B5 /* GraphicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicView.m; sourceTree = "<group>"; };
 		196EDC6D1704104000C834B5 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		196EDC6E1704104000C834B5 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		197B4FE51712954C00101837 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		197B4FE61712954C00101837 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		19C3E468170AA2E900340D0D /* ShadeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeModel.h; sourceTree = "<group>"; };
 		19C3E469170AA2E900340D0D /* ShadeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeModel.m; sourceTree = "<group>"; };
 		19C3E4C4170BD76600340D0D /* GeometricModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricModel.h; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				197B4FE51712954C00101837 /* Color.h */,
+				197B4FE61712954C00101837 /* Color.m */,
 				19C3E591170C41E300340D0D /* CameraModel.h */,
 				19C3E592170C41E300340D0D /* CameraModel.m */,
 				19C3E612170C4AD800340D0D /* CameraModelOrthographic.h */,
@@ -242,6 +247,7 @@
 				19C3E614170C4AD800340D0D /* CameraModelOrthographic.m in Sources */,
 				19E00AB4170DAEE600E7E7F8 /* GeometricModelCube.m in Sources */,
 				19E00B1F170DC39300E7E7F8 /* PolygonModel.m in Sources */,
+				197B4FE71712954C00101837 /* Color.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

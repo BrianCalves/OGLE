@@ -32,7 +32,7 @@
             [_shadeModelArray addObject:[ShadeModel createSmooth]];
             
             _backgroundColor = [[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] retain];
-            _geometryAmbientColor = [[NSColor colorWithCalibratedWhite:0.5 alpha:0.9] retain];
+            _geometryColor = [[NSColor colorWithCalibratedWhite:0.5 alpha:0.9] retain];
             _luminaireGeometryVisible = NO;
             
             _statisticsTimer = [[NSTimer 
@@ -51,7 +51,7 @@
 - (void) dealloc
 {
     [_statisticsTimer release];
-    [_geometryAmbientColor release];
+    [_geometryColor release];
     [_backgroundColor release];
     [_shadeModelArray release];
     [_polygonModelArray release];
@@ -67,7 +67,7 @@
     [self polygonModelChanged:self];
     [self shadeModelChanged:self];
     [self backgroundColorChanged:self];
-    [self geometryAmbientColorChanged:self];
+    [self geometryColorChanged:self];
     [self luminaireGeometryVisibleChanged:self];
 
     // XXX - Cope with 10.5.x Cocoa defect involving PDF-based image templates:
@@ -123,13 +123,15 @@
 - (void) backgroundColorChanged: (id) sender
 {
 	//NSLog(@"Background Color: %@", [self backgroundColor]);
-    [_graphicView setBackgroundColor:[self backgroundColor]];
+    //[_graphicView setBackgroundColor:[self backgroundColor]];
+    [_graphicView setBackgroundColor:[Color createColor:[self backgroundColor]]];
 }
 
-- (void) geometryAmbientColorChanged: (id) sender
+- (void) geometryColorChanged: (id) sender
 {
-	//NSLog(@"Geometry Ambient Color: %@", [self geometryAmbientColor]);
-    [_graphicView setGeometryAmbientColor:[self geometryAmbientColor]];
+	//NSLog(@"Geometry Color: %@", [self geometryColor]);
+    //[_graphicView setGeometryColor:[self geometryColor]];
+    [_graphicView setGeometryColor:[Color createColor:[self geometryColor]]];
 }
 
 - (void) luminaireGeometryVisibleChanged: (id) sender
@@ -176,16 +178,16 @@
     [self luminaireGeometryVisibleChanged:self];
 }
 
-- (NSColor*) geometryAmbientColor
+- (NSColor*) geometryColor
 {
-    return _geometryAmbientColor;
+    return _geometryColor;
 }
 
-- (void) setGeometryAmbientColor: (NSColor*) color
+- (void) setGeometryColor: (NSColor*) color
 {
-    [_geometryAmbientColor autorelease];
-    _geometryAmbientColor = [color retain];
-    [self geometryAmbientColorChanged:self];
+    [_geometryColor autorelease];
+    _geometryColor = [color retain];
+    [self geometryColorChanged:self];
 }
 
 - (unsigned int) countOfCameraProjections
