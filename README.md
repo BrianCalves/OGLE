@@ -7,12 +7,12 @@ OGLE provides keyboard, mouse, and trackpad interactivity, including basic gestu
 OGLE was developed using Xcode 3 on Mac OS X 10.5.8.
 The programming language is Objective-C.
 
-![Screenshot of OGLE](doc/OGLE-A.png)?raw=true "Screenshot of OpenGL Example on Mac OS X 10.5.8")
+![Screenshot of OGLE](doc/OGLE-A.png?raw=true "Screenshot of OpenGL Example on Mac OS X 10.5.8")
 
 OGLE incorporates a single light source, to demonstrate basic lighting operations in OpenGL.
 
 From a software design perspective, the primary component of OGLE is `GraphicView`, a subclass of `NSOpenGLView`.
-The `Color` and `CameraModel` classes may be new, or unusual and interesting, to some audiences.
+The `Color` and `CameraModel` classes may be interesting to some audiences.
 
 The OpenGL hardware system requirements for this application are double-buffered 32-bit RGBA color (8 8 8 8) with a 32-bit depth buffer.
 If your hardware cannot satisfy these requirements, the application will not run, or may exit with an obscure error message.
